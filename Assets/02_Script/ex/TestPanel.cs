@@ -9,15 +9,22 @@ public class TestPanel : PanelBase
 
     private string _name;
 
-    public override void OnShow(params object[] args)
+    public override void OnShow()
     {
-        _name = (string)args[0];
+
     }
 
 
     public override void OnHide()
     {
+        Destroy(gameObject);
+    }
 
+
+    public void Refresh()
+
+    {
+        _nameText.text = _name;
     }
 
 }
