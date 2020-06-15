@@ -19,6 +19,12 @@ public class SoundManager : MonoBehaviour
         Instance = this;
     }
 
+
+    public void Start()
+    {
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("bgm", 0f);
+    }
+
     public void BGMoption()
     {
         BGM.volume = BGMChanger.value;

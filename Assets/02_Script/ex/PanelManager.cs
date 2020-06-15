@@ -8,12 +8,12 @@ public class PanelManager : MonoBehaviour
 
     [SerializeField] private Canvas _panelCanvas;
     [SerializeField] private TestPanel _testPanel;
-    [SerializeField] private ModeSelectPanel _modeSelectPanel;
-    [SerializeField] private OptionPanel _optionPanel;
+    [SerializeField] private ModeSelectPopup _modeSelectPanel;
+    //[SerializeField] private OptionPanel _optionPanel;
 
 
     public static PanelManager Instance { get; private set; }
-    private PanelBase _currunt;
+    private PopupBase _currunt;
    
 
     public void Awake()
@@ -24,15 +24,15 @@ public class PanelManager : MonoBehaviour
     public void ShowTestPanel(string a) //테스트 패널
     {
 
-        if (_currunt != null)
+        //if (_currunt != null)
         {
-            _currunt.OnHide();
+            //_currunt.OnHide();
 
-            Destroy(_currunt);
+            //Destroy(_currunt);
         }
 
         var panel = Instantiate(_testPanel, _panelCanvas.transform);
-        panel.OnShow();
+      //  panel.OnShow();
 
 
        _currunt = panel;
@@ -51,7 +51,7 @@ public class PanelManager : MonoBehaviour
     public void ShowOption()
     {
 
-        _optionPanel.gameObject.SetActive(true);
+       // _optionPanel.gameObject.SetActive(true);
         //var panel = Instantiate(_optionPanel, _panelCanvas.transform);
 
 
