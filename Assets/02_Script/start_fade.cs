@@ -1,41 +1,34 @@
-﻿using System.Collections;
-using System.Runtime.InteropServices;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class start_fade : MonoBehaviour
 {
-
     public Image fade;
-    float fadetime = 1;
+   // float fadetime = 1;
     public Color Now;
-    Color oriC;
+    //Color oriC;
     AudioSource BGM;
 
-    // Start is called before the first frame update
+    object tweenId = new object();
+
     void Start()
     {
-        oriC = fade.color; //색 할당
+        //oriC = fade.color; //색 할당
         BGM = gameObject.GetComponent<AudioSource>(); //bgm 할당
-        StartCoroutine("Fadeout"); //코루틴시작
-    }
 
+        fade.gameObject.SetActive(true);
 
+        var sequence = DOTween.Sequence();
+        sequence.Append(fade.DoAlpha(1f, 0f, 1f));
+        sequence.Join(DOTween.To(() => 0f, volume => BGM.volume = volume,1f,2f));
+       // sequence.SetLoops(3);
+        sequence.onComplete = () => fade.gameObject.SetActive(false);
+        sequence.SetEase(Ease.InCirc);
+        sequence.SetId(tweenId);
 
-    IEnumerator Fadeout()
-    {
-        
-        float curT = 0;
-         fade.gameObject.SetActive(true);
-        while (curT < fadetime)
-        {
-            BGM.volume = BGM.volume + 0.01F;
-            curT += Time.deltaTime;
-            fade.color = Color.Lerp(oriC, Now, curT);
-           
-            yield return null;
-        }
-
-        fade.gameObject.SetActive(false);
+        // DOTween.Kill(tweenId, true);
     }
 }
