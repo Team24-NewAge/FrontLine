@@ -6,10 +6,7 @@ using UnityEngine;
 public class ModeSelectPopup : PopupBase
 {
 
-    public GameObject panel;
-    public GameObject HeroSelectpanel;
-    bool CanExit;
-
+ 
 
 
     public void Awake()
@@ -39,10 +36,23 @@ public class ModeSelectPopup : PopupBase
 
 
 
-    public void OnNext()
+    public void OnNomal()
     {
         var popup = PopupManager.Instance.ShowSelectHeroPopup();
         HidePopup();
+        PlayerPrefs.SetString("Mode", "nomal");
+    }
+    public void OnTutoraial()
+    {
+        var popup = PopupManager.Instance.ShowSelectHeroPopup();
+        HidePopup();
+        PlayerPrefs.SetString("Mode", "Tutorial");
+    }
+    public void OnCampain()
+    {
+        var popup = PopupManager.Instance.ShowSelectHeroPopup();
+        HidePopup();
+        PlayerPrefs.SetString("Mode", "Campain");
     }
 
     public override void HidePopup()

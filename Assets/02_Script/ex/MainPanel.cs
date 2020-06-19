@@ -15,7 +15,6 @@ public class MainPanel : MonoBehaviour
 
 
     public void OnGameModeSelectBuootnClick()
-
     {
         var popup = PopupManager.Instance.ShowGameModeSelectPopup();
         //popup._HideAction += () => { print("hide option"); };
