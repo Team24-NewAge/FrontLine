@@ -7,10 +7,17 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private OptionPopup _optionPopup;
     [SerializeField] private ModeSelectPopup _gamemodeselectPopup;
     [SerializeField] private N_Select_Hero_Popup _select_hero_Popup;
+    [SerializeField] private N_Select_Pick_Popup _select_pick_Popup;
+    [SerializeField] private N_Select_Ban_Popup _select_ban_Popup;
+    [SerializeField] private N_Select_Inherit_Popup _select_Inherit_Popup;
+    [SerializeField] private Difficulty_Select_Popup _difficulty_Select_Popup;
+    [SerializeField] private N_Setting_Check_Popup _setting_check_Popup;
 
-    // [SerializeField] private GetStringPopup _getStringPopup;
+    public PopupBase CurrnetPopup { get; private set; }
 
-    public static PopupManager Instance { get; private set; }
+ // [SerializeField] private GetStringPopup _getStringPopup;
+
+ public static PopupManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -19,7 +26,11 @@ public class PopupManager : MonoBehaviour
 
     public OptionPopup ShowOptionPopup()
     {
-        return Instantiate(_optionPopup, _canvas.transform);
+        var newPopup = Instantiate(_optionPopup, _canvas.transform);
+
+        CurrnetPopup = newPopup;
+
+        return newPopup;
     }
 
     public ModeSelectPopup ShowGameModeSelectPopup()
@@ -32,6 +43,30 @@ public class PopupManager : MonoBehaviour
         return Instantiate(_select_hero_Popup, _canvas.transform);
     }
 
+    public N_Select_Pick_Popup ShowSelelctPickPopup()
+    {
+        return Instantiate (_select_pick_Popup, _canvas.transform);
+    }
+
+    public N_Select_Ban_Popup ShowSelelctBanPopup()
+    {
+        return Instantiate(_select_ban_Popup, _canvas.transform);
+    }
+
+    public N_Select_Inherit_Popup ShowSelectInheritPopup()
+    {
+        return Instantiate(_select_Inherit_Popup, _canvas.transform);
+    }
+
+    public Difficulty_Select_Popup ShowDifficultySelectPopup()
+    {
+        return Instantiate(_difficulty_Select_Popup, _canvas.transform);
+    }
+
+    public N_Setting_Check_Popup ShowSetting_Check_Popup()
+    {
+        return Instantiate(_setting_check_Popup, _canvas.transform);
+    }
 
 
 
