@@ -16,6 +16,9 @@ public class Monster : MonoBehaviour
     public int a_spd;
     public int m_spd;
 
+    public GameObject Currentlocation;
+    public GameObject Targerlocation;
+
     void Start()
     {
 
@@ -30,7 +33,7 @@ public class Monster : MonoBehaviour
         a_spd = GetEnemyInfo.Instance.getEnemyAtkSp(0);
         m_spd = GetEnemyInfo.Instance.getEnemyMvSp(0);
 
-
+        MonsterManager.Instance.Move(this.gameObject);
 }
 
     // Update is called once per frame

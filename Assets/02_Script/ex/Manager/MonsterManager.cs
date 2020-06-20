@@ -10,6 +10,8 @@ public class MonsterManager : MonoBehaviour
     public int Clear_Count;
     public GameObject regentr;
     int[] mons_list;
+    public GameObject[] mons;
+
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class MonsterManager : MonoBehaviour
         int mons_cont = 10 + (BarManager.Instance.date / 3);
 
         mons_list = new int[mons_cont];
+        mons = new GameObject[mons_cont];
 
         for (int i = 0; i < mons_cont; i++)
         { 
@@ -39,13 +42,27 @@ public class MonsterManager : MonoBehaviour
     {
         for (int i = 0; i < mons_cont; i++)
         {
-            var mon = Instantiate(GetEnemyInfo.Instance.enemy[mons_list[i]], regentr.transform.position, Quaternion.Euler(new Vector3(0,-90,0))) ;
-            mon.name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
+            mons[i] = Instantiate(GetEnemyInfo.Instance.enemy[mons_list[i]], regentr.transform.position, Quaternion.Euler(new Vector3(0,-90,0))) ;
+            mons[i].name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
+
+            mons[i].GetComponent<Monster>().Currentlocation = regentr;
+
+           yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
         }
 
 
     }
 
+
+    public void Move(GameObject mon)
+    {
+         switch( mon.GetComponent<Monster>().Currentlocation.name)
+        {
+            case "regen":mon.GetComponent<Monster>().Targerlocation = TileManager.Instance.tiles[0].GetComponent<Tile>().tar_lo; break;
+            case "TargetLocation_1" : break;
+
+        }
+
+    }
 
 }
