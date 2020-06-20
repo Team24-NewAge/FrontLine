@@ -2728,6 +2728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clear_Count: 0
   regentr: {fileID: 2079956367}
+  mons: []
 --- !u!1001 &1634915832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19372,6 +19373,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 803212630282951902, guid: 9aca1462ceb155f4dbe12f7c363d9c93,
+        type: 3}
+      propertyPath: m_Name
+      value: TargetLocation_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 803212630821932348, guid: 9aca1462ceb155f4dbe12f7c363d9c93,
+        type: 3}
+      propertyPath: m_Name
+      value: TargetLocation_2
+      objectReference: {fileID: 0}
     - target: {fileID: 5911546786932842290, guid: 9aca1462ceb155f4dbe12f7c363d9c93,
         type: 3}
       propertyPath: m_Name
