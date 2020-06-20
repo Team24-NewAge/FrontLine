@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattlePaper : PaperBase
+public class Monster : MonoBehaviour
 {
-    
+
+    public int Code;
+    public string Name;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +23,4 @@ public class BattlePaper : PaperBase
     {
         
     }
-    public override void ClickPaper()
-    {
-        //CameraManager.Instance.DoBattle();
-        base.ClickPaper();
-    }
-
 }

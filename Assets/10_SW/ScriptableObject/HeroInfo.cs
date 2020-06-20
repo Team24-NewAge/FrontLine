@@ -7,5 +7,9 @@ using UnityEngine;
 
 public class HeroInfo : LifeInfo
 {
+    [SerializeField]
+    private int heroMp;
+    public int HeroMp { get { return heroMp; } }
+
 
 }

@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Unit
+  - BattlePaper
+  - BossPaper
+  - EBattlePaper
+  - BShopPaper
+  - IShopPaper
+  - UShopPaper
+  - EventPaper
+  - RebuildPaper
   layers:
   - Default
   - TransparentFX
