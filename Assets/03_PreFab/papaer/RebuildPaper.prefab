@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8127695073663214331}
   m_Layer: 5
   m_Name: RebuildPaper
-  m_TagString: Untagged
+  m_TagString: RebuildPaper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestPanel : PopupBase
+public class TTestPanel : PopupBase
 {
     [SerializeField] private Text _nameText;
     [SerializeField] private Button _StartButton;
