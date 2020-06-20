@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 6670851809915591301}
   - component: {fileID: 6683201819854789043}
   - component: {fileID: 6695656123833941366}
-  - component: {fileID: 5663948044724475801}
   - component: {fileID: 8022441720317697824}
   m_Layer: 0
   m_Name: SM_Tile_Hex_Flat_Hero
@@ -223,27 +222,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1412b95e204efce4d836717a7b16b3fa, type: 3}
---- !u!114 &5663948044724475801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6694687663614872459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a838c23fb271bc1429d6d652957f2183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tar_lo: {fileID: 0}
-  Unit:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Mons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &8022441720317697824
 MonoBehaviour:
   m_ObjectHideFlags: 0

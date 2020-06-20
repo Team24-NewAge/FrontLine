@@ -17,7 +17,7 @@ public class Monster : MonoBehaviour
     public int m_spd;
 
     public GameObject Currentlocation;
-    public GameObject Targerlocation;
+    public GameObject Targetlocation;
 
     void Start()
     {
@@ -39,6 +39,27 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(-0.1f, 0, 0);
+        //transform.position = Vector3.MoveTowards(transform.position, GetComponent<Monster>().Targerlocation.GetComponent<Transform>().position, 10 * Time.deltaTime);
     }
+
+    public IEnumerator GotoTarget()
+    {
+        while (Targetlocation.GetComponent<Transform>().position.Equals(transform.position)==false)
+        {
+            print("작동확인");
+            transform.LookAt(Targetlocation.transform);
+            transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position,10 * Time.deltaTime);
+
+          
+            yield return null;
+
+
+        }
+
+        Currentlocation = Targetlocation;
+        MonsterManager.Instance.Move(this.gameObject);
+
+    }
+
+
 }
