@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PaperManager : MonoBehaviour
 {
@@ -99,10 +100,14 @@ public class PaperManager : MonoBehaviour
            case 10: Last10(); break;
         }
 
-
+        //TodayPaper[0].GetComponent<TodayPaper>().sizeUD();
+        //TodayPaper[1].GetComponent<TodayPaper>().sizeUD();
+       // TodayPaper[2].GetComponent<TodayPaper>().sizeUD();
     }
 
-
+    /// <summary>
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
     private void Last0()
     {
 
@@ -120,7 +125,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 2; i < 5; i++)
         {
@@ -131,7 +136,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
-
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
         for (int i = 3; i < 7; i++)
         {
@@ -141,6 +146,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
     }
 
@@ -159,7 +165,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 1; i < 5; i++)
         {
@@ -170,7 +176,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
-
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
         for (int i = 2; i < 7; i++)
         {
@@ -180,6 +186,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
     }
 
@@ -198,7 +205,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
 
         }
         for (int i = 0; i < 5; i++)
@@ -210,6 +217,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 1; i < 7; i++)
@@ -220,6 +228,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
     }
 
@@ -238,7 +247,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click+1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 0; i < 5; i++)
         {
@@ -249,6 +258,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 0; i < 7; i++)
@@ -259,6 +269,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color =TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
 
     }
@@ -279,7 +290,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 0; i < 5; i++)
         {
@@ -290,6 +301,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 0; i < 6; i++)
@@ -300,6 +312,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
 
     }
@@ -320,7 +333,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 0; i < 4; i++)
         {
@@ -331,6 +344,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 0; i < 5; i++)
@@ -341,6 +355,7 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
 
     }
@@ -361,7 +376,7 @@ public class PaperManager : MonoBehaviour
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click + 1; break;
             }
-
+            TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 0; i < 3; i++)
         {
@@ -372,6 +387,7 @@ public class PaperManager : MonoBehaviour
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 0; i < 4; i++)
@@ -382,9 +398,16 @@ public class PaperManager : MonoBehaviour
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
+            TTomorrowPaper[i].GetComponent<Image>().color = TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }
 
     }
+
+    /// <summary>
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+    /// 
+
 
 
 
