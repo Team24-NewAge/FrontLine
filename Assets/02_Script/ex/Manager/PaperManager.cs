@@ -34,6 +34,7 @@ public class PaperManager : MonoBehaviour
 
 
     public static PaperManager Instance { get; private set; }
+    public PaperBase Clickedpaper { get; private set; }
 
     private void Awake()
     {
@@ -438,7 +439,7 @@ public class PaperManager : MonoBehaviour
 
                 fade.color = new Color(0, 0, 0, 0);
                 fade.gameObject.SetActive(false);
-                CameraManager.Instance.DoBattle();
+                //CameraManager.Instance.DoBattle();
             } 
             yield return null;
         }

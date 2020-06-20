@@ -19,7 +19,7 @@ public class BattlePaper : PaperBase
     }
     public override void ClickPaper()
     {
-        CameraManager.Instance.DoBattle();
+        //CameraManager.Instance.DoBattle();
         base.ClickPaper();
     }
 

@@ -22,8 +22,6 @@ public class TodayPaper : PaperBase
 
     public void OnClick()
     {
-       
-
 
         accpetion =Instantiate(PaperManager.Instance.accpet,this.transform.position, Quaternion.identity);
         accpetion.transform.position += new Vector3(0, 0, 5);
@@ -33,6 +31,8 @@ public class TodayPaper : PaperBase
 
         StartCoroutine(Accpet());
         StartCoroutine(PaperManager.Instance.Fadein());
+
+
     }
 
 
