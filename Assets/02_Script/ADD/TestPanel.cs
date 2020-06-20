@@ -9,18 +9,12 @@ public class TestPanel : MonoBehaviour
     private bool Click = false;
     private Ray ray;
     RaycastHit hitInfo;
+    public Camera camera;
     
     private List<int> _chars = new List<int>
     {
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+     
     };
 
     private int currentPage;
@@ -55,7 +49,7 @@ public class TestPanel : MonoBehaviour
             {
                 Debug.Log("hit !!");
  
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                ray = camera.ScreenPointToRay(Input.mousePosition);
                 
                 if (Physics.Raycast(ray, out hitInfo, 100f))
                 {
