@@ -24,14 +24,14 @@ public class TodayPaper : PaperBase
     {
 
         accpetion =Instantiate(PaperManager.Instance.accpet,this.transform.position, Quaternion.identity);
-        accpetion.transform.position += new Vector3(0, 0, 5);
+        accpetion.transform.position += new Vector3(0, 0, 0);
         accpetion.transform.parent = PanelManager.Instance._commandPanel.transform;
         accpetion.transform.localScale = new Vector3(1, 1, 1);
         accpetion.transform.rotation = this.transform.rotation;
 
         StartCoroutine(Accpet());
-        StartCoroutine(PaperManager.Instance.Fadein());
-
+        //StartCoroutine(PaperManager.Instance.Fadein());
+        print(this.tag);
 
     }
 

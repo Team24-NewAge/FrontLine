@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: -7059928486434319436}
   m_Layer: 5
   m_Name: UShopPaper
-  m_TagString: Untagged
+  m_TagString: UShopPaper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
