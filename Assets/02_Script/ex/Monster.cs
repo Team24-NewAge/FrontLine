@@ -44,11 +44,11 @@ public class Monster : MonoBehaviour
 
     public IEnumerator GotoTarget()
     {
-        while (Targetlocation.GetComponent<Transform>().position.Equals(transform.position)==false)
+        while (Vector3.Distance(transform.position, Targetlocation.GetComponent<Transform>().position)>=0.01f)//(Targetlocation.GetComponent<Transform>().position.Equals(transform.position)==false)
         {
             print("작동확인");
             transform.LookAt(Targetlocation.transform);
-            transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position,10 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position,3 * Time.deltaTime);
 
           
             yield return null;
