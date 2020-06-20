@@ -71,7 +71,8 @@ public class PaperManager : MonoBehaviour
                     MonthPapers[day, id] = UnityEngine.Random.Range(1, 30);
                     if (MonthPapers[day, id] > 7) 
                     { MonthPapers[day, id] = 7; }
-                    print("[" + day + "," + id + "]" + "="+MonthPapers[day, id]); }
+                    //print("[" + day + "," + id + "]" + "="+MonthPapers[day, id]); 
+                }
             }
             ClickPaper[day] = -1;
         }

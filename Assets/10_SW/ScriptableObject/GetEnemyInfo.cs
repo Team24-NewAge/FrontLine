@@ -1,53 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class GetEnemyInfo : MonoBehaviour
 {
-    public EnemyInfo enemyInfo;
+    public EnemyInfo[] enemyInfo;
+    public GameObject[] enemy;
 
-    int getEnemyCode()
+    public static GetEnemyInfo Instance { get; private set; }
+
+    private void Awake()
     {
-        return enemyInfo.BasedCode;
+        Instance = this;
     }
 
-    string getEnemyName()
+    public int getEnemyCode(int n)
     {
-        return enemyInfo.BasedName;
+        return enemyInfo[n].BasedCode;
     }
 
-    int getenEmyGrade()
+    public string getEnemyName(int n)
     {
-        return enemyInfo.BasedGrade;
+        return enemyInfo[n].BasedName;
     }
 
-    string getEnemyDescript()
+    public int getenEmyGrade(int n)
     {
-        return enemyInfo.BasedDescript;
+        return enemyInfo[n].BasedGrade;
     }
 
-    int getEnemyHp()
+    public  string getEnemyDescript(int n)
     {
-        return enemyInfo.LifeHp;
+        return enemyInfo[n].BasedDescript;
     }
 
-    int getEnemyAtk()
+    public int getEnemyHp(int n)
     {
-        return enemyInfo.LifeAtk;
+        return enemyInfo[n].LifeHp;
     }
 
-    int getEnemyDef()
+    public int getEnemyAtk(int n)
     {
-        return enemyInfo.LifeDef;
+        return enemyInfo[n].LifeAtk;
     }
 
-    int getEnemyAtkSp()
+    public int getEnemyDef(int n)
     {
-        return enemyInfo.LifeAtkSp;
+        return enemyInfo[n].LifeDef;
     }
 
-    int getEnemyMvSp()
+    public int getEnemyAtkSp(int n)
     {
-        return enemyInfo.MvSp;
+        return enemyInfo[n].LifeAtkSp;
+    }
+
+    public int getEnemyMvSp(int n)
+    {
+        return enemyInfo[n].MvSp;
     }
 }

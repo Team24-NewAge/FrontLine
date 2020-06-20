@@ -516,7 +516,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553207849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1573210603}
+        m_MethodName: Regen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553207849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2604,7 +2615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8e7f568cae7804d832970841251b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfo: {fileID: 11400000, guid: 23984cb631681a24194047bf37466278, type: 2}
+  enemyInfo:
+  - {fileID: 11400000, guid: 23984cb631681a24194047bf37466278, type: 2}
+  enemy:
+  - {fileID: 2136851343}
 --- !u!114 &1518650817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2846,6 +2860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1573210602}
+  - component: {fileID: 1573210603}
   m_Layer: 0
   m_Name: MonsterManager
   m_TagString: Untagged
@@ -2867,6 +2882,20 @@ Transform:
   m_Father: {fileID: 1381383054}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573210603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573210601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1d29a6fdf314d47b8efdda855147fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clear_Count: 0
+  regentr: {fileID: 2079956367}
 --- !u!1001 &1634915832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3575,7 +3604,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006246880}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &2006246882
 Camera:
   m_ObjectHideFlags: 0
@@ -3947,6 +3976,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061706312}
   m_CullTransparentMesh: 0
+--- !u!1 &2079956367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4272517488549633143, guid: 9aca1462ceb155f4dbe12f7c363d9c93,
+    type: 3}
+  m_PrefabInstance: {fileID: 2925070126314415038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2093276869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,6 +4218,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a6fea54f7e59347a53b06b0bd6ff96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2136851343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8591108662032643655, guid: df802e77b2812314c82cc0c23d83080f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1730442891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136851349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136851343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a70662515176a4a82e7311f562843d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Code: 0
+  Name: 
+  sprite: {fileID: 0}
+  grade: 0
+  description: 
+  hp: 0
+  atk: 0
+  def: 0
+  a_spd: 0
+  m_spd: 0
 --- !u!114 &1086466388340960584
 MonoBehaviour:
   m_ObjectHideFlags: 0
