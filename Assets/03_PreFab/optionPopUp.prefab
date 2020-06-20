@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2335351426486808697}
+      - m_Target: {fileID: 0}
         m_MethodName: HidePopup
         m_Mode: 1
         m_Arguments:

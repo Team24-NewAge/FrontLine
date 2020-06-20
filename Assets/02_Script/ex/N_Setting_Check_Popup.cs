@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class N_Setting_Check_Popup : PopupBase
@@ -14,7 +13,7 @@ public class N_Setting_Check_Popup : PopupBase
 
     public void Awake()
     {
-        Mode.text ="모드 : "+ PlayerPrefs.GetString("Mode","error");
+        Mode.text ="모드 : "+ PlayerPrefs.GetString("mode","error");
         Hero.text = "영웅 : " + PlayerPrefs.GetString("Hero", "전사");
         Difficulty.text = "난이도 : " + PlayerPrefs.GetString("Difficulty", "error");
 
@@ -46,13 +45,7 @@ public class N_Setting_Check_Popup : PopupBase
         HidePopup();
     }
 
-    public void OnGameStart()
-    {
-        SceneManager.LoadScene("InGame");
-    }
 
-
-   
     public override void HidePopup()
     {
 
