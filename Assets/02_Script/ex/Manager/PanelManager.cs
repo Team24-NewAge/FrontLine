@@ -9,6 +9,10 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private Canvas _panelCanvas;
     [SerializeField] private TestPanel _testPanel;
     [SerializeField] private ModeSelectPopup _modeSelectPanel;
+    public CommandPanel _commandPanel;
+
+
+
     //[SerializeField] private OptionPanel _optionPanel;
 
 

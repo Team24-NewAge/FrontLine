@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +13,16 @@ public class PaperManager : MonoBehaviour
     public int today = 0;
     public int Last_Click;
 
+
+
+    public Image fade;
+    float fadetime = 1;
+    public Color Now;
+    Color oriC;
+
+
+
+    public GameObject accpet;
     public GameObject[] EmptyPapers = new GameObject[15];
     public GameObject[] TodayPaper = new GameObject[3];
     GameObject[] TomorrowPaper = new GameObject[5];
@@ -408,7 +420,29 @@ public class PaperManager : MonoBehaviour
     /// </summary>
     /// 
 
+    public IEnumerator Fadein()
+    {
+
+        float curT = 0; //현재시간 초기화
+        fade.gameObject.SetActive(true); //오브젝트 활성화
+        while (curT < fadetime)
+        {
+            curT += Time.deltaTime*3; //현재시간 ++
+            fade.color = Color.Lerp(oriC, Now, curT); //현재시간 값 만큼 러프
+
+            yield return null;
 
 
+            if (curT > 1)
+            {
+
+                fade.color = new Color(0, 0, 0, 0);
+                fade.gameObject.SetActive(false);
+                CameraManager.Instance.DoBattle();
+            } 
+            yield return null;
+        }
+
+    }
 
 }
