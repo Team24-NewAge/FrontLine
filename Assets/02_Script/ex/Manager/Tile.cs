@@ -5,7 +5,9 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public GameObject tar_lo;
+    public GameObject[] Unit_po = new GameObject[3];
     public GameObject[] Unit = new GameObject[3];
+    public GameObject[] Mons_po = new GameObject[3];
     public GameObject[] Mons = new GameObject[3];
 
 
