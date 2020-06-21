@@ -17,7 +17,10 @@ public class Monster : MonoBehaviour
     public int m_spd;
 
     public GameObject Currentlocation;
+    public Tile CurrentTile;
+
     public GameObject Targetlocation;
+    public Tile Targettile;
 
     void Start()
     {
@@ -47,8 +50,11 @@ public class Monster : MonoBehaviour
         while (Vector3.Distance(transform.position, Targetlocation.GetComponent<Transform>().position)>=0.01f)//(Targetlocation.GetComponent<Transform>().position.Equals(transform.position)==false)
         {
             print("작동확인");
-            transform.LookAt(Targetlocation.transform);
-            transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position,3 * Time.deltaTime);
+            //transform.LookAt(Targetlocation.transform);
+            Vector3 dir = Targetlocation.transform.position - this.transform.position;
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * 3);
+
+            transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position, 1.5f * Time.deltaTime);
 
           
             yield return null;
@@ -57,7 +63,9 @@ public class Monster : MonoBehaviour
         }
 
         Currentlocation = Targetlocation;
-        MonsterManager.Instance.Move(this.gameObject);
+        CurrentTile = Targettile;
+        MonsterManager.Instance.InTile(this.gameObject);
+       // MonsterManager.Instance.Move(this.gameObject);
 
     }
 

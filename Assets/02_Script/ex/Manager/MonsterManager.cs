@@ -48,8 +48,9 @@ public class MonsterManager : MonoBehaviour
             mons[i].name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
 
             mons[i].GetComponent<Monster>().Currentlocation = regentr;
+            mons[i].GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
 
-           yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
+          yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
         }
 
 
@@ -74,13 +75,15 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[1].GetComponent<Tile>().tar_lo;
-                                StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[1];
+                               StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
                             }
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -88,6 +91,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[3].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[3];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -101,6 +105,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[1].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[1];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -108,6 +113,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -115,6 +121,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[3].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[3];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -132,6 +139,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -139,6 +147,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[4].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[4];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -149,7 +158,8 @@ public class MonsterManager : MonoBehaviour
                 else
                 {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[0].GetComponent<Tile>().tar_lo;
-                                StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
+                    StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
 
                 }
@@ -163,6 +173,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[4].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[4];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -170,6 +181,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -177,6 +189,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[6].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[6];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -191,6 +204,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[0].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -198,6 +212,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[1].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[1];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -205,6 +220,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[3].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[3];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -222,6 +238,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -229,6 +246,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[6].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[6];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -241,7 +259,8 @@ public class MonsterManager : MonoBehaviour
                 {
 
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[0].GetComponent<Tile>().tar_lo;
-                                StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
+                    mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
+                    StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
             
 
@@ -257,6 +276,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -264,6 +284,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[7].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[7];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -278,6 +299,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[1].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[1];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -285,6 +307,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -304,6 +327,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[7].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[7];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -311,6 +335,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[8].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[8];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -318,6 +343,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[9].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[9];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -332,6 +358,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -339,6 +366,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[4].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[4];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -346,6 +374,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[6].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[6];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -363,6 +392,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -370,6 +400,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[9].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[9];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -384,6 +415,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[2].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[2];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -391,6 +423,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[3].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[3];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -405,6 +438,7 @@ public class MonsterManager : MonoBehaviour
                 if (Random.Range(1, 100) >= back)//앞으로 감
                 {
                     mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[8].GetComponent<Tile>().tar_lo;
+                    mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[8];
                     StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                 }//뒤로감
@@ -417,6 +451,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[4].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[4];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -424,6 +459,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -436,6 +472,7 @@ public class MonsterManager : MonoBehaviour
                 if (Random.Range(1, 100) >= back)//앞으로 감
                 {
                     mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[10].GetComponent<Tile>().tar_lo;
+                    mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[10];
                     StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                 }//뒤로감
@@ -446,6 +483,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -453,6 +491,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[7].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[7];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -460,6 +499,7 @@ public class MonsterManager : MonoBehaviour
                         case 2:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[9].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[9];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -474,6 +514,7 @@ public class MonsterManager : MonoBehaviour
                 if (Random.Range(1, 100) >= back)//앞으로 감
                 {
                     mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[8].GetComponent<Tile>().tar_lo;
+                    mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[8];
                     StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                 }//뒤로감
@@ -486,6 +527,7 @@ public class MonsterManager : MonoBehaviour
                         case 0:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[5].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[5];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -493,6 +535,7 @@ public class MonsterManager : MonoBehaviour
                         case 1:
                             {
                                 mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[6].GetComponent<Tile>().tar_lo;
+                                mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[6];
                                 StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
 
                                 break;
@@ -500,6 +543,54 @@ public class MonsterManager : MonoBehaviour
                     }
                 }
                 break;
+        }
+
+    }
+
+
+    public void InTile(GameObject mon)
+    {
+        Tile Current_tile = mon.GetComponent<Monster>().CurrentTile;
+        if (Current_tile.GetComponent<Tile>().Mons[0] == null && isUnit(Current_tile))
+        {
+            Current_tile.GetComponent<Tile>().Mons[0] = mon;
+            mon.transform.position = Current_tile.Mons_po[0].transform.position;
+            mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+
+
+        }
+        else if (Current_tile.GetComponent<Tile>().Mons[1] == null && isUnit(Current_tile))
+        {
+            Current_tile.GetComponent<Tile>().Mons[1] = mon;
+            mon.transform.position = Current_tile.Mons_po[1].transform.position;
+            mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+
+        }
+        else if (Current_tile.GetComponent<Tile>().Mons[2] == null && isUnit(Current_tile))
+        {
+            Current_tile.GetComponent<Tile>().Mons[2] = mon;
+            mon.transform.position = Current_tile.Mons_po[2].transform.position;
+            mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+
+        }
+        else {
+            Move(mon);
+        }
+
+
+    }
+
+
+
+    public bool isUnit(Tile Tile)
+    {
+        if (Tile.GetComponent<Tile>().Unit[0] != null || Tile.GetComponent<Tile>().Unit[1] != null || Tile.GetComponent<Tile>().Unit[2] != null)
+        {
+            return true;
+        }
+        else
+        { 
+            return false;
         }
 
     }
