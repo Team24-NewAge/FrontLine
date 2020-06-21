@@ -4353,9 +4353,9 @@ MonoBehaviour:
   showingData: {fileID: 1178930687795226308}
   pageText: {fileID: 1178930688136165491}
   allUnitSprite:
-  - {fileID: 21300000, guid: 9c98c486167166a4b9229d145b2dd451, type: 3}
-  - {fileID: 21300000, guid: ed6ed878d078ee44b94c58bb748a2eb9, type: 3}
-  - {fileID: 21300000, guid: 786ee114105b66b4e965aa8ebabade55, type: 3}
+  - {fileID: 21300000, guid: 8dbc5e15a72696a47a66b0a30a869fe3, type: 3}
+  - {fileID: 21300000, guid: a9e6a953e7585b94c8fc02a1b0158102, type: 3}
+  - {fileID: 21300000, guid: 09b8410ed5fb4e24e9c9746dc54d8373, type: 3}
   - {fileID: 21300000, guid: 272bdb72a5e460e47b94047f5bec8443, type: 3}
   - {fileID: 21300000, guid: b74ccc6a2b8d084458fc10c69e29e9db, type: 3}
   - {fileID: 21300000, guid: 90ad4cd1537b59a41a9c6874ea0752bd, type: 3}
@@ -4369,9 +4369,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef2ea94c569b312498821b45454ccc17, type: 3}
   - {fileID: 21300000, guid: a7cca2e8a755cf94684ecf23e41e0b75, type: 3}
   allTowerSprite:
-  - {fileID: 21300000, guid: e6ed549abfddf0949a74927cb74a8549, type: 3}
-  - {fileID: 21300000, guid: 8c0519beab02532468fd5605ed8bc557, type: 3}
-  - {fileID: 21300000, guid: 5abfc6dac7a927544b86c1df16c71fcc, type: 3}
+  - {fileID: 21300000, guid: 51fa48c1e1bce62468836e3aa455d189, type: 3}
+  - {fileID: 21300000, guid: 74125cc70e778a648b454d493f719418, type: 3}
+  - {fileID: 21300000, guid: efe971b6f1c56dc448aa023985273e72, type: 3}
   - {fileID: 21300000, guid: 07d8ae0d43d32d84f9ba1bd0c63a9995, type: 3}
   - {fileID: 21300000, guid: e7f22e599ac63c54789bd107af1e3abf, type: 3}
   - {fileID: 21300000, guid: f0fcce7f4024cb24fbe4a77b07784e12, type: 3}
