@@ -158,7 +158,7 @@ public class InventoryMN : MonoBehaviour
                     in_UDC[unitKeyCount].isEmpty = false; // 값이 비어있지 않다는 것을 뜻함.
                     in_UDC[unitKeyCount].basedCode = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
                     in_UDC[unitKeyCount].basedName = codeFactor[codeFactor.Length - tmpCodeFactorLength--];
-                    in_UDC[unitKeyCount].basedSprite = allUnitObject[int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--])].BasedSprite;  // 해당 부분은 Unit Sprite로 추후 변경할 수 있음.
+                    in_UDC[unitKeyCount].basedSprite = allUnitSprite[int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--])];  // 해당 부분은 Unit Sprite로 추후 변경할 수 있음.
                     in_UDC[unitKeyCount].basedGrade = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
                     in_UDC[unitKeyCount].basedDescript = codeFactor[codeFactor.Length - tmpCodeFactorLength--];
                     in_UDC[unitKeyCount].lifeHp = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
@@ -194,7 +194,7 @@ public class InventoryMN : MonoBehaviour
                     in_TDC[unitKeyCount].isEmpty = false; // 값이 비어있지 않다는 것을 뜻함.
                     in_TDC[towerKeyCount].basedCode = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
                     in_TDC[towerKeyCount].basedName = codeFactor[codeFactor.Length - tmpCodeFactorLength--];
-                    in_TDC[towerKeyCount].basedSprite = allTowerObject[int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--])].BasedSprite; // 해당 부분은 Tower Sprite로 추후 변경할 수 있음.
+                    in_TDC[towerKeyCount].basedSprite = allTowerSprite[int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--])]; // 해당 부분은 Tower Sprite로 추후 변경할 수 있음.
                     in_TDC[towerKeyCount].basedGrade = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
                     in_TDC[towerKeyCount].basedDescript = codeFactor[codeFactor.Length - tmpCodeFactorLength--];
                     in_TDC[towerKeyCount].unlifeAtk = int.Parse(codeFactor[codeFactor.Length - tmpCodeFactorLength--]);
@@ -250,6 +250,7 @@ public class InventoryMN : MonoBehaviour
 
     private void Awake()
     {
+        SampleData();   //프리팹에 데이터 넣기 1회용, 사용 후 삭제 ! 삭제 ! 삭제 ! 삭제 ! 삭제 ! 삭제 ! 삭제
         firstGameLoadALLInventroy(); // 게임이 시작하면, 자동적으로 실행됨..
         pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / 10";
         InventoryRefresh(0); // 기본 인벤토리는 유닛 인벤토리
@@ -480,36 +481,39 @@ public class InventoryMN : MonoBehaviour
 
     private void SampleData()
     {
-        PlayerPrefs.SetString("Inventory_1", "!1004#미노타우로스#13#4#어차피안나옴#62#48#32#22#15#1$5$6$7#3$9$5#12#7");
-        PlayerPrefs.SetString("Inventory_2", "@2007#라이트닝타워#11#3#어차피안나옴#33#33#7$2$1#4#22#1");
-        PlayerPrefs.SetString("Inventory_3", "!1001#마노#10#5#어차피안나옴#60#8#2#2#5#1$5$6#3$1$7$4$5#22#2");
-        PlayerPrefs.SetString("Inventory_4", "!1002#늑대#2#4#어차피안나옴#10#42#23#11#22#5$6$7#4$9$5#24#1");
-        PlayerPrefs.SetString("Inventory_5", "!1008#가가가#7#3#어차피안나옴#20#23#11#51#51#1#3$4$5#44#8");
-        PlayerPrefs.SetString("Inventory_6", "!1002#최재애로스#3#3#어차피안나옴#22#55#1#0#0#1$7#2$1$5#88#2");
-        PlayerPrefs.SetString("Inventory_7", "@2001#라이닝타워#10#2#어차피안나옴#2#3#1$2#2$4#12#2");
-        PlayerPrefs.SetString("Inventory_8", "!1010#마뇽타우로스#6#2#어차피안나옴#66#0#59#21#28#2$7#3$1$7$9$5#77#1");
-        PlayerPrefs.SetString("Inventory_9", "@2012#커닝타워#1#1#어차피안나옴#31#31#1$2$5#2$4#1#3");
-        PlayerPrefs.SetString("Inventory_10", "@2013#이닝타워#0#3#어차피안나옴#12#34#7$3#1$4#2#4");
-        PlayerPrefs.SetString("Inventory_11", "@2003#라닝타워#12#2#어차피안나옴#85#3#7#1#5#2");
-        PlayerPrefs.SetString("Inventory_12", "@2010#트레이닝타워#8#0#어차피안나옴#38#31#1#0#1#1");
-        PlayerPrefs.SetString("Inventory_13", "@2002#라이토타워#7#2#어차피안나옴#32#13#7$2$6#2#99#1");
-        PlayerPrefs.SetString("Inventory_14", "@2012#커닝타워#0#3#어차피안나옴#63#41#7$1#2#0#1");
-        PlayerPrefs.SetString("Inventory_15", "!1003#뚫똷딵스#0#1#어차피안나옴#55#17#46#56#42#2$3$6$7#3$1$7$2#57#5");
-        PlayerPrefs.SetString("Inventory_16", "!1001#미노타우로수#3#1#어차피안나옴#20#53#66#2#5#4$5$6$7#3$9$5#28#1");
-        PlayerPrefs.SetString("Inventory_17", "!1005#미노타우로스#3#2#어차피안나옴#66#54#72#28#1#3$6$7#3$4$6$8$5#0#0");
-        PlayerPrefs.SetString("Inventory_18", "@2002#라이토타워#3#1#어차피안나옴#21#63#2$1#2$1$3#18#3");
-        PlayerPrefs.SetString("Inventory_19", "@2002#라이토2타워#3#5#어차피안나옴#53#13#2#1#8#0");
-        PlayerPrefs.SetString("Inventory_20", "@2008#라스타워#11#1#어차피안나옴#3#3#2$1#2#21#1");
-        PlayerPrefs.SetString("Inventory_21", "!1014#므너투아러스#1#1#어차피안나옴#32#28#82#18#47#3$7#3$2$6$2$5#0#2");
-        PlayerPrefs.SetString("Inventory_22", "@2001#버닝타워#9#1#어차피안나옴#13#32#7$2#1#52#2");
-        PlayerPrefs.SetString("Inventory_23", "@2002#라이토타워#10#2#어차피안나옴#22#44#2$1#0#40#4");
-        PlayerPrefs.SetString("Inventory_24", "@2003#나이든타워#1#1#어차피안나옴#74#52#7$6#2#22#2");
-        PlayerPrefs.SetString("Inventory_25", "!1011#미5타우3스#2#1#어차피안나옴#14#28#27#28#1#1#3$1$1$6$5#0#2");
-        PlayerPrefs.SetString("Inventory_26", "@2006#포스타워#2#1#어차피안나옴#1#0#6$2$1#2#2#8");
-        PlayerPrefs.SetString("Inventory_27", "@2007#랄라랄타워#10#2#어차피안나옴#87#27#7#1#35#1");
-        PlayerPrefs.SetString("Inventory_28", "@2004#츄라이타워#1#4#어차피안나옴#80#76#1#2#18#2");
-        PlayerPrefs.SetString("Inventory_29", "@2003#트닝타워#11#3#어차피안나옴#84#27#7$2$1#1#72#0");
-        PlayerPrefs.SetString("Inventory_30", "!1004#미노타우로스#8#1#어차피안나옴#1#2#3#4#5#1$5#3$1$8$3$5#41#1");
+        PlayerPrefs.SetString("Inventory_1", "!1#용병전사#0#4#평범한 용병입니다#62#48#32#22#15#1$5$6$7#3$9$5#12#7");
+        PlayerPrefs.SetString("Inventory_2", "@2001#구조물견고#0#3#견고한 이 구성#33#33#7$2$1#4#22#1");
+        PlayerPrefs.SetString("Inventory_3", "!2#용병검사#1#5#대검을 사용합니다#60#8#2#2#5#1$5$6#3$1$7$4$5#22#2");
+        PlayerPrefs.SetString("Inventory_4", "!2#용병검사#1#4#대검을 사용합니다#10#42#23#11#22#5$6$7#4$9$5#24#1");
+        PlayerPrefs.SetString("Inventory_5", "!1#용병전사#0#3#평범한 용병입니다#20#23#11#51#51#1#3$4$5#44#8");
+        PlayerPrefs.SetString("Inventory_6", "!3#용병창사#2#3#강력한 힘!#22#55#1#0#0#1$7#2$1$5#88#2");
+        PlayerPrefs.SetString("Inventory_7", "@2001#라이닝타워#0#2#견고한 이 구성#2#3#1$2#2$4#12#2");
+        PlayerPrefs.SetString("Inventory_8", "!1#용병전사#0#2#평범한 용병입니다#66#0#59#21#28#2$7#3$1$7$9$5#77#1");
+        PlayerPrefs.SetString("Inventory_9", "@2002#구조물활력#1#1#전투에 활력을!#31#31#1$2$5#2$4#1#3");
+        PlayerPrefs.SetString("Inventory_10", "@2003#구조물기세#2#3#승리를 도와줄겁니다#12#34#7$3#1$4#2#4");
+        PlayerPrefs.SetString("Inventory_11", "@2003#구조물기세#2#2#승리를 도와줄겁니다#85#3#7#1#5#2");
+        PlayerPrefs.SetString("Inventory_12", "@2001#구조물견고#0#0#견고한 이 구성#38#31#1#0#1#1");
+        PlayerPrefs.SetString("Inventory_13", "@2002#구조물활력#1#2#전투에 활력을!#32#13#7$2$6#2#99#1");
+        PlayerPrefs.SetString("Inventory_14", "@2002#구조물활력#1#3#전투에 활력을!#63#41#7$1#2#0#1");
+        PlayerPrefs.SetString("Inventory_15", "!1#용병검사#0#1#평범한 용병입니다#55#17#46#56#42#2$3$6$7#3$1$7$2#57#5");
+        PlayerPrefs.SetString("Inventory_16", "!2#용병검사#1#1#대검을 사용합니다#20#53#66#2#5#4$5$6$7#3$9$5#28#1");
+        PlayerPrefs.SetString("Inventory_17", "!1#용병전사#0#2#평범한 용병입니다#66#54#72#28#1#3$6$7#3$4$6$8$5#0#0");
+        PlayerPrefs.SetString("Inventory_18", "@2002#구조물활력#1#1#전투에 활력을!#21#63#2$1#2$1$3#18#3");
+        PlayerPrefs.SetString("Inventory_19", "@2002#구조물활력#1#5#전투에 활력을!#53#13#2#1#8#0");
+        PlayerPrefs.SetString("Inventory_20", "@2003#구조물기세#2#1#승리를 도와줄겁니다#3#3#2$1#2#21#1");
+        PlayerPrefs.SetString("Inventory_21", "!3#용병창사#2#1#강력한 힘!#32#28#82#18#47#3$7#3$2$6$2$5#0#2");
+        PlayerPrefs.SetString("Inventory_22", "@2001#구조물견고#0#1#견고한 이 구성#13#32#7$2#1#52#2");
+        PlayerPrefs.SetString("Inventory_23", "@2002#구조물활력#1#2#전투에 활력을!#22#44#2$1#0#40#4");
+        PlayerPrefs.SetString("Inventory_24", "@2003#구조물기세#2#1#승리를 도와줄겁니다#74#52#7$6#2#22#2");
+        PlayerPrefs.SetString("Inventory_25", "!1#용병전사#0#1#평범한 용병입니다#14#28#27#28#1#1#3$1$1$6$5#0#2");
+        PlayerPrefs.SetString("Inventory_26", "@2001#구조물견고#0#1#견고한 이 구성#1#0#6$2$1#2#2#8");
+        PlayerPrefs.SetString("Inventory_27", "@2002#구조물활력#1#2#전투에 활력을!#87#27#7#1#35#1");
+        PlayerPrefs.SetString("Inventory_28", "@2003#구조물기세#2#4#승리를 도와줄겁니다#80#76#1#2#18#2");
+        PlayerPrefs.SetString("Inventory_29", "@2003#구조물기세#2#3#승리를 도와줄겁니다#84#27#7$2$1#1#72#0");
+        PlayerPrefs.SetString("Inventory_30", "!1#용병전사#0#1#평범한 용병입니다#1#2#3#4#5#1$5#3$1$8$3$5#41#1");
+        PlayerPrefs.SetString("Inventory_31", "!2#용병검사#1#4#대검을 사용합니다#10#42#23#11#22#5$6$7#4$9$5#24#1");
+        PlayerPrefs.SetString("Inventory_32", "!1#용병전사#0#1#평범한 용병입니다#1#2#3#4#5#1$5#3$1$8$3$5#41#1");
+        PlayerPrefs.SetString("Inventory_33", "!3#용병창사#2#3#강력한 힘!#22#55#1#0#0#1$7#2$1$5#88#2");
     }
 
     public void MovingPage(bool isUping)

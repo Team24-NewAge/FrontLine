@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Microsoft.Win32;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -95,8 +97,21 @@ public class Monster : MonoBehaviour
     }
 
     public IEnumerator Attack() {
-        print("전투중");
-        TargetUnit = CurrentTile.GetComponent<Tile>().Unit[0];
+       // print("전투중");
+
+
+        if (TargetUnit == null && MonsterManager.Instance.isUnit(CurrentTile)) //타겟 유닛이 없으면
+        {
+            int target = Random.Range(0, 3);
+            while (CurrentTile.GetComponent<Tile>().Unit[target] == null)
+            {
+                target = Random.Range(0, 3);
+            }
+            TargetUnit = CurrentTile.GetComponent<Tile>().Unit[target];//타겟유닛 할당
+
+        }
+
+
         if (TargetUnit != null) {
             this.GetComponent<Animator>().SetBool("isAttack", true);
             yield return new WaitForSeconds(0.35f);
