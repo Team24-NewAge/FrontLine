@@ -50,7 +50,11 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position = Vector3.MoveTowards(transform.position, GetComponent<Monster>().Targerlocation.GetComponent<Transform>().position, 10 * Time.deltaTime);
+        if (this.hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+       
     }
 
     public IEnumerator GotoTarget() //타일 위치로 이동하는 코루틴
@@ -118,7 +122,7 @@ public class Monster : MonoBehaviour
             if (TargetUnit != null)
             {
                 TargetUnit.GetComponent<Unit>().hp -= atk;
-                print(TargetUnit.GetComponent<Unit>().hp);
+                print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
                 this.GetComponent<Animator>().SetBool("isAttack", false);
             }
             else
