@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f632631e83e2f4429e4706cd3d6ffe8, type: 3}
+  m_Name: Elf_Grade_4
+  m_EditorClassIdentifier: 
+  basedCode: 1006
+  basedName: Elf
+  basedSprite: {fileID: 21300000, guid: ed6ed878d078ee44b94c58bb748a2eb9, type: 3}
+  basedGrade: 4
+  basedDescript: 
+  lifeHp: 55
+  lifeAtk: 55
+  lifeDef: 55
+  lifeAtkSp: 55
+  mvSp: 55
+  lifeSkill: 
+  synergy: 
+  price: 55
+  unlockLv: 0
