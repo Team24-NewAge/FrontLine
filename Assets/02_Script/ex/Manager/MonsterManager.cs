@@ -556,7 +556,8 @@ public class MonsterManager : MonoBehaviour
             Current_tile.GetComponent<Tile>().Mons[0] = mon;
             mon.transform.position = Current_tile.Mons_po[0].transform.position;
             mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-
+            mon.GetComponent<Monster>().animator.SetBool("isIdle", true);
+            StartCoroutine(mon.GetComponent<Monster>().Battle_Monster());
 
         }
         else if (Current_tile.GetComponent<Tile>().Mons[1] == null && isUnit(Current_tile))
@@ -564,14 +565,16 @@ public class MonsterManager : MonoBehaviour
             Current_tile.GetComponent<Tile>().Mons[1] = mon;
             mon.transform.position = Current_tile.Mons_po[1].transform.position;
             mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-
+            mon.GetComponent<Monster>().animator.SetBool("isIdle", true);
+            StartCoroutine(mon.GetComponent<Monster>().Battle_Monster());
         }
         else if (Current_tile.GetComponent<Tile>().Mons[2] == null && isUnit(Current_tile))
         {
             Current_tile.GetComponent<Tile>().Mons[2] = mon;
             mon.transform.position = Current_tile.Mons_po[2].transform.position;
             mon.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-
+            mon.GetComponent<Monster>().animator.SetBool("isIdle", true);
+            StartCoroutine(mon.GetComponent<Monster>().Battle_Monster());
         }
         else {
             Move(mon);
@@ -582,7 +585,7 @@ public class MonsterManager : MonoBehaviour
 
 
 
-    public bool isUnit(Tile Tile)
+    public bool isUnit(Tile Tile)//유닛이 하나도 없으면 false  하나라도 있으면 트루 
     {
         if (Tile.GetComponent<Tile>().Unit[0] != null || Tile.GetComponent<Tile>().Unit[1] != null || Tile.GetComponent<Tile>().Unit[2] != null)
         {
