@@ -78,3 +78,5 @@ MonoBehaviour:
     type: 3}
   _setting_check_Popup: {fileID: 560458126934032806, guid: 2738d28fdf4a5d24095e13718fe599ba,
     type: 3}
+  _battle_win_Popup: {fileID: 2813082167897128474, guid: 0ff213afc705194498997d835e7c41b0,
+    type: 3}

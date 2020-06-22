@@ -309,7 +309,7 @@ Animator:
   m_GameObject: {fileID: 231866167460698057}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6f00e7af4ecd10947af47bed6ab7c7aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 14cfcc9585840c645a4f07031ecaa131, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -335,13 +335,17 @@ MonoBehaviour:
   sprite: {fileID: 0}
   grade: 1
   description: "\uD3C9\uBC94\uD55C \uC6A9\uBCD1\uB9E8\uC774\uB2E4 \uC6A9\uBCD1\uB9E8"
+  Full_hp: 10
   hp: 10
   atk: 2
   def: 0
-  a_spd: 1
+  a_spd: 100
+  a_del: 0.35
   m_spd: 0
   TargetUnit: {fileID: 0}
-  Currentlocation: {fileID: 0}
+  Current_Tile: {fileID: 0}
+  Current_Location: {fileID: 0}
+  Current_Location_number: 
 --- !u!1 &231866167460698663
 GameObject:
   m_ObjectHideFlags: 0

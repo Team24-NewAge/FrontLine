@@ -543,7 +543,20 @@ public class MonsterManager : MonoBehaviour
                     }
                 }
                 break;
+
+
+            case "TargetLocation_h"://///////////////9번타일
+
+                {
+                    mon.GetComponent<Monster>().Targetlocation = TileManager.Instance.tiles[8].GetComponent<Tile>().tar_lo;
+                    mon.GetComponent<Monster>().Targettile = TileManager.Instance.tiles[8];
+                    StartCoroutine(mon.GetComponent<Monster>().GotoTarget());
+                }
+
+                break;
         }
+
+
 
     }
 

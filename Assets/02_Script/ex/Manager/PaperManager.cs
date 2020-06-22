@@ -34,7 +34,6 @@ public class PaperManager : MonoBehaviour
 
 
     public static PaperManager Instance { get; private set; }
-    public PaperBase Clickedpaper { get; private set; }
 
     private void Awake()
     {
@@ -422,7 +421,7 @@ public class PaperManager : MonoBehaviour
     /// </summary>
     /// 
 
-    public IEnumerator Fadein()
+    public IEnumerator Fadein_Next(String tag)
     {
 
         float curT = 0; //현재시간 초기화
@@ -434,17 +433,38 @@ public class PaperManager : MonoBehaviour
 
             yield return null;
 
-
-            if (curT > 1)
-            {
-
-                fade.color = new Color(0, 0, 0, 0);
-                fade.gameObject.SetActive(false);
-                //CameraManager.Instance.DoBattle();
-            } 
-            yield return null;
         }
 
+        switch (tag)
+        {
+            case "BattlePaper":
+                {
+
+
+                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle(); break;
+                }
+
+
+
+        }
+
+        yield return null;
+
+        if (curT > 1)
+        {
+            yield return new WaitForSeconds(0.2F);
+            fade.color = new Color(0, 0, 0, 0);
+            fade.gameObject.SetActive(false);
+            //CameraManager.Instance.DoBattle();
+        }
+        yield return null;
+    }
+
+    public void Paper_action() {
+
+       
+    
+    
     }
 
 }

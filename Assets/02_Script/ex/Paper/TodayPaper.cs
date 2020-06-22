@@ -30,8 +30,8 @@ public class TodayPaper : PaperBase
         accpetion.transform.rotation = this.transform.rotation;
 
         StartCoroutine(Accpet());
-        //StartCoroutine(PaperManager.Instance.Fadein());
-        print(this.tag);
+        StartCoroutine(PaperManager.Instance.Fadein_Next(this.tag));
+        //PaperManager.Instance.Paper_action(;
 
     }
 
@@ -41,7 +41,8 @@ public class TodayPaper : PaperBase
         StartCoroutine(clickable());
     }
 
-    IEnumerator clickable() {
+    IEnumerator clickable() //클릭 가능한 종이깜빡거림
+    {
         while (true){
 
             yield return null;
@@ -82,7 +83,8 @@ public class TodayPaper : PaperBase
 
 
 
-    IEnumerator Accpet() {
+    IEnumerator Accpet()//승인도장띄움
+    { 
 
 
 

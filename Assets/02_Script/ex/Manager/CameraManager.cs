@@ -23,4 +23,9 @@ public class CameraManager : MonoBehaviour
         Battlecam.gameObject.SetActive(true);
     }
 
+    public void ExitBattle() {
+        Maincam.gameObject.SetActive(true);
+        Battlecam.gameObject.SetActive(false);
+    }
+
 }

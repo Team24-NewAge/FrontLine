@@ -16,6 +16,7 @@ public class Monster : MonoBehaviour
     public int atk;
     public int def;
     public int a_spd;
+    public int a_del;
     public int m_spd; // 스텟들
 
     public GameObject TargetUnit;//공격대상
@@ -53,6 +54,7 @@ public class Monster : MonoBehaviour
         if (this.hp <= 0)
         {
             Destroy(this.gameObject);
+            MonsterManager.Instance.Clear_Count --;
         }
        
     }

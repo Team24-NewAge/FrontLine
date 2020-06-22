@@ -12,6 +12,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private N_Select_Inherit_Popup _select_Inherit_Popup;
     [SerializeField] private Difficulty_Select_Popup _difficulty_Select_Popup;
     [SerializeField] private N_Setting_Check_Popup _setting_check_Popup;
+    [SerializeField] private Battle_Win_Popup _battle_win_Popup;
 
     public PopupBase CurrnetPopup { get; private set; }
 
@@ -66,6 +67,11 @@ public class PopupManager : MonoBehaviour
     public N_Setting_Check_Popup ShowSetting_Check_Popup()
     {
         return Instantiate(_setting_check_Popup, _canvas.transform);
+    }
+
+    public Battle_Win_Popup ShowBattle_Win_Popup()
+    {
+        return Instantiate(_battle_win_Popup, _canvas.transform);
     }
 
 
