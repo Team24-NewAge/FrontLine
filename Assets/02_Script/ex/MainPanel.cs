@@ -10,7 +10,6 @@ public class MainPanel : MonoBehaviour
     public void OnOptionButtonClick()
     {
         var popup = PopupManager.Instance.ShowOptionPopup();
-        //popup._HideAction += () => { print("hide option"); };
     }
 
 

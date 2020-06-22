@@ -83,28 +83,24 @@ public class TodayPaper : PaperBase
 
 
 
-    IEnumerator Accpet()//승인도장띄움
+    IEnumerator Accpet()//클릭하며 승인도장 띄움
     { 
+        yield return new WaitForSeconds(1.0f);//1초뒤에 지속
 
+        Destroy(accpetion);//도장삭제
 
-
-        yield return new WaitForSeconds(1.0f);
-
-        Destroy(accpetion);
-
-        PaperManager.Instance.Last_Click = curruntClick;
-        BarManager.Instance.date++;
-        PaperManager.Instance.today++;
-        BarManager.Instance._SetDate();
-
+        PaperManager.Instance.Last_Click = curruntClick;//마지막클릭=현재클릭
+        BarManager.Instance.date++;//날짜 증가
+        PaperManager.Instance.today++;//이번달 날짜 증가
+        BarManager.Instance._SetDate();//날짜 할당
 
 
         if (PaperManager.Instance.today == 30)
-        {
-            PaperManager.Instance.N_NewMonth();
+        {//만약 오늘이 30일이면
+            PaperManager.Instance.N_NewMonth();//새로운 달 시작 배열 생성
         }
 
-        PaperManager.Instance.PaperSetting();
+        PaperManager.Instance.PaperSetting();//종이 오브젝트 생성,배열
     }
 
 

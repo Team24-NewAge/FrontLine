@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 public class PaperManager : MonoBehaviour
 {
-    int[,] MonthPapers = new int[30, 11];
-    int[] ClickPaper = new int[30];
-    public int today = 0;
-    public int Last_Click;
+    int[,] MonthPapers = new int[30, 11];//한달 paper배열 생성
+    int[] ClickPaper = new int[30];//지나간 paper배열
+    public int Last_Click;//마지막 클릭 값
+    public int today = 0;//현재 날짜 초기화
+   
 
 
 
@@ -57,19 +58,19 @@ public class PaperManager : MonoBehaviour
 
     public void N_NewMonth() { 
     
-        for(int day=0; day < 30; day++)
+        for(int day=0; day < 30; day++)//한달 동안 반복
         {
-            for(int id = 0; id < 11; id++)
+            for(int id = 0; id < 11; id++)//커맨드 id 할당
             {
-                if (day == 29)
-                { MonthPapers[day, id] = 0 ;print(MonthPapers[day, id]); }
-                else if (day == 28)
-                { MonthPapers[day, id] = 5; print(MonthPapers[day, id]); }
-                else
+                if (day == 29)//마지막 날이면
+                { MonthPapers[day, id] = 0 ;}//무조건 보스커맨드
+                else if (day == 28)//마지막 전날이면
+                { MonthPapers[day, id] = 5; }//무조건 정비 커맨드 
+                else//그외의 날에는
                 { 
-                    MonthPapers[day, id] = UnityEngine.Random.Range(1, 30);
-                    if (MonthPapers[day, id] > 7) 
-                    { MonthPapers[day, id] = 7; }
+                    MonthPapers[day, id] = UnityEngine.Random.Range(1, 30);//종이id할당
+                    if (MonthPapers[day, id] > 7) //7이상이면
+                    { MonthPapers[day, id] = 7; }//일반전투 id인 7할당
                     //print("[" + day + "," + id + "]" + "="+MonthPapers[day, id]); 
                 }
             }
@@ -249,38 +250,41 @@ public class PaperManager : MonoBehaviour
     {
 
         for (int i = 0; i < 3; i++)
-        {
+        {//today_paper 설정
 
-            TodayPaper[i] = Instantiate(Papers[MonthPapers[today, (Last_Click - 1 + i)]], EmptyPapers[i].transform.position, Quaternion.identity);
-            TodayPaper[i].transform.parent = EmptyPapers[i].transform;
-            TodayPaper[i].transform.localScale = new Vector3(1, 1, 1);
-            TodayPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
-            switch (i) {
+            TodayPaper[i] = Instantiate(Papers[MonthPapers[today, (Last_Click - 1 + i)]], EmptyPapers[i].transform.position, Quaternion.identity);//종이 객체 생성
+            TodayPaper[i].transform.parent = EmptyPapers[i].transform; // 미리 지정한 부모 위치에 생성
+            TodayPaper[i].transform.localScale = new Vector3(1, 1, 1); // 크기는 1,1,1배로 생성
+            TodayPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;// 회전도값 부모값 받아옴
+            switch (i) {//선택한 위치값을 받아옴
                 case 0: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click-1;break;
+                    //1번째 종이 클릭하면 현재 클릭값은 마지막 클릭값-1
                 case 1: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click; break;
+                    //2번째 종이 클릭하면 현재 클릭값은 마지막 클릭값
                 case 2: TodayPaper[i].GetComponent<TodayPaper>().curruntClick = Last_Click+1; break;
+                    //3번째 종이 클릭하면 현재 클릭값은 마지막 클릭값+1
             }
             TodayPaper[i].GetComponent<TodayPaper>().sizeUD();
         }
         for (int i = 0; i < 5; i++)
-        {
+        {//TomorrowPaper 설정
 
             int tp = i + 3;
             TomorrowPaper[i] = Instantiate(Papers[MonthPapers[today + 1, (Last_Click - 2 + i)]], EmptyPapers[tp].transform.position, Quaternion.identity);
             TomorrowPaper[i].transform.parent = EmptyPapers[tp].transform;
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
-            TomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
+            TomorrowPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
             TomorrowPaper[i].GetComponent<Image>().color = TomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
 
         }
         for (int i = 0; i < 7; i++)
-        {
+        {// Tomorrow_afer_Paper 설정
             int ttp = i + 8;
             TTomorrowPaper[i] = Instantiate(Papers[MonthPapers[today + 2, (Last_Click - 3 + i)]], EmptyPapers[ttp].transform.position, Quaternion.identity);
             TTomorrowPaper[i].transform.parent = EmptyPapers[ttp].transform;
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
-            TTomorrowPaper[i].transform.rotation = EmptyPapers[1].transform.rotation;
+            TTomorrowPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
             TTomorrowPaper[i].GetComponent<Image>().color =TTomorrowPaper[i].GetComponent<Image>().color - new Color(0.3f, 0.3f, 0.3f, 0);
         }

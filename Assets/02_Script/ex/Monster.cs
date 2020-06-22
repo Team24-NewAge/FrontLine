@@ -61,50 +61,42 @@ public class Monster : MonoBehaviour
 
     public IEnumerator GotoTarget() //타일 위치로 이동하는 코루틴
     {
-        while (Vector3.Distance(transform.position, Targetlocation.GetComponent<Transform>().position)>=0.01f)//(Targetlocation.GetComponent<Transform>().position.Equals(transform.position)==false)
+        while (Vector3.Distance(transform.position, Targetlocation.GetComponent<Transform>().position)>=0.01f)
         {
-            //print("작동확인");
-            //transform.LookAt(Targetlocation.transform);
             Vector3 dir = Targetlocation.transform.position - this.transform.position;
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * 3);
 
             transform.position = Vector3.MoveTowards(transform.position,Targetlocation.GetComponent<Transform>().position, 3 * Time.deltaTime);
-
-          
             yield return null;
-
-
         }
 
         Currentlocation = Targetlocation;
         CurrentTile = Targettile;
         MonsterManager.Instance.InTile(this.gameObject);
-       // MonsterManager.Instance.Move(this.gameObject);
 
 
     }
 
     public IEnumerator Battle_Monster() //
     {
-        while (MonsterManager.Instance.isUnit(CurrentTile))
+        while (MonsterManager.Instance.isUnit(CurrentTile))//적유닛이 없을 때까지 반복
         {
 
-            yield return new WaitForSeconds(a_spd / 100);
-            StartCoroutine(Attack());
+            yield return new WaitForSeconds(a_spd / 100); //공격 속도 이후에
+            StartCoroutine(Attack());//공격
 
 
         yield return new WaitForSeconds(a_spd /100);
         }
-        this.GetComponent<Animator>().SetBool("isIdle", false);
-        this.GetComponent<Animator>().SetBool("isAttack", false);
-        MonsterManager.Instance.Move(this.gameObject);//
+        this.GetComponent<Animator>().SetBool("isIdle", false);//이동애니를위한 변수조정
+        this.GetComponent<Animator>().SetBool("isAttack", false);//이동애니를위한 변수조정
+        MonsterManager.Instance.Move(this.gameObject);//이동시작
 
         yield return null;
     }
 
     public IEnumerator Attack() {
        // print("전투중");
-
 
         if (TargetUnit == null && MonsterManager.Instance.isUnit(CurrentTile)) //타겟 유닛이 없으면
         {
@@ -118,18 +110,19 @@ public class Monster : MonoBehaviour
         }
 
 
-        if (TargetUnit != null) {
+        if (TargetUnit != null) {//타겟 유닛이 있으면
             this.GetComponent<Animator>().SetBool("isAttack", true);
-            yield return new WaitForSeconds(0.35f);
-            if (TargetUnit != null)
+            yield return new WaitForSeconds(0.35f);//공격 선딜레이후
+            if (TargetUnit != null)//선딜중에 유닛이 안죽었으면
             {
-                TargetUnit.GetComponent<Unit>().hp -= atk;
+                TargetUnit.GetComponent<Unit>().hp -= atk;//유닛의 체력 공격력만큼 감소
                 print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
                 this.GetComponent<Animator>().SetBool("isAttack", false);
             }
-            else
+            else//선딜중에 적이 죽었으면
             {
                 this.GetComponent<Animator>().SetBool("isAttack", false);
+                //공격취소
             }
         }
         yield return null;
