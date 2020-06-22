@@ -28,15 +28,9 @@ public class PanelManager : MonoBehaviour
     public void ShowTestPanel(string a) //테스트 패널
     {
 
-        //if (_currunt != null)
-        {
-            //_currunt.OnHide();
-
-            //Destroy(_currunt);
-        }
 
         var panel = Instantiate(_testPanel, _panelCanvas.transform);
-      //  panel.OnShow();
+
 
 
        _currunt = panel;

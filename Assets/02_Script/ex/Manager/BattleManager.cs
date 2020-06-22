@@ -27,8 +27,6 @@ public class BattleManager : MonoBehaviour
 
         if (isBattle == true && MonsterManager.Instance.Clear_Count <= 0) 
         {
-
-            print("전투승리!!!");
             isBattle = false;
             Invoke("ExitBattle", 1f);
             PopupManager.Instance.ShowBattle_Win_Popup();
