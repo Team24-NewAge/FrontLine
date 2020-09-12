@@ -17,8 +17,8 @@ MonoBehaviour:
   basedSprite: {fileID: 21300000, guid: a7efeacce419a944ea1a53a1cdc15280, type: 3}
   basedGrade: 3
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
-  lifeHp: 10
-  lifeAtk: 2
+  lifeHp: 20
+  lifeAtk: 1
   lifeDef: 1
   lifeAtkSp: 100
   mvSp: 1

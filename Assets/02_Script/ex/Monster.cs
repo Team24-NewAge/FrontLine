@@ -112,21 +112,28 @@ public class Monster : MonoBehaviour
 
         if (TargetUnit != null) {//타겟 유닛이 있으면
             this.GetComponent<Animator>().SetBool("isAttack", true);
-            yield return new WaitForSeconds(0.35f);//공격 선딜레이후
+           // yield return new WaitForSeconds(0.35f);//공격 선딜레이후
             if (TargetUnit != null)//선딜중에 유닛이 안죽었으면
             {
                 TargetUnit.GetComponent<Unit>().hp -= atk;//유닛의 체력 공격력만큼 감소
-                print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
-                this.GetComponent<Animator>().SetBool("isAttack", false);
+                //print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
+              
             }
-            else//선딜중에 적이 죽었으면
-            {
-                this.GetComponent<Animator>().SetBool("isAttack", false);
+           // else//선딜중에 적이 죽었으면
+            //{
+               // this.GetComponent<Animator>().SetBool("isAttack", false);
                 //공격취소
-            }
-        }
-        yield return null;
+           // }
 
+            if (TargetUnit.GetComponent<Unit>().hp < 0)
+            {
+                TargetUnit = null;
+            }
+
+        }
+        
+        yield return null;
+        this.GetComponent<Animator>().SetBool("isAttack", false);
     }
 
 

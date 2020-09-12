@@ -432,7 +432,7 @@ public class PaperManager : MonoBehaviour
         fade.gameObject.SetActive(true); //오브젝트 활성화
         while (curT < fadetime)
         {
-            curT += Time.deltaTime*3; //현재시간 ++
+            curT += Time.deltaTime*2; //현재시간 ++
             fade.color = Color.Lerp(oriC, Now, curT); //현재시간 값 만큼 러프
 
             yield return null;

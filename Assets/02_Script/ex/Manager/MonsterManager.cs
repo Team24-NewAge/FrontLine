@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-    public static MonsterManager Instance { get; private set; }
-    //public 
+   
 
     public int Clear_Count;
     public GameObject regentr;
@@ -14,6 +13,8 @@ public class MonsterManager : MonoBehaviour
     public int go; // 앞으로 갈 확률
     public int back;// 뒤로 갈 확률
 
+    public static MonsterManager Instance { get; private set; }
+    //public 
 
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class MonsterManager : MonoBehaviour
         for (int i = 0; i < mons_cont; i++)//몬스터 젠 수만큼 반복
         { 
             mons_list[i] = UnityEngine.Random.Range(0, 0);//몬스터id 부여
-            print(mons_list[i]);//몬스터 리스트에 저장
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
@@ -589,8 +589,8 @@ public class MonsterManager : MonoBehaviour
             mon.GetComponent<Monster>().animator.SetBool("isIdle", true);
             StartCoroutine(mon.GetComponent<Monster>().Battle_Monster());
         }
-        else {
-            Move(mon);
+        else {//꽉차있으면
+            Move(mon);//다시 움직임
         }
 
 

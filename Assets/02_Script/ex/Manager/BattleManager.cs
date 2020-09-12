@@ -50,7 +50,7 @@ public class BattleManager : MonoBehaviour
         }
 
         MonsterManager.Instance.Regen();//리젠 시작
-        isBattle = true;
+        isBattle = true;//전투중인지 알려주는 bool값 
     
     }
 

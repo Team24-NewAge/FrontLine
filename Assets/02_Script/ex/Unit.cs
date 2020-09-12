@@ -43,7 +43,11 @@ public class Unit : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(this.gameObject);
+            Current_Tile.UnitDie(int.Parse(Current_Location_number));
+            print(Current_Location_number+"번 " +this.name+"사망");
+            this.gameObject.SetActive(false);
+     
+           // Destroy(this.gameObject);
         }
 
 
@@ -53,16 +57,18 @@ public class Unit : MonoBehaviour
             this.transform.position = Current_Location.transform.position;
             //print(t);
             if (UnitManager.Instance.isMons(Current_Tile)&&TargetUnit==null) 
-        {
+            {
             int target = Random.Range(0, 3);
             while (Current_Tile.GetComponent<Tile>().Mons[target] == null)
             {
                 target = Random.Range(0, 3);
             }
             TargetUnit = Current_Tile.GetComponent<Tile>().Mons[target];//타겟유닛 할당
-            StartCoroutine(Attack());
-        }
-            t = 0;
+                this.GetComponent<Animator>().SetBool("isAttack", false);
+
+                StartCoroutine(Attack());
+            }
+           // t = 0;
         }
 
     }
@@ -76,28 +82,43 @@ public class Unit : MonoBehaviour
     {
         t = 0;
         while (TargetUnit != null) {
-            print("유닛공격함!");
+           // print("유닛공격함!");
             this.GetComponent<Animator>().SetBool("isAttack", true);
-            yield return new WaitForSeconds(a_del);
+            //yield return new WaitForSeconds(a_del);
 
-            if (TargetUnit != null)
-            {
+           // if (TargetUnit != null)
+           // {
                 TargetUnit.GetComponent<Monster>().hp -= atk;
-                print("적hp  " + TargetUnit.GetComponent<Monster>().hp);
-                this.GetComponent<Animator>().SetBool("isAttack", false);
-                t = 0;
-            }
-            else
+
+            if (UnitManager.Instance.isMons(Current_Tile) && TargetUnit == null)
             {
-                this.GetComponent<Animator>().SetBool("isAttack", false);
-                t = 0;
+                int target = Random.Range(0, 3);
+                while (Current_Tile.GetComponent<Tile>().Mons[target] == null)
+                {
+                    target = Random.Range(0, 3);
+                }
+                TargetUnit = Current_Tile.GetComponent<Tile>().Mons[target];//타겟유닛 할당
             }
+            print("적hp  " + TargetUnit.GetComponent<Monster>().hp);
+          
+                t = 0;
+            //}
+            //else
+           // {
+               // this.GetComponent<Animator>().SetBool("isAttack", false);
+                //t = 0;
+           // }
 
             t = 0;
+            yield return null;
+            this.GetComponent<Animator>().SetBool("isAttack", false);
             yield return new WaitForSeconds(a_speed / 100.0f);
+            
         }
-        t = 0;
-        yield return new  WaitForSeconds(a_speed / 100.0f);
+        yield return null;
+        //t = 0; 
+        //this.GetComponent<Animator>().SetBool("isAttack", false);
+        // yield return new  WaitForSeconds(a_speed / 100.0f);
         
     }
 }

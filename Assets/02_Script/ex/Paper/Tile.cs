@@ -22,4 +22,17 @@ public class Tile : MonoBehaviour
     {
         
     }
+
+
+    public void UnitDie(int loc) {
+
+        switch (loc)
+        {
+            case 1: Unit[0] = null;break;
+            case 2: Unit[1] = null;break;
+            case 3: Unit[2] = null;break;
+        }    
+    
+    
+    }
 }
