@@ -80,3 +80,5 @@ MonoBehaviour:
     type: 3}
   _battle_win_Popup: {fileID: 2813082167897128474, guid: 0ff213afc705194498997d835e7c41b0,
     type: 3}
+  _event_Popup: {fileID: 4175109943186839329, guid: 70b6c368f96dc904bb7e51fef8e85406,
+    type: 3}

@@ -19,9 +19,10 @@ public class test : MonoBehaviour
    public void testimage() 
     {
         print("클릭작동");
-
-        PaperManager.Instance.N_NewMonth();
-        PaperManager.Instance.PaperSetting();
+        // PopupManager.Instance.ShowEvent_Popup();
+        // PaperManager.Instance.N_NewMonth();
+        // PaperManager.Instance.PaperSetting();
+        EventManager.Instance.Event();
 
     }
 }

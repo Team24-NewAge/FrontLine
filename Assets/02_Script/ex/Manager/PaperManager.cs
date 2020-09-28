@@ -438,19 +438,7 @@ public class PaperManager : MonoBehaviour
             yield return null;
 
         }
-
-        switch (tag)
-        {
-            case "BattlePaper":
-                {
-
-
-                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle(); break;
-                }
-
-
-
-        }
+        Paper_action(tag);
 
         yield return null;
 
@@ -464,11 +452,23 @@ public class PaperManager : MonoBehaviour
         yield return null;
     }
 
-    public void Paper_action() {
+    public void Paper_action(String tag) {
 
-       
-    
-    
+        switch (tag)
+        {
+            case "BattlePaper":
+                {
+                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle(); break;
+                }
+
+            case "EventPaper":
+                {
+                    print("이벤트 클릭함"); break;
+                }
+
+        }
+
+
     }
 
 }
