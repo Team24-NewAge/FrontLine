@@ -19,7 +19,7 @@ MonoBehaviour:
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
   lifeHp: 20
   lifeAtk: 1
-  lifeDef: 1
+  lifeDef: 0
   lifeAtkSp: 100
   mvSp: 1
   lifeSkill: 
