@@ -7,14 +7,16 @@ using UnityEngine;
 public class Successlocationbtn : MonoBehaviour
 {
     public GameObject Summon;
+    public GameObject Hero_info;
     public GameObject Monsterstart;
-    public Camera camera;
+ 
+    
 
 
     public void OnButtonClick()
     {
         Summon.SetActive(false);
-        camera.rect = new Rect(0.0f,0.0f,1.0f,1.0f);
+        Hero_info.SetActive(true);
         Monsterstart.SetActive(true);
 
 
