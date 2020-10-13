@@ -57,11 +57,13 @@ public class PrefsIO : MonoBehaviour
         // 속성 property: code, grade, hp, maxHp, atk, atkSp, location,title 
 
         // knight(예시):  
+
         PlayerPrefs.SetInt("unit_knight_code", 1);
         PlayerPrefs.SetInt("unit_knight_grade", 1);
         PlayerPrefs.SetInt("unit_knight_maxHp", 30);
         PlayerPrefs.SetInt("unit_knight_hp", 30);
         PlayerPrefs.SetInt("unit_knight_atk", 2);
+        PlayerPrefs.SetInt("unit_knight_def", 2);
         PlayerPrefs.SetInt("unit_knight_atkSp", 150);
         PlayerPrefs.SetInt("unit_knight_location", 0);
         PlayerPrefs.SetInt("unit_knight_tile", 0);
