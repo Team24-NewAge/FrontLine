@@ -18,7 +18,11 @@ MonoBehaviour:
   basedGrade: 3
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
   lifeHp: 20
+<<<<<<< HEAD
   lifeAtk: 110
+=======
+  lifeAtk: 1
+>>>>>>> origin/master
   lifeDef: 0
   lifeAtkSp: 100
   mvSp: 1

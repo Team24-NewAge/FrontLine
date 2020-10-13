@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UnitSummon : MonoBehaviour
+{
+    public Camera camera;
+    private Ray ray;
+    RaycastHit hit;
+    
+    private Tile 
+        tile_9, tile_8, tile_7, tile_6, tile_5,
+        tile_4, tile_3, tile_2, tile_1, tile_0; //각 타일 타입 변수
+    
+    public GameObject unit_0, unit_1, unit_2;//임시 프리팹
+    
+    public GameObject anypush = null;//타일이 눌렸는지, 버튼이 눌렸는지 확인할 게임오브젝트
+    public GameObject tile_po;//RayCast에서 콜라이더를 가져오기 위한 변수
+    
+    private bool btnanycheck;//타일이 눌렸는지 확인할 전역변수
+    
+    void Start() {  //각 타일 찾아서 연결
+        tile_9 = GameObject.Find("tile_9").GetComponent<Tile>();
+        tile_8 = GameObject.Find("tile_8").GetComponent<Tile>();
+        tile_7 = GameObject.Find("tile_7").GetComponent<Tile>();
+        tile_6 = GameObject.Find("tile_6").GetComponent<Tile>();
+        tile_5 = GameObject.Find("tile_5").GetComponent<Tile>();
+        tile_4 = GameObject.Find("tile_4").GetComponent<Tile>();
+        tile_3 = GameObject.Find("tile_3").GetComponent<Tile>();
+        tile_2 = GameObject.Find("tile_2").GetComponent<Tile>();
+        tile_1 = GameObject.Find("tile_1").GetComponent<Tile>();
+        tile_0 = GameObject.Find("tile_0").GetComponent<Tile>();
+    }
+
+    private void Update()
+    {
+        if (anypush != null)
+        {
+            btnanycheck = anypush.GetComponent<UnitSpawnBtn>().btnanycheck;// 버튼 누르고 타일 누른 상태 확인
+        }
+        else
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0) && btnanycheck)//마우스 왼쪽 버튼이 눌렸고 버튼이 눌린 상태라면
+        {
+            Debug.Log("찍어버렸당께");
+            
+            ray = camera.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray, out hit/*맞은 대상의 정보를 가져옴*/, 100f))//Ray 발사
+            {
+                if (hit.transform.gameObject.name == tile_8.name) //Raycast가 타일에 맞았다면
+                {
+                    tile_po = hit.collider.gameObject;//Ray 가져옴
+                    GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
+                    tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
+                    tile_unit_po[1] = tile_po.GetComponent<Tile>().Unit_po[1];
+                    tile_unit_po[2] = tile_po.GetComponent<Tile>().Unit_po[2];
+                    Vector3 first = tile_unit_po[0].transform.position; // 첫번쨰 위치
+                    Vector3 second = tile_unit_po[1].transform.position; // 두번째 위치
+                    Vector3 third = tile_unit_po[2].transform.position;// 세번째 위치
+                    
+                    Unit [] unit8 = new Unit[3]; //유닛 스크립트 사용을 위해 지역 변수 선언
+                    
+                    if (tile_8.Unit[0] == null)
+                    {
+                        tile_8.Unit[0] = unit_0;
+                        unit_0.transform.position = first;
+                        unit8[0] = GameObject.Find("U_01_01_01_용병전사 (3)").GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
+                        unit8[0].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
+                        unit8[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
+                        Debug.Log(tile_8.Unit[0]);
+                    }
+                    else if (tile_8.Unit[1] == null)
+                    {
+                        tile_8.Unit[1] = unit_1;
+                        unit_1.transform.position = second;
+                        unit8[1] = GameObject.Find("U_01_01_01_용병전사 (4)").GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
+                        unit8[1].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
+                        unit8[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
+                        Debug.Log(tile_8.Unit[1]);
+                    }
+                    else if (tile_8.Unit[2] == null)
+                    {
+                        tile_8.Unit[2] = unit_2;
+                        unit_2.transform.position = third;
+                        unit8[2] = GameObject.Find("U_01_01_01_용병전사 (5)").GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
+                        unit8[2].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
+                        unit8[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
+                        Debug.Log(tile_8.Unit[2]);
+                    }
+                    
+                }
+                anypush.GetComponent<UnitSpawnBtn>().btnanyclick = true;// 타일이 눌렸다면 버튼 비활성화(true)해줌
+                anypush = null;// 다른 버튼에서도 사용을 위해 비워줌
+            }
+            
+        }
+    }
+    
+}
