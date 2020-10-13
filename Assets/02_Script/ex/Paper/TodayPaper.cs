@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TodayPaper : PaperBase
@@ -102,10 +101,6 @@ public class TodayPaper : PaperBase
         }
 
         PaperManager.Instance.PaperSetting();//종이 오브젝트 생성,배열
-
-        PaperManager.Instance.TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
-        PaperManager.Instance.TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
-        PaperManager.Instance.TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
     }
 
 

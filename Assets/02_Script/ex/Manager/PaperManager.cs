@@ -77,10 +77,9 @@ public class PaperManager : MonoBehaviour
             ClickPaper[day] = -1;
         }
         today = 0;
-
-
     }
 
+    public void NextDay(int click) { }
     public void PaperSetting() {
 
 
@@ -115,6 +114,9 @@ public class PaperManager : MonoBehaviour
            case 10: Last10(); break;
         }
 
+        //TodayPaper[0].GetComponent<TodayPaper>().sizeUD();
+        //TodayPaper[1].GetComponent<TodayPaper>().sizeUD();
+       // TodayPaper[2].GetComponent<TodayPaper>().sizeUD();
     }
 
     /// <summary>
@@ -251,8 +253,7 @@ public class PaperManager : MonoBehaviour
         {//today_paper 설정
 
             TodayPaper[i] = Instantiate(Papers[MonthPapers[today, (Last_Click - 1 + i)]], EmptyPapers[i].transform.position, Quaternion.identity);//종이 객체 생성
-            //TodayPaper[i].transform.parent = EmptyPapers[i].transform; // 미리 지정한 부모 위치에 생성
-            TodayPaper[i].transform.SetParent(EmptyPapers[i].transform);
+            TodayPaper[i].transform.parent = EmptyPapers[i].transform; // 미리 지정한 부모 위치에 생성
             TodayPaper[i].transform.localScale = new Vector3(1, 1, 1); // 크기는 1,1,1배로 생성
             TodayPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;// 회전도값 부모값 받아옴
             switch (i) {//선택한 위치값을 받아옴
@@ -270,9 +271,7 @@ public class PaperManager : MonoBehaviour
 
             int tp = i + 3;
             TomorrowPaper[i] = Instantiate(Papers[MonthPapers[today + 1, (Last_Click - 2 + i)]], EmptyPapers[tp].transform.position, Quaternion.identity);
-            //TomorrowPaper[i].transform.parent = EmptyPapers[tp].transform;
-            TomorrowPaper[i].transform.SetParent(EmptyPapers[tp].transform);
-
+            TomorrowPaper[i].transform.parent = EmptyPapers[tp].transform;
             TomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TomorrowPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;
             TomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
@@ -283,8 +282,7 @@ public class PaperManager : MonoBehaviour
         {// Tomorrow_afer_Paper 설정
             int ttp = i + 8;
             TTomorrowPaper[i] = Instantiate(Papers[MonthPapers[today + 2, (Last_Click - 3 + i)]], EmptyPapers[ttp].transform.position, Quaternion.identity);
-            // TTomorrowPaper[i].transform.parent = EmptyPapers[ttp].transform;
-            TTomorrowPaper[i].transform.SetParent(EmptyPapers[ttp].transform);
+            TTomorrowPaper[i].transform.parent = EmptyPapers[ttp].transform;
             TTomorrowPaper[i].transform.localScale = new Vector3(1, 1, 1);
             TTomorrowPaper[i].transform.rotation = EmptyPapers[i].transform.rotation;
             TTomorrowPaper[i].GetComponent<EventTrigger>().enabled = false;
@@ -449,10 +447,7 @@ public class PaperManager : MonoBehaviour
             yield return new WaitForSeconds(0.2F);
             fade.color = new Color(0, 0, 0, 0);
             fade.gameObject.SetActive(false);
-            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
-            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
-            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
-
+            //CameraManager.Instance.DoBattle();
         }
         yield return null;
     }
@@ -463,14 +458,11 @@ public class PaperManager : MonoBehaviour
         {
             case "BattlePaper":
                 {
-                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
-                    break;
-                    
+                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle(); break;
                 }
 
             case "EventPaper":
                 {
-                    EventManager.Instance.Event();
                     print("이벤트 클릭함"); break;
                 }
 

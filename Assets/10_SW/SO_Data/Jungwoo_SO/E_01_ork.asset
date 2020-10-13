@@ -19,11 +19,16 @@ MonoBehaviour:
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
   lifeHp: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
   lifeAtk: 110
 =======
   lifeAtk: 1
 >>>>>>> origin/master
   lifeDef: 0
+=======
+  lifeAtk: 1
+  lifeDef: 1
+>>>>>>> parent of 24d94a1... 수정3
   lifeAtkSp: 100
   mvSp: 1
   lifeSkill: 

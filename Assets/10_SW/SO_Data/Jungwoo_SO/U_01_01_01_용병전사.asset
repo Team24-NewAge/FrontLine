@@ -22,7 +22,7 @@ MonoBehaviour:
   lifeDef: 0
   lifeAtkSp: 1
   mvSp: 1
-  lifeSkill: 0000000000000000000000000000000000000000
+  lifeSkill: 
   synergy: 
   price: 50
   unlockLv: 0

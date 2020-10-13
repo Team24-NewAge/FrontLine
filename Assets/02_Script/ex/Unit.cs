@@ -18,26 +18,17 @@ public class Unit : MonoBehaviour
     public int atk;
     public int def;
     public int a_spd;
+    public float a_del;
     public int m_spd; // 스텟들
 
-    public int stack=0;//여러 공격에서 사용되는 스택
-    public int end_stack = -1; //쌓아야 하는 스택양
-    public int stack_buff=0;//스택이후 추가되는 공격력
+    public GameObject TargetUnit;//공격대상
 
-    float t = 0;
+    float t=0;
     float a_speed;
 
-    public GameObject TargetUnit;//공격대상
     public Tile Current_Tile; // 현재 배치된 타일
     public GameObject Current_Location; // 현재 배치된 타일위치
     public string Current_Location_number;// 현재 배치된 타일번호
-
-    public bool isbattile=false;
-
-    public int rage; //격노 스택
-    public bool Berserk=false; //상시 격노상태 유무
-
-    public GameObject atkbuff;
 
     void Start()
     {
@@ -59,20 +50,12 @@ public class Unit : MonoBehaviour
            // Destroy(this.gameObject);
         }
 
-        if (rage > 0 || Berserk == true || stack == end_stack)
-        { atkbuff.gameObject.SetActive(true); }
-        else
-        { atkbuff.gameObject.SetActive(false);}
 
-
-        if (isbattile == false)
-        {
-            t += Time.deltaTime;
-        }
+        t += Time.deltaTime;
         if (t > a_speed / 100.0f) 
         {
             this.transform.position = Current_Location.transform.position;
-
+            //print(t);
             if (UnitManager.Instance.isMons(Current_Tile)&&TargetUnit==null) 
             {
             int target = Random.Range(0, 3);
@@ -82,13 +65,12 @@ public class Unit : MonoBehaviour
             }
             TargetUnit = Current_Tile.GetComponent<Tile>().Mons[target];//타겟유닛 할당
                 this.GetComponent<Animator>().SetBool("isAttack", false);
-                if (isbattile == false) {
-                    StartCoroutine(Attack());
-                }
-               
+
+                StartCoroutine(Attack());
             }
            // t = 0;
         }
+
     }
 
     void Reset()
@@ -98,13 +80,16 @@ public class Unit : MonoBehaviour
     }
     public IEnumerator Attack()
     {
-        isbattile = true;
-          t = 0;
+        t = 0;
         while (TargetUnit != null) {
+           // print("유닛공격함!");
             this.GetComponent<Animator>().SetBool("isAttack", true);
+            //yield return new WaitForSeconds(a_del);
 
-                TargetUnit.GetComponent<Monster>().hp -= BattleManager.Instance.Damage(this.gameObject,TargetUnit);
-                stack++;
+           // if (TargetUnit != null)
+           // {
+                TargetUnit.GetComponent<Monster>().hp -= atk;
+
             if (UnitManager.Instance.isMons(Current_Tile) && TargetUnit == null)
             {
                 int target = Random.Range(0, 3);
@@ -116,23 +101,24 @@ public class Unit : MonoBehaviour
             }
             print("적hp  " + TargetUnit.GetComponent<Monster>().hp);
           
+                t = 0;
+            //}
+            //else
+           // {
+               // this.GetComponent<Animator>().SetBool("isAttack", false);
+                //t = 0;
+           // }
+
             t = 0;
             yield return null;
             this.GetComponent<Animator>().SetBool("isAttack", false);
-
-
-                yield return new WaitForSeconds(a_speed / 100.0f);
-
-         
+            yield return new WaitForSeconds(a_speed / 100.0f);
+            
         }
-        isbattile = false;
-
-
-
         yield return null;
-        t = a_speed / 100.0f;
+        //t = 0; 
+        //this.GetComponent<Animator>().SetBool("isAttack", false);
+        // yield return new  WaitForSeconds(a_speed / 100.0f);
+        
     }
-
-
-
 }
