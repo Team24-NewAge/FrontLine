@@ -20,11 +20,16 @@ MonoBehaviour:
   lifeHp: 20
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   lifeAtk: 110
 =======
   lifeAtk: 1
 >>>>>>> origin/master
   lifeDef: 0
+=======
+  lifeAtk: 1
+  lifeDef: 1
+>>>>>>> parent of 24d94a1... 수정3
 =======
   lifeAtk: 1
   lifeDef: 1
