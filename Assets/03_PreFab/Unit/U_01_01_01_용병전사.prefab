@@ -343,11 +343,8 @@ MonoBehaviour:
   a_spd: 100
   m_spd: 0
   stack: 0
-<<<<<<< HEAD
   end_stack: -1
   stack_buff: 0
-=======
->>>>>>> origin/master
   TargetUnit: {fileID: 0}
   Current_Tile: {fileID: 0}
   Current_Location: {fileID: 0}
@@ -2156,11 +2153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
   m_IsActive: 0
-=======
-  m_IsActive: 1
->>>>>>> origin/master
 --- !u!4 &7782732570673990357
 Transform:
   m_ObjectHideFlags: 0
