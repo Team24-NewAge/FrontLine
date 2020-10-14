@@ -533,7 +533,6 @@ PrefabInstance:
       value: Warrior-model
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
     - target: {fileID: 5142081979479195705, guid: 42553b24cce56754e953a04621d8538c,
         type: 3}
       propertyPath: m_IsActive
@@ -543,8 +542,6 @@ PrefabInstance:
       value: 0
 >>>>>>> origin/master
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
     m_RemovedComponents:
@@ -634,7 +631,6 @@ PrefabInstance:
       value: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC (4)"
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     - target: {fileID: 231866167460698057, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
@@ -642,8 +638,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 >>>>>>> parent of 12f5477... Canvas의 확인버튼 수정 및 버튼 스크롤 뷰 형식 구현 등
-=======
->>>>>>> parent of 24d94a1... 수정3
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
       propertyPath: Current_Tile
@@ -677,7 +671,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2925070126314415038}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &301981067
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,8 +865,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 =======
 >>>>>>> parent of 24d94a1... 수정3
-=======
->>>>>>> parent of 24d94a1... 수정3
 --- !u!1001 &328553481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,14 +1054,11 @@ PrefabInstance:
       value: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC (2)"
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
     - target: {fileID: 231866167460698057, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
@@ -1092,11 +1080,7 @@ PrefabInstance:
         type: 3}
       propertyPath: a_spd
 <<<<<<< HEAD
-<<<<<<< HEAD
       value: 160
-=======
-      value: 200
->>>>>>> parent of 24d94a1... 수정3
 =======
       value: 200
 >>>>>>> parent of 24d94a1... 수정3
@@ -1111,7 +1095,6 @@ PrefabInstance:
       propertyPath: hp
       value: 30
       objectReference: {fileID: 0}
-<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
@@ -1348,10 +1331,6 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 =======
 >>>>>>> origin/master
-=======
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5af5bb6a4471ce439b9fab4b45f76a6, type: 3}
->>>>>>> parent of 24d94a1... 수정3
 =======
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5af5bb6a4471ce439b9fab4b45f76a6, type: 3}
@@ -2564,7 +2543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charImage: {fileID: 1524811755}
-<<<<<<< HEAD
 --- !u!1 &1168970734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,8 +2782,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168970734}
   m_CullTransparentMesh: 0
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
 --- !u!1 &1173701410
@@ -3431,7 +3407,6 @@ PrefabInstance:
       value: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC (3)"
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     - target: {fileID: 231866167460698057, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
@@ -3439,8 +3414,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 >>>>>>> parent of 12f5477... Canvas의 확인버튼 수정 및 버튼 스크롤 뷰 형식 구현 등
-=======
->>>>>>> parent of 24d94a1... 수정3
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
       propertyPath: Current_Tile
@@ -3809,7 +3782,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1381383054}
   m_RootOrder: 4
-<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3871,10 +3843,6 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583250493
 =======
---- !u!114 &1573210603
->>>>>>> parent of 24d94a1... 수정3
-=======
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1573210603
 >>>>>>> parent of 24d94a1... 수정3
 MonoBehaviour:
@@ -4390,7 +4358,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
       propertyPath: atk
@@ -4403,8 +4370,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
     m_RemovedComponents: []
@@ -4461,7 +4426,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2925070126314415038}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &1745178325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4722,8 +4686,6 @@ CanvasRenderer:
 >>>>>>> origin/master
   m_GameObject: {fileID: 1745178325}
   m_CullTransparentMesh: 0
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
 --- !u!4 &1755601030 stripped
@@ -4929,7 +4891,6 @@ PrefabInstance:
       value: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC (5)"
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     - target: {fileID: 231866167460698057, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
@@ -4937,8 +4898,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 >>>>>>> parent of 12f5477... Canvas의 확인버튼 수정 및 버튼 스크롤 뷰 형식 구현 등
-=======
->>>>>>> parent of 24d94a1... 수정3
     - target: {fileID: 1146898242196022077, guid: f5af5bb6a4471ce439b9fab4b45f76a6,
         type: 3}
       propertyPath: Current_Tile

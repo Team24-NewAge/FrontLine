@@ -343,15 +343,12 @@ MonoBehaviour:
   a_del: 0.35
   m_spd: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
   stack: 0
 <<<<<<< HEAD
   end_stack: -1
   stack_buff: 0
 =======
 >>>>>>> origin/master
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
   TargetUnit: {fileID: 0}
@@ -2143,7 +2140,6 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &2818345406700829282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2225,5 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
->>>>>>> parent of 24d94a1... 수정3
 =======
 >>>>>>> parent of 24d94a1... 수정3
