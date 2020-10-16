@@ -19,6 +19,5 @@ public class Successlocationbtn : MonoBehaviour
         Hero_info.SetActive(true);
         Monsterstart.SetActive(true);
 
-
     }
 }
