@@ -54,7 +54,7 @@ public class PrefsIO : MonoBehaviour
     {
         // 분류 class: unit
         // 이름     name: knight(예시)
-        // 속성 property: code, grade, hp, maxHp, atk, atkSp, location,title 
+        // 속성 property: code, grade, hp, maxHp, atk, def, atkSp, location,title 
 
         // knight(예시):  
 

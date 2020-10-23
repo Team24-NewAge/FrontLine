@@ -14,6 +14,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private N_Setting_Check_Popup _setting_check_Popup;
     [SerializeField] private Battle_Win_Popup _battle_win_Popup;
     [SerializeField] private Event_Popup _event_Popup;
+    [SerializeField] private UnitShop_Popup _unitshop_Popup;
 
     public PopupBase CurrnetPopup { get; private set; }
 
@@ -79,6 +80,11 @@ public class PopupManager : MonoBehaviour
     public Event_Popup ShowEvent_Popup()
     {
         return Instantiate(_event_Popup, _canvas.transform);
+    }
+
+    public UnitShop_Popup ShowUnitShop_Popup()
+    {
+        return Instantiate(_unitshop_Popup, _canvas.transform);
     }
 
 
