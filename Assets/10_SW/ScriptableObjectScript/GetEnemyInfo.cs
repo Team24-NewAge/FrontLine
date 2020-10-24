@@ -25,7 +25,7 @@ public class GetEnemyInfo : MonoBehaviour
         return enemyInfo[n].BasedName;
     }
 
-    public int getenEmyGrade(int n)
+    public int getEnemyGrade(int n)
     {
         return enemyInfo[n].BasedGrade;
     }
