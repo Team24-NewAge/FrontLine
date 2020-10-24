@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f632631e83e2f4429e4706cd3d6ffe8, type: 3}
-  m_Name: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC"
+  m_Name: "U_01_01_04_\uC6A9\uBCD1\uB300\uC7A5"
   m_EditorClassIdentifier: 
-  basedCode: 1
-  basedName: "\uC6A9\uBCD1\uC804\uC0AC"
-  basedSprite: {fileID: 0}
-  basedGrade: 1
-  basedDescript: "\uD3C9\uBC94\uD55C \uC804\uC0AC"
-  lifeHp: 10
-  lifeAtk: 2
-  lifeDef: 0
+  basedCode: 4
+  basedName: "\uC6A9\uBCD1\uB300\uC7A5"
+  basedSprite: {fileID: 21300000, guid: b028d5562654610449d8ea58eec26b1b, type: 3}
+  basedGrade: 5
+  basedDescript: "\uB300\uC7A5\uC784"
+  lifeHp: 20
+  lifeAtk: 7
+  lifeDef: 5
   lifeAtkSp: 1
-  mvSp: 1
-  lifeSkill: 0000000000000000000000000000000000000000
+  mvSp: 0
+  lifeSkill: 
   synergy: 
-  price: 50
+  price: 0
   unlockLv: 0

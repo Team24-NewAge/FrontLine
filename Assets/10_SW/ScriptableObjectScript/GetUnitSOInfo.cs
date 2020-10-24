@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetUnitSOInfo : MonoBehaviour
 {
     public UnitInfo[] unitInfo;
     public GameObject[] unit;
+    public Sprite[] unitface;
 
     public static GetUnitSOInfo Instance { get; private set; }
 
@@ -63,6 +65,11 @@ public class GetUnitSOInfo : MonoBehaviour
     public int getUnitSkill(int n, int skillSlot)
     {
         return unitInfo[n].LifeSkill[skillSlot];
+    }
+
+    public int getUnitSkillLength(int n)
+    {
+        return unitInfo[n].LifeSkill.Length;
     }
 
     public int getUnitPrice(int n)

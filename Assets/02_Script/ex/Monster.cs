@@ -35,7 +35,7 @@ public class Monster : MonoBehaviour
         Code = GetEnemyInfo.Instance.getEnemyCode(0);
         Name = GetEnemyInfo.Instance.getEnemyName(0);
         //sprite = GetEnemyInfo.Instance.ge
-        grade = GetEnemyInfo.Instance.getenEmyGrade(0);
+        grade = GetEnemyInfo.Instance.getEnemyGrade(0);
         description = GetEnemyInfo.Instance.getEnemyDescript(0);
         hp = GetEnemyInfo.Instance.getEnemyHp(0);
         atk = GetEnemyInfo.Instance.getEnemyAtk(0);
