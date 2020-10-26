@@ -7,7 +7,11 @@ public class PrefsIO : MonoBehaviour
 {
     // PlayerPrefs에 data 저장, 불러오기
 
-
+    public static PrefsIO Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
     // 포션 내용 저장, 최초 1회 한번 사용할 것, 추후 필요에 따라 사용할 것
     public void initPortionSet()
     {

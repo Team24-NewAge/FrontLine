@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int UnitBuyStack=0;
+    public int UnitFusionStack = 0;
     public int UnitReinForceStack=0;
 
+    public GameObject inventory; 
 
     public float[] unitper = new float[6];
     public float[] unitper_add = new float[6];

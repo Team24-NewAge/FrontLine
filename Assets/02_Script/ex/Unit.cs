@@ -134,5 +134,9 @@ public class Unit : MonoBehaviour
     }
 
 
-
+    public void GetUnit()
+    {
+        Current_Tile = TileManager.Instance.tiles[11];
+        Current_Location = TileManager.Instance.tiles[11].tar_lo;
+    }
 }

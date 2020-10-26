@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 231866167453409501}
   - component: {fileID: 1146898242196022077}
   m_Layer: 0
-  m_Name: "U_01_01_01_\uC6A9\uBCD1\uC804\uC0AC"
+  m_Name: "U_01_01_00_\uC6A9\uBCD1\uC804\uC0AC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,8 +290,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231866167460698057}
-  m_LocalRotation: {x: -0, y: 0.756635, z: -0, w: 0.65383744}
-  m_LocalPosition: {x: -1.48, y: 0.277, z: 0.22}
+  m_LocalRotation: {x: 0, y: 0.75470966, z: 0, w: 0.656059}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 231866167460399519}
@@ -299,7 +299,7 @@ Transform:
   - {fileID: 7782732570673990357}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 98.337006, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 98, z: 0}
 --- !u!95 &231866167453409501
 Animator:
   serializedVersion: 3

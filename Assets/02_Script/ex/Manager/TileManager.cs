@@ -7,7 +7,7 @@ public class TileManager : MonoBehaviour
     public static TileManager Instance { get; private set; }
 
 
-    public Tile[] tiles = new Tile[11];
+    public Tile[] tiles = new Tile[12];
 
     private void Awake()
     {

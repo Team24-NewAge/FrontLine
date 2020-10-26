@@ -20,7 +20,8 @@ public class test : MonoBehaviour
    public void testimage() 
     {
         print("클릭작동");
-        EventManager.Instance.Event();
+        // EventManager.Instance.Event();
+        PopupManager.Instance.ShowUnitShop_Popup();
     }
 
 

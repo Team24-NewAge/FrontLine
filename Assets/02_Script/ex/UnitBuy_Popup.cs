@@ -18,7 +18,18 @@ public class UnitBuy_Popup : PopupBase
     public Text[] unit1_skill = new Text[3];
     public Text[] unit2_skill = new Text[3];
     public Text[] unit3_skill = new Text[3];
+
     public int[] unit_code = new int[3];
+    public string[] save_unit_name = new string[3];
+    public int[] save_unit_grade = new int[3];
+    public int[] save_unit_atk = new int[3];
+    public int[] save_unit_def = new int[3];
+    public int[] save_unit_spd = new int[3];
+    public int[] save_unit_hp = new int[3];
+    public int[] save_unit_skill1 = new int[3];
+    public int[] save_unit_skill2 = new int[3];
+    public int[] save_unit_skill3 = new int[3];
+
     public void Awake()
     {
 
@@ -133,11 +144,19 @@ public class UnitBuy_Popup : PopupBase
                 } break;
         }
 
-        unit_name[num].text = "[" + GetUnitSOInfo.Instance.getUnitName(code) +"]";
-        unit_hp[num].text = "HP : " + GetUnitSOInfo.Instance.getUnitHp(code);
-        unit_atk[num].text = "ATK : " + GetUnitSOInfo.Instance.getUnitAtk(code);
-        unit_spd[num].text = "SPD : " + GetUnitSOInfo.Instance.getUnitAtkSp(code);
-        unit_def[num].text = "DEF : " + GetUnitSOInfo.Instance.getUnitDef(code);
+
+        save_unit_name[num] = GetUnitSOInfo.Instance.getUnitName(code);
+        save_unit_hp[num] = GetUnitSOInfo.Instance.getUnitHp(code);
+        save_unit_atk[num] = GetUnitSOInfo.Instance.getUnitAtk(code);
+        save_unit_def[num] = GetUnitSOInfo.Instance.getUnitDef(code);
+        save_unit_spd[num] = GetUnitSOInfo.Instance.getUnitAtkSp(code);
+        save_unit_grade[num] = GetUnitSOInfo.Instance.getUnitGrade(code);
+
+        unit_name[num].text = "[" + save_unit_name[num] + "]";
+        unit_hp[num].text = "HP : " + save_unit_hp[num];
+        unit_atk[num].text = "ATK : " + save_unit_atk[num];
+        unit_spd[num].text = "SPD : " + save_unit_spd[num];
+        unit_def[num].text = "DEF : " + save_unit_def[num];
 
         int unitskill_count = GetUnitSOInfo.Instance.getUnitSkillLength(code);
 
@@ -155,5 +174,72 @@ public class UnitBuy_Popup : PopupBase
         RandomUnit(0);
         RandomUnit(1);
         RandomUnit(2);
+    }
+
+
+
+
+    public void Unitbuy(int num) {
+        int i=1;
+        string name = save_unit_name[num];
+        while (PlayerPrefs.HasKey("unit_" + name + "_code_" + i.ToString())) 
+        {
+            print("unit_" + name + "_code_" + i.ToString() + "라는 키 존재!");
+            
+
+            
+            i++;
+        }
+        //////////////////////////////////////////////////////////////////////////////
+        PlayerPrefs.SetInt("unit_" + name + "_code_" + i.ToString(), unit_code[num]);
+        print("unit_" + name + "_code_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_code_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_code_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_grade_" + i.ToString(), save_unit_grade[num]);
+        print("unit_" + name + "_grade_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_grade_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_grade_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_hp_" + i.ToString(), save_unit_hp[num]);
+        print("unit_" + name + "_hp_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_hp_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_hp_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_maxhp_" + i.ToString(), save_unit_hp[num]);
+        print("unit_" + name + "_maxhp_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_maxhp_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_maxhp_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_atk_" + i.ToString(), save_unit_atk[num]);
+        print("unit_" + name + "_atk_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_atk_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_atk_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_def_" + i.ToString(), save_unit_def[num]);
+        print("unit_" + name + "_def_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_def_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_def_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_atkSp_" + i.ToString(), save_unit_spd[num]);
+        print("unit_" + name + "_atkSp_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_atkSp_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_atkSp_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_location_" + i.ToString(),-1);
+        print("unit_" + name + "_location_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_location_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_location_" + i.ToString());
+
+        PlayerPrefs.SetInt("unit_" + name + "_tile_" + i.ToString(),-1);
+        print("unit_" + name + "_tile_" + i.ToString());
+        print(PlayerPrefs.GetInt("unit_" + name + "_tile_" + i.ToString()));
+        PlayerPrefs.DeleteKey("unit_" + name + "_tile_" + i.ToString());
+        //////////////////////////////////////////////////////////////////////////////
+        GameObject bought_unit = Instantiate(GetUnitSOInfo.Instance.unit[unit_code[num]], TileManager.Instance.tiles[11].tar_lo.transform.position, Quaternion.Euler(new Vector3(0, 98, 0)));
+        bought_unit.name = name + i;
+        bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
+        bought_unit.GetComponent<Unit>().GetUnit();
+
     }
 }
