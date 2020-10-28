@@ -10,11 +10,6 @@ public class UnitSpawnBtn : MonoBehaviour
 
     public GameObject summonmanager;
     
-    void Start()
-    {
-        
-    }
-
     public void OnClick()
     {
         summonmanager.GetComponent<UnitSummon>().anypush = this.gameObject;//눌린 버튼의 오브젝트 할당

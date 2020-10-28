@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 1146898242196022077}
   m_Layer: 0
   m_Name: "U_01_01_00_\uC6A9\uBCD1\uC804\uC0AC"
-  m_TagString: Untagged
+  m_TagString: mercenarywarrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
