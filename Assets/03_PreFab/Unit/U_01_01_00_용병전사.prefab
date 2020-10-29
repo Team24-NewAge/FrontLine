@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc6e147e8ea2814aad8d23437aa77d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Code: 1
+  Code: 0
   Name: "\uC6A9\uBCD1\uC804\uC0AC"
   sprite: {fileID: 0}
   grade: 1

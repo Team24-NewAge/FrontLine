@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PrefsIO : MonoBehaviour
 {
     // PlayerPrefs에 data 저장, 불러오기
-
     public static PrefsIO Instance { get; private set; }
     private void Awake()
     {
