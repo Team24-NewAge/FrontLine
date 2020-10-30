@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GetUnitSOInfo : MonoBehaviour
 {
+    // 추가해야 하는 기능: 스프라이트 출력, 삭제
+
     public UnitInfo[] unitInfo;
     public GameObject[] unit;
     public Sprite[] unitface;
@@ -39,22 +41,22 @@ public class GetUnitSOInfo : MonoBehaviour
 
     public int getUnitHp(int n)
     {
-        return unitInfo[n].LifeHp;
+        return unitInfo[n].MaxHp;
     }
 
     public int getUnitAtk(int n)
     {
-        return unitInfo[n].LifeAtk;
+        return unitInfo[n].BasedAtk;
     }
 
     public int getUnitDef(int n)
     {
-        return unitInfo[n].LifeDef;
+        return unitInfo[n].BasedDef;
     }
 
     public int getUnitAtkSp(int n)
     {
-        return unitInfo[n].LifeAtkSp;
+        return unitInfo[n].BasedAtkSp;
     }
 
     public int getUnitMvSp(int n)

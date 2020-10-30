@@ -7,7 +7,7 @@ public class GetUnitInfo : MonoBehaviour
     public static GetUnitInfo Instance { get; private set; }    //싱글톤?
 
     public GameObject Target;   //inspector창에 InventoryMN이 들어간 오브젝트를 넣기
-    InventoryMN.UnitDataClassification[] otherUDC;  //유닛 데이터를 담은 구조체UnitDataClassification으로 선언
+    CheckInvenManager.UnitDataClassification[] otherUDC;  //유닛 데이터를 담은 구조체UnitDataClassification으로 선언
 
 
     private void Awake()
@@ -17,64 +17,57 @@ public class GetUnitInfo : MonoBehaviour
 
     private void Start()
     {
-        otherUDC = Target.GetComponent<InventoryMN>().out_UDC;  //InventoryMN의 데이터 받음
+        otherUDC = Target.GetComponent<CheckInvenManager>().out_UDC;  //InventoryMN의 데이터 받음
     }
 
 
     //유닛 인벤토리 n번에 있는 코드 받기
 
-
     //유닛 코드
     public int getUnitCode(int n)   
     {
-        return otherUDC[n].basedCode;
+        return otherUDC[n].code;
     }
 
     //유닛 이름
     public string getUnitName(int n)
     {
-        return otherUDC[n].basedName;
+        return otherUDC[n].name;
     }
     //유닛 등급
     public int getUnitGrade(int n)
     {
-        return otherUDC[n].basedGrade;
+        return otherUDC[n].grade;
     }
 
     //유닛 설명
     public string getUnitDescript(int n)
     {
-        return otherUDC[n].basedDescript;
+        return otherUDC[n].descript;
     }
 
     //유닛 체력
     public int getUnitHp(int n)
     {
-        return otherUDC[n].lifeHp;
+        return otherUDC[n].hp;
     }
 
     //유닛 공격력
     public int getUnitAtk(int n)
     {
-        return otherUDC[n].lifeAtk;
+        return otherUDC[n].atk;
     }
 
     //유닛 방어력
     public int getUnitDef(int n)
     {
-        return otherUDC[n].lifeDef;
+        return otherUDC[n].def;
     }
 
     //유닛 공격속도
     public int getUnitAtkSp(int n)
     {
-        return otherUDC[n].lifeAtkSp;
-    }
-
-    //유닛 이동속도
-    public int getUnitMvSp(int n)
-    {
-        return otherUDC[n].mvSp;
+        return otherUDC[n].atkSp;
     }
 
     //유닛 가격
@@ -83,9 +76,4 @@ public class GetUnitInfo : MonoBehaviour
         return otherUDC[n].price;
     }
 
-    //유닛 해금레벨
-    public int getUnitUnlockLv(int n)
-    {
-        return otherUDC[n].unlockLv;
-    }
 }

@@ -28,7 +28,7 @@ public class GetHeroInfo : MonoBehaviour
 
     int getHeroHp()
     {
-        return heroInfo.LifeHp;
+        return heroInfo.MaxHp;
     }
 
     int getHeroMp()
@@ -39,17 +39,17 @@ public class GetHeroInfo : MonoBehaviour
 
     int getHeroAtk()
     {
-        return heroInfo.LifeAtk;
+        return heroInfo.BasedAtk;
     }
 
     int getHeroDef()
     {
-        return heroInfo.LifeDef;
+        return heroInfo.BasedDef;
     }
 
     int getHeroAtkSp()
     {
-        return heroInfo.LifeAtkSp;
+        return heroInfo.BasedAtkSp;
     }
 
     int getHeroMvSp()

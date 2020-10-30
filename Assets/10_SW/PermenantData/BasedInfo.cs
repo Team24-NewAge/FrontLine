@@ -13,8 +13,8 @@ public class BasedInfo : ScriptableObject
     public string BasedName { get { return basedName; } }
 
     [SerializeField]
-    private Sprite basedSprite;
-    public Sprite BasedSprite { get { return basedSprite; } }
+    private Sprite[] basedSprite;
+    public Sprite[] BasedSprite { get { return basedSprite; } }
 
     [SerializeField]
     private int basedGrade;

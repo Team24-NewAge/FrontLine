@@ -14,15 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basedCode: 2
   basedName: "\uC6A9\uBCD1\uCC3D\uC220\uC0AC"
-  basedSprite: {fileID: 21300000, guid: 09b8410ed5fb4e24e9c9746dc54d8373, type: 3}
+  basedSprite:
+  - {fileID: 21300000, guid: 09b8410ed5fb4e24e9c9746dc54d8373, type: 3}
   basedGrade: 3
   basedDescript: "\uD3C9\uBC94\uD55C \uCC3D\uC220\uC0AC"
-  lifeHp: 16
-  lifeAtk: 4
-  lifeDef: 0
-  lifeAtkSp: 1
+  maxHp: 16
+  basedAtk: 4
+  basedDef: 0
+  basedAtkSp: 1
   mvSp: 0
   lifeSkill: 
-  synergy: 
   price: 100
+  tile: 0
+  location: 0
+  synergy: 
   unlockLv: 0

@@ -37,22 +37,22 @@ public class GetEnemyInfo : MonoBehaviour
 
     public int getEnemyHp(int n)
     {
-        return enemyInfo[n].LifeHp;
+        return enemyInfo[n].MaxHp;
     }
 
     public int getEnemyAtk(int n)
     {
-        return enemyInfo[n].LifeAtk;
+        return enemyInfo[n].BasedAtk;
     }
 
     public int getEnemyDef(int n)
     {
-        return enemyInfo[n].LifeDef;
+        return enemyInfo[n].BasedDef;
     }
 
     public int getEnemyAtkSp(int n)
     {
-        return enemyInfo[n].LifeAtkSp;
+        return enemyInfo[n].BasedAtkSp;
     }
 
     public int getEnemyMvSp(int n)

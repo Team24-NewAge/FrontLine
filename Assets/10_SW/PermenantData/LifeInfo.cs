@@ -5,20 +5,20 @@ using UnityEngine;
 public class LifeInfo: BasedInfo
 {
     [SerializeField]
-    private int lifeHp;
-    public int LifeHp { get { return lifeHp; } }
+    private int maxHp;
+    public int MaxHp { get { return maxHp; } }
 
     [SerializeField]
-    private int lifeAtk;
-    public int LifeAtk { get { return lifeAtk; } }
+    private int basedAtk;
+    public int BasedAtk { get { return basedAtk; } }
 
     [SerializeField]
-    private int lifeDef;
-    public int LifeDef { get { return lifeDef; } }
+    private int basedDef;
+    public int BasedDef { get { return basedDef; } }
 
     [SerializeField]
-    private int lifeAtkSp;
-    public int LifeAtkSp { get { return lifeAtkSp; } }
+    private int basedAtkSp;
+    public int BasedAtkSp { get { return basedAtkSp; } }
 
     [SerializeField]
     private int mvSp;
@@ -27,5 +27,4 @@ public class LifeInfo: BasedInfo
     [SerializeField]
     private int[] lifeSkill;
     public int[] LifeSkill { get { return lifeSkill; } }
-
 }

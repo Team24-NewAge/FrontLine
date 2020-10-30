@@ -8,12 +8,20 @@ using UnityEngine;
 public class UnitInfo : LifeInfo
 {
     [SerializeField]
-    private int[] synergy;
-    public int[] Synergy { get { return synergy; } }
-
-    [SerializeField]
     private int price;
     public int Price { get { return price; } }
+
+    [SerializeField]
+    private int tile;
+    public int Tile { get { return tile; } }
+
+    [SerializeField]
+    private int location;
+    public int Location { get { return location; } }
+
+    [SerializeField]
+    private int[] synergy;
+    public int[] Synergy { get { return synergy; } }
 
     [SerializeField]
     private int unlockLv;

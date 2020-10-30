@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PrefsIO : MonoBehaviour
 {
+    private const int MaxInvenCapacity = 100;   //인벤토리 최대 용량
+    private string prefsKey;    //프랩스에서 찾을 키값 저장
+
+
     // PlayerPrefs에 data 저장, 불러오기
     public static PrefsIO Instance { get; private set; }
     private void Awake()
@@ -74,18 +78,36 @@ public class PrefsIO : MonoBehaviour
     }
 
     // 정보 가져오기
-    public int getPrefs(string prefsClass, string prefsName, string prefsProperty)
+    public int getPrefs(string prefsClass, string prefsName, string prefsProperty, int invenNum)
     {
-        if (PlayerPrefs.HasKey(prefsClass + "_" +prefsName + "_" +prefsProperty))	// 해당 키값있는지 확인
-			return PlayerPrefs.GetInt(prefsClass + "_" + prefsName + "_" + prefsProperty);
+        prefsKey = prefsClass + "_" + prefsName + "_" + prefsProperty + "_" + invenNum;
+        if (invenNum > MaxInvenCapacity || invenNum < 1)
+            return -2;      // 인벤 숫자가 정상이 아니면, -2 반환
+        if (PlayerPrefs.HasKey(prefsKey))	// 해당 키값있는지 확인
+			return PlayerPrefs.GetInt(prefsKey);
 		else
-			return -1;		// 없다면 -1 반환
+			return -1;		// 키값 없다면 -1 반환
     }
 
     // 정보 저장
-    public void setPrefs(string prefsClass, string prefsName, string prefsProperty, int prefsValue)
+    public void setPrefs(string prefsClass, string prefsName, string prefsProperty, int invenNum, int prefsValue)
     {
-        PlayerPrefs.SetInt(prefsClass + "_" + prefsName + "_" + prefsProperty, prefsValue);
+        prefsKey = prefsClass + "_" + prefsName + "_" + prefsProperty + "_" + invenNum;
+        PlayerPrefs.SetInt(prefsKey, prefsValue);
     }
 
+    // PlayerPrefs 키값 삭제
+    public int delPrefs(string prefsClass, string prefsName, string prefsProperty, int invenNum)
+    {
+        prefsKey = prefsClass + "_" + prefsName + "_" + prefsProperty + "_" + invenNum;
+        if (PlayerPrefs.HasKey(prefsKey))
+        {    // 해당 키값있는지 확인
+            PlayerPrefs.DeleteKey(prefsKey);
+            return 0;   // 정상 작동
+        }
+        else
+        {
+            return -1;      // 키값 없다면 -1 반환
+        }
+    }
 }
