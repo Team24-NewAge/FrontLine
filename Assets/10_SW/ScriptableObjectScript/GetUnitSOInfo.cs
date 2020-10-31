@@ -78,4 +78,10 @@ public class GetUnitSOInfo : MonoBehaviour
     {
         return unitInfo[n].Price;
     }
+
+    //유닛 이미지
+    public Sprite getUnitpIcon(int n, int imageNum)
+    {
+        return unitInfo[n].BasedSprite[imageNum];
+    }
 }
