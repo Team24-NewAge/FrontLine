@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
-
+    public int Monster_Code;
     public int Code;
     public string Name;
     public Sprite sprite;
     public int grade;
     public string description;
+    public int Max_hp;
     public int hp;
     public int atk;
     public int def;
@@ -23,25 +25,30 @@ public class Monster : MonoBehaviour
 
     public GameObject Currentlocation;
 
-  
+ 
 
     public GameObject Targetlocation;
     public Tile Targettile;
     public Tile CurrentTile;
     public Animator animator;
+
+
+    public Slider Hp_bar;
+    public bool Do_Battle;
     void Start()
     {
 
-        Code = GetEnemyInfo.Instance.getEnemyCode(0);
-        Name = GetEnemyInfo.Instance.getEnemyName(0);
+        Code = GetEnemyInfo.Instance.getEnemyCode(Monster_Code);
+        Name = GetEnemyInfo.Instance.getEnemyName(Monster_Code);
         //sprite = GetEnemyInfo.Instance.ge
-        grade = GetEnemyInfo.Instance.getEnemyGrade(0);
-        description = GetEnemyInfo.Instance.getEnemyDescript(0);
-        hp = GetEnemyInfo.Instance.getEnemyHp(0);
-        atk = GetEnemyInfo.Instance.getEnemyAtk(0);
-        def= GetEnemyInfo.Instance.getEnemyDef(0);
-        a_spd = GetEnemyInfo.Instance.getEnemyAtkSp(0);
-        m_spd = GetEnemyInfo.Instance.getEnemyMvSp(0);
+        grade = GetEnemyInfo.Instance.getEnemyGrade(Monster_Code);
+        description = GetEnemyInfo.Instance.getEnemyDescript(Monster_Code);
+        Max_hp = GetEnemyInfo.Instance.getEnemyHp(Monster_Code);
+        hp = GetEnemyInfo.Instance.getEnemyHp(Monster_Code);
+        atk = GetEnemyInfo.Instance.getEnemyAtk(Monster_Code);
+        def= GetEnemyInfo.Instance.getEnemyDef(Monster_Code);
+        a_spd = GetEnemyInfo.Instance.getEnemyAtkSp(Monster_Code);
+        m_spd = GetEnemyInfo.Instance.getEnemyMvSp(Monster_Code);
         //스텟들 할당
         animator = this.GetComponent<Animator>();
 
@@ -54,13 +61,23 @@ public class Monster : MonoBehaviour
         if (this.hp <= 0)
         {
             Destroy(this.gameObject);
-            MonsterManager.Instance.Clear_Count --;
+            MonsterManager.Instance.Clear_Count--;
         }
-       
+        else if (hp != Max_hp && Do_Battle)
+        {
+            Hp_bar.gameObject.SetActive(true);
+            Hp_bar.value = (float)hp / (float)Max_hp;
+
+        }
+        else
+        {
+            Hp_bar.gameObject.SetActive(false);
+        }
     }
 
     public IEnumerator GotoTarget() //타일 위치로 이동하는 코루틴
     {
+        Do_Battle = false;
         while (Vector3.Distance(transform.position, Targetlocation.GetComponent<Transform>().position)>=0.01f)
         {
             Vector3 dir = Targetlocation.transform.position - this.transform.position;
@@ -81,13 +98,14 @@ public class Monster : MonoBehaviour
     {
         while (MonsterManager.Instance.isUnit(CurrentTile))//적유닛이 없을 때까지 반복
         {
-
+            Do_Battle = true;
             yield return new WaitForSeconds(a_spd / 100); //공격 속도 이후에
             StartCoroutine(Attack());//공격
 
 
         yield return new WaitForSeconds(a_spd /100);
         }
+        Do_Battle = false;
         this.GetComponent<Animator>().SetBool("isIdle", false);//이동애니를위한 변수조정
         this.GetComponent<Animator>().SetBool("isAttack", false);//이동애니를위한 변수조정
         MonsterManager.Instance.Move(this.gameObject);//이동시작

@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     public GameObject[] Unit_inGame;
     bool isBattle;
 
+
     public void Awake()
     {
         Instance = this;
@@ -59,9 +60,7 @@ public class BattleManager : MonoBehaviour
 
     public void ExitBattle() {
         CameraManager.Instance.ExitBattle();
-        PaperManager.Instance.TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = true;
-        PaperManager.Instance.TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
-        PaperManager.Instance.TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = true;
+        PaperManager.Instance.Paper_Locked_off();
     }
 
 

@@ -102,8 +102,11 @@ public class Unit : MonoBehaviour
           t = 0;
         while (TargetUnit != null) {
             this.GetComponent<Animator>().SetBool("isAttack", true);
+            int dmg;
+            dmg = BattleManager.Instance.Damage(this.gameObject, TargetUnit);
+            TargetUnit.GetComponent<Monster>().hp -= dmg;
+            MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);
 
-                TargetUnit.GetComponent<Monster>().hp -= BattleManager.Instance.Damage(this.gameObject,TargetUnit);
                 stack++;
             if (UnitManager.Instance.isMons(Current_Tile) && TargetUnit == null)
             {

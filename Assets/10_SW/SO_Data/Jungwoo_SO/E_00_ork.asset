@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93583480a76747c4589defa32ce72998, type: 3}
-  m_Name: E_01_ork
+  m_Name: E_00_ork
   m_EditorClassIdentifier: 
-  basedCode: 1
+  basedCode: 0
   basedName: "\uC624\uD06C"
-  basedSprite: {fileID: 21300000, guid: a7efeacce419a944ea1a53a1cdc15280, type: 3}
-  basedGrade: 3
+  basedSprite:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  basedGrade: 1
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
-  lifeHp: 20
-  lifeAtk: 2
-  lifeDef: 0
-  lifeAtkSp: 100
+  maxHp: 10
+  basedAtk: 5
+  basedDef: 0
+  basedAtkSp: 100
   mvSp: 1
   lifeSkill: 

@@ -12,7 +12,7 @@ public class MonsterManager : MonoBehaviour
     public GameObject[] mons;
     public int go; // 앞으로 갈 확률
     public int back;// 뒤로 갈 확률
-
+    public GameObject Damage;
     public static MonsterManager Instance { get; private set; }
     //public 
 
@@ -32,7 +32,7 @@ public class MonsterManager : MonoBehaviour
 
         for (int i = 0; i < mons_cont; i++)//몬스터 젠 수만큼 반복
         { 
-            mons_list[i] = UnityEngine.Random.Range(0, 0);//몬스터id 부여
+            mons_list[i] = UnityEngine.Random.Range(0, 2);//몬스터id 부여
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
@@ -612,4 +612,14 @@ public class MonsterManager : MonoBehaviour
 
     }
 
+
+    public void DamageFont_produce(int dmg, GameObject target) {
+        int digit = (int)Mathf.Floor(Mathf.Log10(dmg)) + 1;
+
+        GameObject Damage_font = Instantiate(Damage, target.transform.position+ new Vector3(0.1f*digit,1.5f,0), Quaternion.Euler(new Vector3(0, 0, 0)));
+        Damage_font.GetComponent<Damage_Font>().Damage_int = dmg;
+
+
+
+    }
 }

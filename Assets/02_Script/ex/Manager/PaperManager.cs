@@ -449,9 +449,7 @@ public class PaperManager : MonoBehaviour
             yield return new WaitForSeconds(0.2F);
             fade.color = new Color(0, 0, 0, 0);
             fade.gameObject.SetActive(false);
-            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
-            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
-            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
+
 
         }
         yield return null;
@@ -471,12 +469,32 @@ public class PaperManager : MonoBehaviour
             case "EventPaper":
                 {
                     EventManager.Instance.Event();
-                    print("이벤트 클릭함"); break;
+                    break;
                 }
 
         }
 
 
+    }
+
+    public void Paper_action_END() {
+
+
+        Paper_Locked_off();
+
+
+    }
+    public void Paper_Locked() {
+        TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
+        TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
+        TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
+
+    }
+
+    public void Paper_Locked_off() {
+       TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = true;
+       TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
+       TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = true;
     }
 
 }

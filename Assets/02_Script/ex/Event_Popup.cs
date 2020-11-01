@@ -25,6 +25,7 @@ public class Event_Popup : PopupBase
 
     public override void HidePopup()
     {
+        PaperManager.Instance.Paper_Locked_off();
         base.HidePopup();
     }
 

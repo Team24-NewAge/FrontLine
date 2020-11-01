@@ -1808,7 +1808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD6C\uB9E4"
+  m_Text: "\uACE0\uC6A9"
 --- !u!114 &3799187208930803418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,6 +2157,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  save_unit_grade: 000000000000000000000000
   save_unit_atk: 000000000000000000000000
   save_unit_def: 000000000000000000000000
   save_unit_spd: 000000000000000000000000
@@ -2519,7 +2520,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD6C\uB9E4"
+  m_Text: "\uACE0\uC6A9"
 --- !u!114 &292082629375196471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2834,7 +2835,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD6C\uB9E4"
+  m_Text: "\uACE0\uC6A9"
 --- !u!114 &2099544492040188334
 MonoBehaviour:
   m_ObjectHideFlags: 0
