@@ -16,6 +16,8 @@ TagManager:
   - RebuildPaper
   - Monster
   - mercenarywarrior
+  - mercenaryknight
+  - mercenarylancemaster
   layers:
   - Default
   - TransparentFX
