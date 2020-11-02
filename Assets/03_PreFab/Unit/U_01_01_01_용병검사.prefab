@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 1780441367938538194}
   m_Layer: 0
   m_Name: "U_01_01_01_\uC6A9\uBCD1\uAC80\uC0AC"
-  m_TagString: Untagged
+  m_TagString: mercenaryknight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

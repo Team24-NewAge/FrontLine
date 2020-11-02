@@ -14,6 +14,7 @@ public class UnitSummon : MonoBehaviour
         tile_4, tile_3, tile_2, tile_1, tile_0; //각 타일 타입 변수
     
     GameObject [] warriors;//용병전사용 배열
+    GameObject[] knights;//용병검사용 배열
 
     public GameObject[] unit_ = new GameObject[30];
     public GameObject anypush = null;//타일이 눌렸는지, 버튼이 눌렸는지 확인할 게임오브젝트
@@ -40,17 +41,25 @@ public class UnitSummon : MonoBehaviour
 
     private void Update()
     {
+        int num = 0;//유닛 배열 번호
         warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
+        knights = GameObject.FindGameObjectsWithTag("mercenaryknight");//용병검사 태그 값
+        
         //Debug.Log(warriors.Length + "개의 유닛이 존재함");
-        for (int i = 0; i < warriors.Length; i++)//용병전사 개수 만큼 유닛에 전사 추가
+        
+        for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수 만큼 유닛에 전사 추가
         {
-            unit_[i] = warriors[i];
-            UnitSpawnBtn.warrior_img ++;// 전사 버튼 이미지
+            unit_[num] = warriors[w];
             //Debug.Log(i+"번방의"+ unit_[i].name);
             // Debug.Log(i + "번방에 유닛이 들어감");
         }
         
-        tot_btn = warriors.Length;//버튼 활성화를 위한 버튼의 총 개수
+        for (int k = 0; num < knights.Length + warriors.Length; num++, k++)
+        {
+            unit_[num] = knights[k];
+        }
+        
+        tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
         
         if (anypush != null)
         {
@@ -89,36 +98,30 @@ public class UnitSummon : MonoBehaviour
                     
                     if (tile_9.Unit[0] == null)
                     {
-                        Debug.Log(sel_btn);
                         tile_9.Unit[0] = unit_[sel_btn];
                         unit_[sel_btn].transform.position = first;
                         unit[0] = unit_[sel_btn].GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
                         unit[0].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
-                        Debug.Log(tile_9.Unit[0]);
                     }
                     else if (tile_9.Unit[1] == null)
                     {
-                        Debug.Log(sel_btn);
                         tile_9.Unit[1] = unit_[sel_btn];
                         unit_[sel_btn].transform.position = second;
                         unit[1] = unit_[sel_btn].GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
                         unit[1].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
-                        Debug.Log(tile_9.Unit[1]);
                     }
                     else if (tile_9.Unit[2] == null)
                     {
-                        Debug.Log(sel_btn);
                         tile_9.Unit[2] = unit_[sel_btn];
                         unit_[sel_btn].transform.position = third;
                         unit[2] = unit_[sel_btn].GetComponent<Unit>(); // 해당 PlayerPrefs에서 해당 이름의 유닛 가져옴 (예정)
                         unit[2].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
-                        Debug.Log(tile_9.Unit[1]);
                     }
                     
                 }//9번 타일
