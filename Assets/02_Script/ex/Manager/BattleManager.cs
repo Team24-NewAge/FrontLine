@@ -102,36 +102,13 @@ public class BattleManager : MonoBehaviour
 
     public int Damage_Unit(GameObject Monster, GameObject Unit)
     {
-        Unit unit = Unit.GetComponent<Unit>();
+  
         Monster monster = Monster.GetComponent<Monster>();
-
+        Unit unit = Unit.GetComponent<Unit>();
         int damage;//초기 데미지 0
 
-        damage = unit.atk;//유닛의 공격력
-        damage = (damage / ((100 + monster.def) / 100));//몬스터 방어력 계산
-
-
-        //격노 스탯의 존재 | 존재할경우 데미지 1.5배
-        if (unit.rage > 0)
-        {
-            damage = Mathf.RoundToInt(damage * 1.5f);
-            unit.rage--;
-            print("데미지 증가! " + damage + "의 피해!");
-        }
-
-        //버서커 상태 | 존재할경우 데미지 1.5배
-        if (unit.Berserk == true)
-        {
-            damage = Mathf.RoundToInt(damage * 1.5f);
-            print("데미지 증가! " + damage + "의 피해!");
-        }
-
-        //스택형 공격의 존재 | 스택을 터뜨려 추가 효과 적용
-        if (unit.end_stack == unit.stack)
-        {
-            damage = Mathf.RoundToInt(damage * unit.stack_buff);
-            print("스택 폭발! " + damage + "의 피해!");
-        }
+        damage = monster.atk;//유닛의 공격력
+        damage = (damage / ((100 + unit.def) / 100));//몬스터 방어력 계산
 
 
         return damage;
