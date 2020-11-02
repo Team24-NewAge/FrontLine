@@ -22,9 +22,9 @@ public class MonsterManager : MonoBehaviour
     }
 
 
-    public void Regen() {
+    public void Regen( ) {
 
-        int mons_cont = 10 + (BarManager.Instance.date / 3);
+        int mons_cont = Mathf.FloorToInt((10 + (BarManager.Instance.date / 3))*Add_difficulty());
         //몬스터 배열 생성 /생성값은 현재 날짜에 비례해서 증가한다.
 
         mons_list = new int[mons_cont];//새로운 몬스터 id배열생성
@@ -36,6 +36,26 @@ public class MonsterManager : MonoBehaviour
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
+    }
+
+    float Add_difficulty() {
+        switch (GameManager.Instance.Battle)
+        {
+            case GameManager.battleState.nomal:
+                {
+                    return 1.0f;
+                }
+            case GameManager.battleState.elite:
+                {
+                    return 1.3f;
+                }
+            case GameManager.battleState.boss:
+                {
+                    return 1.5f;
+                }
+
+        }
+        return 1.0f;
     }
 
 

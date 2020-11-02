@@ -35,18 +35,38 @@ public class Monster : MonoBehaviour
 
     public Slider Hp_bar;
     public bool Do_Battle;
+
+    float add_state;
     void Start()
     {
+        switch (GameManager.Instance.Battle) {
+            case GameManager.battleState.nomal:
+                {
+                    add_state = 1.0f;
+                    break;
+                }
+            case GameManager.battleState.elite:
+                {
+                    add_state = 1.2f;
+                    break;
+                }
+            case GameManager.battleState.boss:
+                {
+                    add_state = 1.4f;
+                    break;
+                }
+
+        }
 
         Code = GetEnemyInfo.Instance.getEnemyCode(Monster_Code);
         Name = GetEnemyInfo.Instance.getEnemyName(Monster_Code);
         //sprite = GetEnemyInfo.Instance.ge
         grade = GetEnemyInfo.Instance.getEnemyGrade(Monster_Code);
         description = GetEnemyInfo.Instance.getEnemyDescript(Monster_Code);
-        Max_hp = GetEnemyInfo.Instance.getEnemyHp(Monster_Code);
-        hp = GetEnemyInfo.Instance.getEnemyHp(Monster_Code);
-        atk = GetEnemyInfo.Instance.getEnemyAtk(Monster_Code);
-        def= GetEnemyInfo.Instance.getEnemyDef(Monster_Code);
+        Max_hp = Mathf.FloorToInt(GetEnemyInfo.Instance.getEnemyHp(Monster_Code)*add_state);
+        hp = Mathf.FloorToInt(GetEnemyInfo.Instance.getEnemyHp(Monster_Code) * add_state);
+        atk = Mathf.FloorToInt(GetEnemyInfo.Instance.getEnemyAtk(Monster_Code) * add_state);
+        def = Mathf.FloorToInt(GetEnemyInfo.Instance.getEnemyDef(Monster_Code) * add_state);
         a_spd = GetEnemyInfo.Instance.getEnemyAtkSp(Monster_Code);
         m_spd = GetEnemyInfo.Instance.getEnemyMvSp(Monster_Code);
         //스텟들 할당
@@ -133,7 +153,12 @@ public class Monster : MonoBehaviour
            // yield return new WaitForSeconds(0.35f);//공격 선딜레이후
             if (TargetUnit != null)//선딜중에 유닛이 안죽었으면
             {
-                TargetUnit.GetComponent<Unit>().hp -= atk;//유닛의 체력 공격력만큼 감소
+                int dmg;
+                dmg = BattleManager.Instance.Damage_Unit(this.gameObject, TargetUnit);
+                TargetUnit.GetComponent<Unit>().hp -= dmg;
+                MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);
+
+                //TargetUnit.GetComponent<Unit>().hp -= atk;//유닛의 체력 공격력만큼 감소
                 //print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
               
             }

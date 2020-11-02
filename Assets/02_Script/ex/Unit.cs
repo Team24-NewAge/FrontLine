@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -11,8 +12,7 @@ public class Unit : MonoBehaviour
     public int grade;
     public string description;
 
-    public int Full_hp;
-
+    public int Max_hp;
     public int hp;
 
     public int atk;
@@ -31,6 +31,7 @@ public class Unit : MonoBehaviour
     public Tile Current_Tile; // 현재 배치된 타일
     public GameObject Current_Location; // 현재 배치된 타일위치
     public string Current_Location_number;// 현재 배치된 타일번호
+    public Slider Hp_bar;
 
     public bool isbattile=false;
 
@@ -41,11 +42,16 @@ public class Unit : MonoBehaviour
 
     void Start()
     {
+        Location_number_Setting();
+        Reset();
+    }
+
+    public void Location_number_Setting() {
         Current_Location_number = Current_Location.name;
         Current_Location_number = Current_Location_number[Current_Location_number.Length - 1].ToString();
         a_speed = a_spd;
-        Reset();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -55,9 +61,20 @@ public class Unit : MonoBehaviour
             Current_Tile.UnitDie(int.Parse(Current_Location_number));
             print(Current_Location_number+"번 " +this.name+"사망");
             this.gameObject.SetActive(false);
-     
-           // Destroy(this.gameObject);
+
+            // Destroy(this.gameObject);
         }
+        else if (hp != Max_hp)
+        {
+            Hp_bar.gameObject.SetActive(true);
+            Hp_bar.value = (float)hp / (float)Max_hp;
+
+        }else if (hp >= Max_hp)
+        {
+            Hp_bar.gameObject.SetActive(false);
+        }
+
+
 
         if (rage > 0 || Berserk == true || stack == end_stack)
         { atkbuff.gameObject.SetActive(true); }
@@ -103,7 +120,7 @@ public class Unit : MonoBehaviour
         while (TargetUnit != null) {
             this.GetComponent<Animator>().SetBool("isAttack", true);
             int dmg;
-            dmg = BattleManager.Instance.Damage(this.gameObject, TargetUnit);
+            dmg = BattleManager.Instance.Damage_Monster(this.gameObject, TargetUnit);
             TargetUnit.GetComponent<Monster>().hp -= dmg;
             MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);
 

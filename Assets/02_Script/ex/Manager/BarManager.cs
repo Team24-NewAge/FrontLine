@@ -38,10 +38,10 @@ public class BarManager : MonoBehaviour
 
     private void Update()
     {
-        float full = Hero.GetComponent<Unit>().Full_hp;
+        float full = Hero.GetComponent<Unit>().Max_hp;
         float c_hp = Hero.GetComponent<Unit>().hp;
         hp_bar.fillAmount =  c_hp/full;
-        hp_string.text = Hero.GetComponent<Unit>().hp.ToString()+"/"+ Hero.GetComponent<Unit>().Full_hp.ToString();
+        hp_string.text = Hero.GetComponent<Unit>().hp.ToString()+"/"+ Hero.GetComponent<Unit>().Max_hp.ToString();
 
     }
 }

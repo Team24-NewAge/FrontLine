@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour
 
     public float[] unitper = new float[6];
     public float[] unitper_add = new float[6];
+    public enum battleState {nomal,elite,boss };
+    public battleState Battle = battleState.nomal;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
+
         Instance = this;
         unitper[0] = 0.0f;
         unitper[1] = 0.4f;
