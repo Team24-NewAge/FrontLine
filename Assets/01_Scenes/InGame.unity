@@ -1013,6 +1013,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1126539375788619833, guid: a9ff1a26e3ee73045b012e2c310535d1,
         type: 3}
+    - target: {fileID: 97920607716800371, guid: bd8dfc69c3ab63c41bf1f2f36fd6d10a,
+        type: 3}
+      propertyPath: _rebuild_Popup
+      value: 
+      objectReference: {fileID: 699780443316261116, guid: 3f823acf206bbda4cb54f00a56288f4c,
+        type: 3}
     - target: {fileID: 97920607716800374, guid: bd8dfc69c3ab63c41bf1f2f36fd6d10a,
         type: 3}
       propertyPath: m_Name

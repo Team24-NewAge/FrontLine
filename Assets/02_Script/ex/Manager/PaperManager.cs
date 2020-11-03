@@ -466,7 +466,6 @@ public class PaperManager : MonoBehaviour
                     break;
                     
                 }
-
             case "EBattlePaper":
                 {
                     GameManager.Instance.Battle = GameManager.battleState.elite;
@@ -489,7 +488,11 @@ public class PaperManager : MonoBehaviour
                     EventManager.Instance.Event();
                     break;
                 }
-                
+            case "RebuildPaper":
+                {
+                    PopupManager.Instance.ShowRebuild_Popup();
+                    break;
+                }
 
         }
 

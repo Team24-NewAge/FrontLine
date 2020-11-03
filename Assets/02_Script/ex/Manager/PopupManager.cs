@@ -16,6 +16,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private Event_Popup _event_Popup;
     [SerializeField] private UnitShop_Popup _unitshop_Popup;
     [SerializeField] private UnitBuy_Popup _unitbuy_Popup;
+    [SerializeField] private Rebuild_Popup _rebuild_Popup;
 
     public PopupBase CurrnetPopup { get; private set; }
 
@@ -93,6 +94,12 @@ public class PopupManager : MonoBehaviour
     {
         return Instantiate(_unitbuy_Popup, _canvas.transform);
     }
+
+    public Rebuild_Popup ShowRebuild_Popup()
+    {
+        return Instantiate(_rebuild_Popup, _canvas.transform);
+    }
+
     // public GetStringPopup ShowGetStringPopup()
     //{
     //return Instantiate(_getStringPopup, _canvas.transform);
