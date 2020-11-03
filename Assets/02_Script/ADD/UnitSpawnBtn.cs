@@ -25,6 +25,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
     public Text UnitDef; 
     public Text UnitA_spd;
     //텍스트
+    public Image UnitImg;//이미지
     
     private GameObject[] UnitImgStatus;//텍스트 표시를 위한 게임 오브젝트
     public void Start()
@@ -125,6 +126,12 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                     UnitAtk.text = status[i].GetComponent<Unit>().atk.ToString();
                     UnitDef.text = status[i].GetComponent<Unit>().def.ToString();
                     UnitA_spd.text = status[i].GetComponent<Unit>().a_spd.ToString();
+                    
+                    if (status[i].tag == "mercenarywarrior")
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
+                    else if (unit_tot.unit_[i].tag == "mercenaryknight")
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
+                    
                     break;
                 }  
             }  
@@ -136,6 +143,12 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                 UnitAtk.text = status[i].GetComponent<Unit>().atk.ToString();
                 UnitDef.text = status[i].GetComponent<Unit>().def.ToString();
                 UnitA_spd.text = status[i].GetComponent<Unit>().a_spd.ToString();
+                
+                if (status[i].tag == "mercenarywarrior")
+                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
+                else if (unit_tot.unit_[i].tag == "mercenaryknight")
+                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
+                
                 break;
             }  
 
