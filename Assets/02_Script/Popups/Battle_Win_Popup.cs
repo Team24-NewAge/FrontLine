@@ -20,8 +20,6 @@ public class Battle_Win_Popup : PopupBase
             case 2: win_text.text = "마물들 따위는 내게 상대도 되지 않는다네"; break;
             case 3: win_text.text = "생각보다 힘든 전투였군. 하지만 물러설수는 없다네"; break;
             case 4: win_text.text = "잡념을 버리고 적에게만 몰두하면 승리는 따라올 것이네"; break;
-
-
         }
 
     }
@@ -38,6 +36,7 @@ public class Battle_Win_Popup : PopupBase
 
     public override void HidePopup()
     {
+        SoundManager.Instance.Lobby_On();
         BarManager.Instance.gold += Clear_gold;
         BarManager.Instance._SetCoin();
         base.HidePopup();

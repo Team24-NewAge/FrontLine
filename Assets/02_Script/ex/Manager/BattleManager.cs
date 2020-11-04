@@ -10,6 +10,8 @@ public class BattleManager : MonoBehaviour
     public GameObject commandcanvas;
     public GameObject Unit;
     public GameObject[] Unit_inGame;
+
+    public AudioClip Battle_win1, Battle_win2;
     bool isBattle;
 
 
@@ -28,10 +30,12 @@ public class BattleManager : MonoBehaviour
 
         if (isBattle == true && MonsterManager.Instance.Clear_Count <= 0) 
         {
-            isBattle = false;
+            SoundManager.Instance.SE_Play(Battle_win1,3f);
+            SoundManager.Instance.BgmAudio.clip = Battle_win2;
+            SoundManager.Instance.BgmAudio.Play();
+           isBattle = false;
             Invoke("ExitBattle", 1f);
             PopupManager.Instance.ShowBattle_Win_Popup();
-        
         }
     }
 
@@ -61,7 +65,7 @@ public class BattleManager : MonoBehaviour
     public void ExitBattle() {
         CameraManager.Instance.ExitBattle();
         PaperManager.Instance.Paper_Locked_off();
-        SoundManager.Instance.Lobby_On();
+
     }
 
 

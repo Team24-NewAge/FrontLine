@@ -434,6 +434,11 @@ PrefabInstance:
       propertyPath: atkbuff
       value: 
       objectReference: {fileID: 521876001}
+    - target: {fileID: 331292792170333989, guid: 42553b24cce56754e953a04621d8538c,
+        type: 3}
+      propertyPath: Max_hp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 942572062770913542, guid: 42553b24cce56754e953a04621d8538c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2880,6 +2885,8 @@ MonoBehaviour:
   commandcanvas: {fileID: 1070873400}
   Unit: {fileID: 1595707240}
   Unit_inGame: []
+  Battle_win1: {fileID: 8300000, guid: 86a3d094471002648b9b9b87ac57b231, type: 3}
+  Battle_win2: {fileID: 8300000, guid: f4d1334fdd19515438789443633493f0, type: 3}
 --- !u!224 &1178166587 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8780315767589982032, guid: 14b030deffc381b43b9ab4862ff8d5e6,
@@ -4250,6 +4257,11 @@ PrefabInstance:
       propertyPath: NomalBattle_bgm
       value: 
       objectReference: {fileID: 8300000, guid: 1acb0e8910cd3e84482ea3f095201619, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: testsound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bcdf50d4c491e844a98baf008d72a08, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eba87df89681d1488e536ccc2bf0cd0, type: 3}
 --- !u!4 &1634915833 stripped
@@ -6010,6 +6022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Last_Click: 5
   today: 0
+  Page_click: {fileID: 8300000, guid: e5ae861ae1ba01345804c67eb404cbe6, type: 3}
   fade: {fileID: 576921129}
   Now: {r: 0, g: 0, b: 0, a: 1}
   accpet: {fileID: 391850693332812325, guid: 2dadf0d09f8258a47874679f695f541a, type: 3}
