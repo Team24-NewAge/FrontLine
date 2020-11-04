@@ -20,6 +20,9 @@ public class Unit : MonoBehaviour
     public int a_spd;
     public int m_spd; // 스텟들
 
+    public AudioClip Attack_sound;
+    public AudioClip Deadsound;
+
     public int stack=0;//여러 공격에서 사용되는 스택
     public int end_stack = -1; //쌓아야 하는 스택양
     public int stack_buff=0;//스택이후 추가되는 공격력
@@ -120,6 +123,7 @@ public class Unit : MonoBehaviour
         while (TargetUnit != null) {
             this.GetComponent<Animator>().SetBool("isAttack", true);
             int dmg;
+            SoundManager.Instance.SE_Play(Attack_sound,1f);
             dmg = BattleManager.Instance.Damage_Monster(this.gameObject, TargetUnit);
             TargetUnit.GetComponent<Monster>().hp -= dmg;
             MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);

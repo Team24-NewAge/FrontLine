@@ -49,6 +49,7 @@ public class N_Setting_Check_Popup : PopupBase
     public void OnGameStart()
     {
         SceneManager.LoadScene("InGame");
+        SoundManager.Instance.Lobby_On();
     }
 
 

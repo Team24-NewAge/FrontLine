@@ -25,7 +25,8 @@ public class Monster : MonoBehaviour
 
     public GameObject Currentlocation;
 
- 
+    public AudioClip Attack_sound;
+    public AudioClip Deadsound;
 
     public GameObject Targetlocation;
     public Tile Targettile;
@@ -153,6 +154,7 @@ public class Monster : MonoBehaviour
            // yield return new WaitForSeconds(0.35f);//공격 선딜레이후
             if (TargetUnit != null)//선딜중에 유닛이 안죽었으면
             {
+                SoundManager.Instance.SE_Play(Attack_sound, 1f);
                 int dmg;
                 dmg = BattleManager.Instance.Damage_Unit(this.gameObject, TargetUnit);
                 TargetUnit.GetComponent<Unit>().hp -= dmg;

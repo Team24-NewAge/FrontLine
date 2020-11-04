@@ -1021,11 +1021,14 @@ MonoBehaviour:
   m_spd: 0
   TargetUnit: {fileID: 0}
   Currentlocation: {fileID: 0}
+  Attack_sound: {fileID: 8300000, guid: c8fddbb229e2a4445863e1e64643478c, type: 3}
+  Deadsound: {fileID: 0}
   Targetlocation: {fileID: 0}
   Targettile: {fileID: 0}
   CurrentTile: {fileID: 0}
   animator: {fileID: 0}
   Hp_bar: {fileID: 5432848967894049227}
+  Do_Battle: 0
 --- !u!1 &8591123454352614009
 GameObject:
   m_ObjectHideFlags: 0

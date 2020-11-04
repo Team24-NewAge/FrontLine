@@ -43,7 +43,7 @@ public class test : MonoBehaviour
             unit.rage++;
         }
 
-
+        SoundManager.Instance.test();
     }
 
 

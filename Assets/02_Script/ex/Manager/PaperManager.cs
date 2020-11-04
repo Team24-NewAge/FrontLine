@@ -12,8 +12,8 @@ public class PaperManager : MonoBehaviour
     int[] ClickPaper = new int[30];//지나간 paper배열
     public int Last_Click;//마지막 클릭 값
     public int today = 0;//현재 날짜 초기화
-   
 
+    public AudioClip Page_click;
 
 
     public Image fade;
@@ -462,7 +462,9 @@ public class PaperManager : MonoBehaviour
             case "BattlePaper":
                 {
                     GameManager.Instance.Battle = GameManager.battleState.nomal;
-                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
+                    BattleManager.Instance.DoBattle(); 
+                    CameraManager.Instance.DoBattle();
+                    SoundManager.Instance.NomalBattle_On();
                     break;
                     
                 }

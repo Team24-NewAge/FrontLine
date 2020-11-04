@@ -23,7 +23,7 @@ public class TodayPaper : PaperBase
 
     public void OnClick()
     {
-
+        SoundManager.Instance.SE_Play(PaperManager.Instance.Page_click, 7f);
         accpetion =Instantiate(PaperManager.Instance.accpet,this.transform.position, Quaternion.identity);
         accpetion.transform.position += new Vector3(0, 0, 0);
         accpetion.transform.parent = PanelManager.Instance._commandPanel.transform;

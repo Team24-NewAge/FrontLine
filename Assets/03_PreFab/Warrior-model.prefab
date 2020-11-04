@@ -6812,6 +6812,8 @@ MonoBehaviour:
   def: 0
   a_spd: 0
   m_spd: 0
+  Attack_sound: {fileID: 8300000, guid: ac1cf7c02e5213349a3fbc0c0316e808, type: 3}
+  Deadsound: {fileID: 0}
   stack: 0
   end_stack: -1
   stack_buff: 0

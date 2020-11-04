@@ -61,6 +61,7 @@ public class BattleManager : MonoBehaviour
     public void ExitBattle() {
         CameraManager.Instance.ExitBattle();
         PaperManager.Instance.Paper_Locked_off();
+        SoundManager.Instance.Lobby_On();
     }
 
 
