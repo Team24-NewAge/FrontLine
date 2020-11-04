@@ -104,6 +104,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_9.Unit[1] == null)
                     {
@@ -113,6 +114,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_9.Unit[2] == null)
                     {
@@ -122,6 +124,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_9; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     
                 }//9번 타일
@@ -154,6 +157,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_8.Unit[1] == null)
                     {
@@ -164,7 +168,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
-                      
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_8.Unit[2] == null)
                     {
@@ -175,7 +179,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_8; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
-                      
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                   
                 }//8번 타일
@@ -208,6 +212,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_7; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_7.Unit[1] == null)
                     {
@@ -218,6 +223,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_7; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_7.Unit[2] == null)
                     {
@@ -228,6 +234,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_7; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                    
                 }//7번 타일
@@ -260,6 +267,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_6; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_6.Unit[1] == null)
                     {
@@ -270,6 +278,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_6; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_6.Unit[2] == null)
                     {
@@ -280,6 +289,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_6; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                 
                 }//6번 타일
@@ -312,6 +322,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_5; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_5.Unit[1] == null)
                     {
@@ -322,6 +333,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_5; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_5.Unit[2] == null)
                     {
@@ -332,6 +344,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_5; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     
                 }//5번 타일
@@ -364,6 +377,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_4; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_4.Unit[1] == null)
                     {
@@ -374,6 +388,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_4; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_4.Unit[2] == null)
                     {
@@ -384,6 +399,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_4; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                 
                 }//4번 타일
@@ -416,6 +432,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_3; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_3.Unit[1] == null)
                     {
@@ -426,6 +443,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_3; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_3.Unit[2] == null)
                     {
@@ -436,6 +454,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_3; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     
                 }//3번 타일
@@ -468,6 +487,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_2; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_2.Unit[1] == null)
                     {
@@ -478,6 +498,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_2; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_2.Unit[2] == null)
                     {
@@ -488,6 +509,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_2; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                    
                 }//2번 타일
@@ -520,6 +542,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_1; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_1.Unit[1] == null)
                     {
@@ -530,6 +553,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_1; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_1.Unit[2] == null)
                     {
@@ -540,6 +564,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_1; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                 
                 }//1번 타일
@@ -572,6 +597,7 @@ public class UnitSummon : MonoBehaviour
                         unit[0].Current_Tile = tile_0; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[0].Current_Location = tile_unit_po[0]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[0].Current_Location_number = "1"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_0.Unit[1] == null)
                     {
@@ -582,6 +608,7 @@ public class UnitSummon : MonoBehaviour
                         unit[1].Current_Tile = tile_0; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[1].Current_Location = tile_unit_po[1]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[1].Current_Location_number = "2"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                     else if (tile_0.Unit[2] == null)
                     {
@@ -592,6 +619,7 @@ public class UnitSummon : MonoBehaviour
                         unit[2].Current_Tile = tile_0; // 해당 유닛의 Current_Tile에 타일 연결
                         unit[2].Current_Location = tile_unit_po[2]; // 해당 유닛의 Current_Location에 게임 오브젝트 연결
                         unit[2].Current_Location_number = "3"; // 해당 유닛의 Current_Location_number 변경
+                        unit_[sel_btn].transform.SetParent(GameManager.Instance.Units.transform); //해당 unit의 부모를 인벤에서 Unit으로 변경
                     }
                    
                 }//0번 타일
