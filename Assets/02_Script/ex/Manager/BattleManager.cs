@@ -27,26 +27,36 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
         if (isBattle == true && MonsterManager.Instance.Clear_Count <= 0) 
         {
-            SoundManager.Instance.SE_Play(Battle_win1,3f);
-            SoundManager.Instance.BgmAudio.clip = Battle_win2;
-            SoundManager.Instance.BgmAudio.Play();
-           isBattle = false;
+            isBattle = false;
             Invoke("ExitBattle", 1f);
-            PopupManager.Instance.ShowBattle_Win_Popup();
+          
         }
     }
 
 
 
+
+
     public void DoBattle() {
+
+        Unit_Setting();
+        MonsterManager.Instance.Regen();//리젠 시작
+        isBattle = true;//전투중인지 알려주는 bool값 
+    
+    }
+
+    public void Unit_Setting()
+    {
+
         int unit_count = Unit.transform.childCount - 1;//유닛 카운트 생성
 
         Unit_inGame = new GameObject[unit_count];//유닛 배열 생성
 
-        for (int i = 0; i < unit_count; i++) {//유닛 개수만큼 반복
+        for (int i = 0; i < unit_count; i++)
+        {//유닛 개수만큼 반복
             //print(i + "갯수");
             Unit_inGame[i] = Unit.transform.GetChild(i).gameObject;//유닛 배열에 유닛할당
             Unit_inGame[i].GetComponent<Unit>().hp = Unit_inGame[i].GetComponent<Unit>().Max_hp;
@@ -55,15 +65,17 @@ public class BattleManager : MonoBehaviour
             Unit_inGame[i].GetComponent<Unit>().isbattile = false;
             //전투시작전에 영웅 제외 모든 유닛 체력 최대로 회복
         }
-
-        MonsterManager.Instance.Regen();//리젠 시작
-        isBattle = true;//전투중인지 알려주는 bool값 
-    
     }
-   
 
     public void ExitBattle() {
+
+   
+        SoundManager.Instance.SE_Play(Battle_win1, 3f);
+        SoundManager.Instance.BgmAudio.clip = Battle_win2;
+        SoundManager.Instance.BgmAudio.Play();
+        PopupManager.Instance.ShowBattle_Win_Popup();
         CameraManager.Instance.ExitBattle();
+        Unit_Setting();
         PaperManager.Instance.Paper_Locked_off();
 
     }

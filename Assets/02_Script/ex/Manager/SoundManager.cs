@@ -47,7 +47,6 @@ public class SoundManager : MonoBehaviour
     public void SE_Play(AudioClip SE, float power)
     {
         BgmAudio.PlayOneShot(SE,power);
-        print("사운드 트랙작동함");
     }
 
 

@@ -28,6 +28,8 @@ public class Monster : MonoBehaviour
     public AudioClip Attack_sound;
     public AudioClip Deadsound;
 
+    public ParticleSystem Attack_Effect;
+
     public GameObject Targetlocation;
     public Tile Targettile;
     public Tile CurrentTile;
@@ -159,10 +161,10 @@ public class Monster : MonoBehaviour
                 dmg = BattleManager.Instance.Damage_Unit(this.gameObject, TargetUnit);
                 TargetUnit.GetComponent<Unit>().hp -= dmg;
                 MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);
-
+                Attack_Effect_on();
                 //TargetUnit.GetComponent<Unit>().hp -= atk;//유닛의 체력 공격력만큼 감소
                 //print("적hp  "+TargetUnit.GetComponent<Unit>().hp);
-              
+
             }
            // else//선딜중에 적이 죽었으면
             //{
@@ -181,5 +183,11 @@ public class Monster : MonoBehaviour
         this.GetComponent<Animator>().SetBool("isAttack", false);
     }
 
+    void Attack_Effect_on()
+    {
+        Attack_Effect.transform.position = TargetUnit.transform.position + new Vector3(0, 1, 0);
+        Attack_Effect.Play();
+        print("몬스터 이펙트");
+    }
 
 }

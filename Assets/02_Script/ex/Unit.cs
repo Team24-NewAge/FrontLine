@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ public class Unit : MonoBehaviour
 
     public AudioClip Attack_sound;
     public AudioClip Deadsound;
+
+    public ParticleSystem Attack_Effect;
 
     public int stack=0;//여러 공격에서 사용되는 스택
     public int end_stack = -1; //쌓아야 하는 스택양
@@ -126,7 +129,9 @@ public class Unit : MonoBehaviour
             SoundManager.Instance.SE_Play(Attack_sound,1f);
             dmg = BattleManager.Instance.Damage_Monster(this.gameObject, TargetUnit);
             TargetUnit.GetComponent<Monster>().hp -= dmg;
+
             MonsterManager.Instance.DamageFont_produce(dmg, TargetUnit);
+            Attack_Effect_on();
 
                 stack++;
             if (UnitManager.Instance.isMons(Current_Tile) && TargetUnit == null)
@@ -162,5 +167,11 @@ public class Unit : MonoBehaviour
     {
         Current_Tile = TileManager.Instance.tiles[11];
         Current_Location = TileManager.Instance.tiles[11].tar_lo;
+    }
+
+
+    void Attack_Effect_on() {
+        Attack_Effect.transform.position = TargetUnit.transform.position+ new Vector3(0,1,0);
+        Attack_Effect.Play();
     }
 }
