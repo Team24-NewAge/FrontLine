@@ -471,7 +471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 699780443316261116}
         m_MethodName: Exitpopup_off
         m_Mode: 1
         m_Arguments:
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 699780443316261116}
         m_MethodName: HidePopup
         m_Mode: 1
         m_Arguments:
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 699780443316261116}
         m_MethodName: Exitpopup_on
         m_Mode: 1
         m_Arguments:
@@ -2832,6 +2832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77190142c22b664da99239a88ca2d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exit_popup: {fileID: 7552937920995983317}
+  fadeimage: {fileID: 8549129510096438081}
 --- !u!1 &9207482203670000517
 GameObject:
   m_ObjectHideFlags: 0

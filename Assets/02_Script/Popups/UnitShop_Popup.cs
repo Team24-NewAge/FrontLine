@@ -67,7 +67,6 @@ public class UnitShop_Popup : PopupBase
     {
         exit_popup.SetActive(false);
         fadeimage.SetActive(false);
-
     }
 
     public override void HidePopup()

@@ -9,7 +9,18 @@ public class Rebuild_Popup : PopupBase
     {
         
     }
-
+    public GameObject exit_popup;
+    public GameObject fadeimage;
+    public void Exitpopup_on()
+    {
+        exit_popup.SetActive(true);
+        fadeimage.SetActive(true);
+    }
+    public void Exitpopup_off()
+    {
+        exit_popup.SetActive(false);
+        fadeimage.SetActive(false);
+    }
 
     public override void HidePopup()
     {
