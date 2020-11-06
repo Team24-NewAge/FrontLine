@@ -27,6 +27,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
     public Image UnitImg;//이미지
     
     private GameObject[] UnitImgStatus;//텍스트 표시를 위한 게임 오브젝트
+    
     public void Start()
     {
         unit_tot = GameObject.Find("SummonUnit").GetComponent<UnitSummon>();
@@ -52,8 +53,6 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
             else if (objname == "Summonclick (" + num + ")")
                 UnitSummon.sel_btn = i;
         }
-      
-        Debug.Log(UnitSummon.sel_btn);
         
     }
 
@@ -95,6 +94,11 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
         if (btnanyclick)
         {
             this.gameObject.SetActive(false);//버튼 비활성화
+        }
+        
+        if (UnitCancelBtn.CancleCheack)
+        {
+            UnitCancelBtn.CancleCheack = false;//배치취소 비활성화
         }
         
     }

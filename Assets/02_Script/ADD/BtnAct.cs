@@ -11,7 +11,6 @@ public class BtnAct : MonoBehaviour
        
             for (int i = 0; i < UnitSummon.tot_btn; i++)
             {
-                Debug.Log(UnitSummon.tot_btn +"성공");
                 btns[i].SetActive(true);//버튼 활성화
             }
             
