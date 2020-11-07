@@ -75,4 +75,9 @@ public class UnitShop_Popup : PopupBase
         base.HidePopup();
 
     }
+
+    public void LobbyBGM_On()
+    {
+        SoundManager.Instance.Lobby_On();
+    }
 }

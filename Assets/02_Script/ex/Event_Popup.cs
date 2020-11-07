@@ -29,12 +29,10 @@ public class Event_Popup : PopupBase
         base.HidePopup();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LobbyBGM_On()
     {
-       
+        SoundManager.Instance.Lobby_On();
     }
-
     public void addEvent() {
 
         button1.onClick.AddListener(() => { EventManager.Instance.Play_the_horses_1(); });

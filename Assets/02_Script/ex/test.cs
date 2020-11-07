@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class test : MonoBehaviour
 {
+    public GameObject buff;
+
 
     void Update()
     {
@@ -35,13 +37,26 @@ public class test : MonoBehaviour
 
     public void testPotion1()
     {
-        GameObject unitList = GameObject.Find("Unit");
-        Unit[] units = unitList.gameObject.GetComponentsInChildren<Unit>();
 
-        foreach (Unit unit in units) 
+        if (BattleManager.Instance.Hero_Mana > 10)
         {
-            unit.rage++;
+            BattleManager.Instance.Hero_Mana -= 10f;
+            SoundManager.Instance.attack_buff_Play();
+
+            GameObject unitList = GameObject.Find("Unit");
+            Unit[] units = unitList.gameObject.GetComponentsInChildren<Unit>();
+
+            foreach (Unit unit in units)
+            {
+                unit.rage++;
+                GameObject buffs =  Instantiate(buff,unit.transform.position,unit.transform.rotation);
+                Destroy(buffs, 1);
+            }
+
         }
+
+
+
 
     }
 

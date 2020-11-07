@@ -14,6 +14,9 @@ public class BarManager : MonoBehaviour
     public Image hp_bar;
     public Text hp_string;
 
+    public Image mp_bar;
+    public Text mp_string;
+
     public GameObject Hero;
 
     public static BarManager Instance { get; private set; }
@@ -42,6 +45,22 @@ public class BarManager : MonoBehaviour
         float c_hp = Hero.GetComponent<Unit>().hp;
         hp_bar.fillAmount =  c_hp/full;
         hp_string.text = Hero.GetComponent<Unit>().hp.ToString()+"/"+ Hero.GetComponent<Unit>().Max_hp.ToString();
+
+        if (BattleManager.Instance.isBattle)
+        {
+            if (BattleManager.Instance.Hero_Mana < 100)
+            {
+                BattleManager.Instance.Hero_Mana += 10 * Time.deltaTime;
+            }
+            else {
+                BattleManager.Instance.Hero_Mana = 100f;
+            }
+
+
+            mp_bar.fillAmount = BattleManager.Instance.Hero_Mana / 100;
+            mp_string.text = Mathf.FloorToInt(BattleManager.Instance.Hero_Mana) + "/ 100";
+
+        }
 
     }
 }

@@ -12,8 +12,9 @@ public class BattleManager : MonoBehaviour
     public GameObject[] Unit_inGame;
 
     public AudioClip Battle_win1, Battle_win2;
-    bool isBattle;
+    public bool isBattle;
 
+    public float Hero_Mana;
 
     public void Awake()
     {
@@ -32,13 +33,8 @@ public class BattleManager : MonoBehaviour
         {
             isBattle = false;
             Invoke("ExitBattle", 1f);
-          
         }
     }
-
-
-
-
 
     public void DoBattle() {
 
@@ -69,7 +65,10 @@ public class BattleManager : MonoBehaviour
 
     public void ExitBattle() {
 
-   
+        Hero_Mana = 0f;
+        BarManager.Instance.mp_bar.fillAmount = Hero_Mana / 100;
+        BarManager.Instance.mp_string.text = Mathf.FloorToInt(Hero_Mana) + "/ 100";
+
         SoundManager.Instance.SE_Play(Battle_win1, 3f);
         SoundManager.Instance.BgmAudio.clip = Battle_win2;
         SoundManager.Instance.BgmAudio.Play();

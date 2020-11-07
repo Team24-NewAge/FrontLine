@@ -57,7 +57,10 @@ public class UnitBuy_Popup : PopupBase
 
     }
 
-
+    public void LobbyBGM_On()
+    {
+        SoundManager.Instance.Lobby_On();
+    }
 
     void RandomUnit(int num) {
         float unitpercentage = Random.Range(0f,1f);

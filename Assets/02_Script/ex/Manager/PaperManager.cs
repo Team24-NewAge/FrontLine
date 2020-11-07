@@ -471,28 +471,33 @@ public class PaperManager : MonoBehaviour
             case "EBattlePaper":
                 {
                     GameManager.Instance.Battle = GameManager.battleState.elite;
+                    SoundManager.Instance.EliteBattle_On();
                     BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
                     break;
                 }
             case "BossPaper":
                 {
                     GameManager.Instance.Battle = GameManager.battleState.boss;
+                    SoundManager.Instance.BossBattle_On();
                     BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
                     break;
                 }
             case "UShopPaper":
                 {
                     PopupManager.Instance.ShowUnitShop_Popup();
+                    SoundManager.Instance.Popup_On();
                     break;
                 }
             case "EventPaper":
                 {
                     EventManager.Instance.Event();
+                    SoundManager.Instance.Popup_On();
                     break;
                 }
             case "RebuildPaper":
                 {
                     PopupManager.Instance.ShowRebuild_Popup();
+                    SoundManager.Instance.Popup_On();
                     break;
                 }
 

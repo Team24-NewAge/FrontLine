@@ -132,7 +132,7 @@ void Potions() //포션이벤트
         btn1.gameObject.SetActive(false); // 버튼1 숨김
         btn3.gameObject.SetActive(false); //버튼 3 숨김
         btn2.onClick.RemoveAllListeners(); //버튼2의 모든 리스너 삭제
-        btn2.onClick.AddListener(() => { Destroy(_Event); }); //버튼2리스너로 창닫기 넣기
+        btn2.onClick.AddListener(() => { Destroy(_Event); SoundManager.Instance.Lobby_On();}); //버튼2리스너로 창닫기 넣기
     }
 
 

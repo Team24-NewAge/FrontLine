@@ -28,6 +28,11 @@ public class Rebuild_Popup : PopupBase
         base.HidePopup();
     }
 
+
+    public void LobbyBGM_On() {
+        SoundManager.Instance.Lobby_On();
+    }
+
     // Update is called once per frame
     void Update()
     {
