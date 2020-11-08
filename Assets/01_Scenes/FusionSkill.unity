@@ -1213,6 +1213,26 @@ PrefabInstance:
       propertyPath: Monstermanager
       value: 
       objectReference: {fileID: 1573210601}
+    - target: {fileID: 1650145601526857800, guid: cee812128261c6f42875a25aaa0cc1ea,
+        type: 3}
+      propertyPath: Skill_
+      value: 
+      objectReference: {fileID: 301981067}
+    - target: {fileID: 1650145601526857800, guid: cee812128261c6f42875a25aaa0cc1ea,
+        type: 3}
+      propertyPath: Skill_1
+      value: 
+      objectReference: {fileID: 1168970734}
+    - target: {fileID: 1650145601526857800, guid: cee812128261c6f42875a25aaa0cc1ea,
+        type: 3}
+      propertyPath: Skill_2
+      value: 
+      objectReference: {fileID: 507784251}
+    - target: {fileID: 1650145601526857800, guid: cee812128261c6f42875a25aaa0cc1ea,
+        type: 3}
+      propertyPath: Skill_3
+      value: 
+      objectReference: {fileID: 1745178325}
     - target: {fileID: 1650145603243832926, guid: cee812128261c6f42875a25aaa0cc1ea,
         type: 3}
       propertyPath: summonmanager
@@ -4298,6 +4318,11 @@ PrefabInstance:
       propertyPath: unit_.Array.data[99]
       value: 
       objectReference: {fileID: 549040140}
+    - target: {fileID: 6410268135398851357, guid: 359b574e38d57124e9a932a5202970d0,
+        type: 3}
+      propertyPath: Hero
+      value: 
+      objectReference: {fileID: 1211374199}
     - target: {fileID: 6410268135398851358, guid: 359b574e38d57124e9a932a5202970d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5980,6 +6005,11 @@ MonoBehaviour:
   Monstermanager: {fileID: 1573210601}
   btns_BG: {fileID: 549040139}
   Battle: {fileID: 2006246882}
+  Hero_info: {fileID: 73064324}
+  Skill_: {fileID: 301981067}
+  Skill_1: {fileID: 1168970734}
+  Skill_2: {fileID: 507784251}
+  Skill_3: {fileID: 1745178325}
 --- !u!1 &1845622327
 GameObject:
   m_ObjectHideFlags: 0

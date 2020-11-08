@@ -9,8 +9,40 @@ public class UIBtnsActive : MonoBehaviour
     public GameObject Monstermanager;//몬스터 매니저
     public GameObject btns_BG;//배치 UI
     public Camera Battle;//배틀카메라
+    public GameObject Hero_info;
+    public GameObject Skill_;
+    public GameObject Skill_1;
+    public GameObject Skill_2;
+    public GameObject Skill_3;
+    public static bool Nostorewave = true ;
+
+    public void Start()
+    {
+        Hero_info.SetActive(false);
+        Skill_.SetActive(false);
+        Skill_1.SetActive(false);
+        Skill_2.SetActive(false);
+        Skill_3.SetActive(false);
+    }
+
     public void Update()
     {
+        if (Battle.isActiveAndEnabled && Nostorewave)
+        {
+            Hero_info.SetActive(true);
+            Skill_.SetActive(true); 
+            //Skill_1.SetActive(true);
+            //Skill_2.SetActive(true);
+            //Skill_3.SetActive(true);
+        }
+        else
+        {
+            Hero_info.SetActive(false);
+            Skill_.SetActive(false);
+            Skill_1.SetActive(false);
+            Skill_2.SetActive(false);
+            Skill_3.SetActive(false);
+        }
 
         if (Battle.isActiveAndEnabled && !Monsterwave)//배틀 카메라가 켜져 있고 배치확인이 false일 경우
         {
@@ -21,7 +53,9 @@ public class UIBtnsActive : MonoBehaviour
         {
             Monsterwave = false;
             Monstermanager.SetActive(false);
+            Nostorewave = false;
         }
         
+
     }
 }

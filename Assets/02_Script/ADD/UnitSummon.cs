@@ -26,6 +26,7 @@ public class UnitSummon : MonoBehaviour
 
     public static int sel_btn;//선택한 버튼 번호를 통해 저장된 배열 방 번호 지정
     
+    public GameObject Hero;//하이얼아키 창 영웅 
     
     void Start() {  //각 타일 찾아서 연결
         
@@ -48,7 +49,7 @@ public class UnitSummon : MonoBehaviour
         
         warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
         knights = GameObject.FindGameObjectsWithTag("mercenaryknight");//용병검사 태그 값
-        
+        // 유닛 추가시 코드 추가할 부분
         
         for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수만큼 유닛에 전사 추가
         {
@@ -59,8 +60,9 @@ public class UnitSummon : MonoBehaviour
         {
             unit_[num] = knights[k];
         }
-        
+        // 유닛 추가시 코드 추가할 부분
         tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
+        // 유닛 추가시 코드 수정할 부분
         
         if (anypush != null)
         {
@@ -70,8 +72,7 @@ public class UnitSummon : MonoBehaviour
         {
             return;
         }
-        
-        
+
         if (Input.GetMouseButtonDown(0) && btnanycheck)//마우스 왼쪽 버튼이 눌렸고 버튼이 눌린 상태라면
         {
 
@@ -604,6 +605,8 @@ public class UnitSummon : MonoBehaviour
             }
             
         }
+        
+        Hero.transform.SetAsLastSibling();//영웅유닛 추가시 유닛 태그 값으로 변경할 예정
         
     }
     
