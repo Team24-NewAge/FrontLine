@@ -26,6 +26,7 @@ public class UnitSummon : MonoBehaviour
 
     public static int sel_btn;//선택한 버튼 번호를 통해 저장된 배열 방 번호 지정
     
+    
     void Start() {  //각 타일 찾아서 연결
         
         tile_9 = GameObject.Find("tile_9").GetComponent<Tile>();
@@ -43,7 +44,6 @@ public class UnitSummon : MonoBehaviour
 
     private void Update()
     {
-        
         int num = 0;//유닛 배열 번호
         
         warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
