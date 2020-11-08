@@ -114,10 +114,9 @@ public class Unit : MonoBehaviour
         }
     }
 
-    void Reset()
+   public void Reset()
     {
         this.transform.position = Current_Location.transform.position;
-
     }
     public IEnumerator Attack()
     {
@@ -125,6 +124,7 @@ public class Unit : MonoBehaviour
           t = 0;
         while (TargetUnit != null) {
             this.GetComponent<Animator>().SetBool("isAttack", true);
+            Invoke("Motion_off", 0.1f);
             int dmg;
             SoundManager.Instance.SE_Play(Attack_sound,1f);
             dmg = BattleManager.Instance.Damage_Monster(this.gameObject, TargetUnit);
@@ -147,7 +147,7 @@ public class Unit : MonoBehaviour
           
             t = 0;
             yield return null;
-            this.GetComponent<Animator>().SetBool("isAttack", false);
+            //this.GetComponent<Animator>().SetBool("isAttack", false);
 
 
                 yield return new WaitForSeconds(a_speed / 100.0f);
@@ -174,4 +174,29 @@ public class Unit : MonoBehaviour
         Attack_Effect.transform.position = TargetUnit.transform.position+ new Vector3(0,1,0);
         Attack_Effect.Play();
     }
+
+   public  void Skill1_Motion_on()
+    {
+        this.GetComponent<Animator>().SetBool("Skill1", true);
+        Invoke("Motion_off",0.1f);
+    }
+    public void Skill2_Motion_on()
+    {
+        this.GetComponent<Animator>().SetBool("Skill2", true);
+        Invoke("Motion_off", 0.1f);
+    }
+    public void Skill3_Motion_on()
+    {
+        this.GetComponent<Animator>().SetBool("Skill3", true);
+        Invoke("Motion_off", 0.1f);
+    }
+
+    void Motion_off()
+    {
+        this.GetComponent<Animator>().SetBool("isAttack", false);
+        this.GetComponent<Animator>().SetBool("Skill1", false);
+        this.GetComponent<Animator>().SetBool("Skill2", false);
+        this.GetComponent<Animator>().SetBool("Skill3", false);
+    }
+
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class BattleManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class BattleManager : MonoBehaviour
     public GameObject commandcanvas;
     public GameObject Unit;
     public GameObject[] Unit_inGame;
+    public GameObject Hero;
 
     public AudioClip Battle_win1, Battle_win2;
     public bool isBattle;
@@ -53,9 +53,10 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < unit_count; i++)
         {//유닛 개수만큼 반복
-            //print(i + "갯수");
+            print(i + "갯수");
             Unit_inGame[i] = Unit.transform.GetChild(i).gameObject;//유닛 배열에 유닛할당
             Unit_inGame[i].GetComponent<Unit>().hp = Unit_inGame[i].GetComponent<Unit>().Max_hp;
+            Unit_inGame[i].GetComponent<Unit>().Reset();
             Unit_inGame[i].gameObject.SetActive(true);
             Unit_inGame[i].GetComponent<Unit>().Current_Tile.GetComponent<Tile>().Unit[int.Parse(Unit_inGame[i].GetComponent<Unit>().Current_Location_number) - 1] = Unit_inGame[i];
             Unit_inGame[i].GetComponent<Unit>().isbattile = false;
@@ -80,7 +81,8 @@ public class BattleManager : MonoBehaviour
     }
 
 
-    public int Damage_Monster(GameObject UNIT, GameObject  MONSTER) {
+    public int Damage_Monster(GameObject UNIT, GameObject  MONSTER)//유닛이 몬스터 공격
+    {
         Unit unit = UNIT.GetComponent<Unit>();
         Monster monster = MONSTER.GetComponent<Monster>();
 
@@ -115,8 +117,21 @@ public class BattleManager : MonoBehaviour
 
         return damage;
     }
+    public int Damage_Skill(GameObject UNIT, GameObject MONSTER, float coefficient)//유닛이 스킬로 몬스터 공격
+    {
+        Unit unit = UNIT.GetComponent<Unit>();
+        Monster monster = MONSTER.GetComponent<Monster>();
 
-    public int Damage_Unit(GameObject Monster, GameObject Unit)
+        int damage;//초기 데미지 0
+
+        damage = Mathf.FloorToInt(unit.atk * coefficient);//유닛의 공격력
+        damage = (damage / ((100 + monster.def) / 100));//몬스터 방어력 계산
+
+        MonsterManager.Instance.DamageFont_produce(damage, MONSTER);
+        return damage;
+    }
+
+    public int Damage_Unit(GameObject Monster, GameObject Unit)//몬스터가 유닛공격
     {
   
         Monster monster = Monster.GetComponent<Monster>();

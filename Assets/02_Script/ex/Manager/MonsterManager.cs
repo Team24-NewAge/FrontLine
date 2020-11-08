@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-   
 
+    public GameObject Monsters;
     public int Clear_Count;
     public GameObject regentr;
     int[] mons_list;
@@ -71,6 +71,7 @@ public class MonsterManager : MonoBehaviour
             //리젠되는 위치와 현재위치값 할당
             mons[i].GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
             //처음 리젠되고 목적지 할당
+            mons[i].transform.SetParent(Monsters.transform);
           yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));//리젠 간격은 01~0.7초 랜덤
             
         }

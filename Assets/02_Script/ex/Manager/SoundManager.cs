@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip testsound;
 
     public AudioClip attack_buff;
+    public AudioClip HeroSkill_2;
+    public AudioClip HeroSkill_3;
 
 
     public static SoundManager Instance { get; private set; }
@@ -76,6 +78,17 @@ public class SoundManager : MonoBehaviour
     {
         BgmAudio.PlayOneShot(attack_buff, 5);
     }
+
+    public void Hero_Warrior_Skill(int skill)
+    {
+        switch (skill)
+        {
+            case 2: BgmAudio.PlayOneShot(HeroSkill_2, 5); break;
+            case 3: BgmAudio.PlayOneShot(HeroSkill_3, 5); break;
+
+        } 
+    }
+
 
     public void test()
     {
