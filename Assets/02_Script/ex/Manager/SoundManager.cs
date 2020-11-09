@@ -19,6 +19,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip HeroSkill_2;
     public AudioClip HeroSkill_3;
     public AudioClip Heal_buff;
+
+    public AudioClip traning_debuff;
+    public AudioClip traning_buff;
+    public AudioClip traning_perfect;
+
     public static SoundManager Instance { get; private set; }
    
 
@@ -92,6 +97,16 @@ public class SoundManager : MonoBehaviour
         } 
     }
 
+    public void traning(int result)
+    {
+        switch (result)
+        {
+            case 0: BgmAudio.PlayOneShot(traning_debuff, 5); break;
+            case 1: BgmAudio.PlayOneShot(traning_buff, 5); break;
+            case 2: BgmAudio.PlayOneShot(traning_perfect, 5); break;
+
+        }
+    }
 
     public void test()
     {

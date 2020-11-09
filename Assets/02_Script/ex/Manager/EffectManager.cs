@@ -9,6 +9,9 @@ public class EffectManager : MonoBehaviour
 
 
     public GameObject Healeffect;
+    public GameObject traning_debuff;
+    public GameObject traning_buff;
+    public GameObject traning_perfect;
 
     private void Awake()
     {

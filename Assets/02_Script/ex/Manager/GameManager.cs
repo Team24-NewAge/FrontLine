@@ -13,14 +13,17 @@ public class GameManager : MonoBehaviour
 
     public float[] unitper = new float[6];
     public float[] unitper_add = new float[6];
+
+    public float[] Hero_traning_per = new float[3];
+    public float[] Hero_traning_add = new float[3];
     public enum battleState {nomal,elite,boss };
     public battleState Battle = battleState.nomal;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
-
         Instance = this;
+        ////////////////////////////////////
         unitper[0] = 0.0f;
         unitper[1] = 0.4f;
         unitper[2] = 0.3f;
@@ -34,6 +37,20 @@ public class GameManager : MonoBehaviour
 
             unitper_add[i+1] = unitper_add[i] + unitper[i+1];
         }
+        ///////////////////////////////////
+        Hero_traning_per[0] = 0.3f;
+        Hero_traning_per[1] = 0.5f;
+        Hero_traning_per[2] = 0.2f;
+
+        Hero_traning_add[0] = Hero_traning_per[0];
+
+        for (int i = 0; i < (Hero_traning_add.Length) - 1; i++)
+        {
+
+            Hero_traning_add[i + 1] = Hero_traning_add[i] + Hero_traning_per[i + 1];
+        }
+
+
     }
 
 
