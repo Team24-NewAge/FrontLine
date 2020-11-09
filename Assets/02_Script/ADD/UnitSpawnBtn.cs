@@ -12,7 +12,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
     public bool btnanycheck = false;
     public bool btnanyclick = false;
     public Image unit_face;
-    public GameObject summonmanager;
+    private GameObject summonmanager;
     public Image overimg;
     private UnitSummon unit_tot;//유닛 배열을 받아오기 위함
     private String objname;//현재 클릭한 버튼 이름
@@ -27,11 +27,16 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
     public Image UnitImg;//이미지
     
     private GameObject[] UnitImgStatus;//텍스트 표시를 위한 게임 오브젝트
-    
+
+    private void Awake()
+    {
+        summonmanager = GameObject.Find("SummonUnit");
+    }
+
     public void Start()
     {
         unit_tot = GameObject.Find("SummonUnit").GetComponent<UnitSummon>();
-        UnitImgStatus = unit_tot.unit_;
+        UnitImgStatus = unit_tot.unit_;           
         objimg = gameObject.name;
     }
 

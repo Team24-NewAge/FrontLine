@@ -8,9 +8,9 @@ using UnityEngine.EventSystems;
 public class UnitCancelBtn : MonoBehaviour
 {
     
-    public GameObject summonmanager; 
-    public GameObject inven; // 인벤토리
-    public GameObject TargetLocation; //인벤토리 유닛 위치
+    private GameObject summonmanager; 
+    private GameObject inven; // 인벤토리
+    private GameObject TargetLocation; //인벤토리 유닛 위치
     private Tile 
         tile_9, tile_8, tile_7, tile_6, tile_5,
         tile_4, tile_3, tile_2, tile_1, tile_0; //각 타일 타입 변수
@@ -18,7 +18,14 @@ public class UnitCancelBtn : MonoBehaviour
     public GameObject [] btns = new GameObject [100];
     
     public static bool CancleCheack = false;
-    
+
+    void Awake()
+    {
+        summonmanager = GameObject.Find("SummonUnit");
+        inven = GameObject.Find("tile_inventory");
+        TargetLocation = inven.transform.GetChild(0).gameObject;
+    }
+
     void Start() {  //각 타일 찾아서 연결
         
         tile_9 = GameObject.Find("tile_9").GetComponent<Tile>();
@@ -31,7 +38,7 @@ public class UnitCancelBtn : MonoBehaviour
         tile_2 = GameObject.Find("tile_2").GetComponent<Tile>();
         tile_1 = GameObject.Find("tile_1").GetComponent<Tile>();
         tile_0 = GameObject.Find("tile_0").GetComponent<Tile>();
-        
+      
     }
     
 

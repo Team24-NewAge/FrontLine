@@ -6,23 +6,22 @@ using UnityEngine;
 
 public class Successlocationbtn : MonoBehaviour
 {
-    public GameObject Summon;
-    public GameObject Hero_info;
-    public GameObject Skill_;
-    public GameObject Skill_1;
-    public GameObject Skill_2;
-    public GameObject Skill_3;
-    public GameObject Monstermanager;
-    
+    private GameObject Summon;
+    private GameObject Hero_info;
+    private GameObject Monstermanager;
+
+    void Awake()
+    {
+        Summon = GameObject.Find("SummonImageBG");
+        Hero_info = GameObject.Find("MainCanvas").transform.Find("Hero_info").gameObject;
+        Monstermanager = GameObject.Find("Manager").transform.Find("MonsterManager").gameObject;
+    }
+
     public void OnButtonClick()
     {
         Summon.SetActive(false);
         Hero_info.SetActive(true);
-        Monstermanager.SetActive(true); 
-        Skill_.SetActive(true);
-        //Skill_1.SetActive(true);
-        //Skill_2.SetActive(true);
-        //Skill_3.SetActive(true);
+        Monstermanager.SetActive(true);
         Monstermanager.GetComponent<MonsterManager>().Regen();//MonsterManager 스크립트의 Regen문 실행
         UIBtnsActive.Monsterwave = true;
         UIBtnsActive.Nostorewave = true;

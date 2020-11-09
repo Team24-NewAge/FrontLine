@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UnitSummon : MonoBehaviour
 {
-    public Camera camera;
+    private GameObject camera;
     private Ray ray;
     RaycastHit hit;
     
@@ -16,7 +16,7 @@ public class UnitSummon : MonoBehaviour
     GameObject [] warriors;//용병전사용 배열
     GameObject[] knights;//용병검사용 배열
 
-    public GameObject[] unit_ = new GameObject[100];
+    public GameObject[] unit_ = new GameObject[100];//유닛들
     public GameObject anypush = null;//타일이 눌렸는지, 버튼이 눌렸는지 확인할 게임오브젝트
     public GameObject tile_po;//RayCast에서 콜라이더를 가져오기 위한 변수
     
@@ -26,8 +26,14 @@ public class UnitSummon : MonoBehaviour
 
     public static int sel_btn;//선택한 버튼 번호를 통해 저장된 배열 방 번호 지정
     
-    public GameObject Hero;//하이얼아키 창 영웅 
-    
+    private GameObject Hero;//하이얼아키 창 영웅 
+
+    void Awake()
+    {
+        Hero = GameObject.Find("Unit").transform.Find("Hero_Warrior").gameObject;
+        camera = GameObject.Find("Cameras").transform.Find("Battle Camera").gameObject;
+    }
+
     void Start() {  //각 타일 찾아서 연결
         
         tile_9 = GameObject.Find("tile_9").GetComponent<Tile>();
@@ -40,7 +46,7 @@ public class UnitSummon : MonoBehaviour
         tile_2 = GameObject.Find("tile_2").GetComponent<Tile>();
         tile_1 = GameObject.Find("tile_1").GetComponent<Tile>();
         tile_0 = GameObject.Find("tile_0").GetComponent<Tile>();
-        
+
     }
 
     private void Update()
@@ -76,7 +82,7 @@ public class UnitSummon : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && btnanycheck)//마우스 왼쪽 버튼이 눌렸고 버튼이 눌린 상태라면
         {
 
-            ray = camera.ScreenPointToRay(Input.mousePosition);
+            ray = camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out hit/*맞은 대상의 정보를 가져옴*/, 100f))//Ray 발사
             {
