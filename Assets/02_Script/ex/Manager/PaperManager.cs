@@ -441,10 +441,10 @@ public class PaperManager : MonoBehaviour
 
         }
         Paper_action(tag);
-
+        BarManager.Instance.Update_Pray();
         yield return null;
 
-        if (curT > 1)
+        if (curT >= 1)
         {
             yield return new WaitForSeconds(0.2F);
             fade.color = new Color(0, 0, 0, 0);

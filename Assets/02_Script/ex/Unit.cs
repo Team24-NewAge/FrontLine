@@ -199,8 +199,6 @@ public class Unit : MonoBehaviour
         this.GetComponent<Animator>().SetBool("Skill3", false);
     }
 
-
-
     public void Heal_Unit(int heal)
     {
         if (heal >= (Max_hp - hp))//힐량이 최대hp보다 높게 힐될경우
@@ -213,4 +211,14 @@ public class Unit : MonoBehaviour
         }
     }
 
+
+    public void Disenchant() 
+    {
+    stack = 0;//여러 공격에서 사용되는 스택
+    end_stack = -1; //쌓아야 하는 스택양
+    stack_buff = 0;//스택이후 추가되는 공격력
+
+    rage = 0; //격노 스택
+    Berserk = false; //상시 격노상태 유무
+}
 }

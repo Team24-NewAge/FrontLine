@@ -54,21 +54,26 @@ public class BattleManager : MonoBehaviour
     public void Unit_Setting()
     {
 
-        int unit_count = Unit.transform.childCount - 1;//유닛 카운트 생성
+        int unit_count = Unit.transform.childCount;//유닛 카운트 생성
 
         Unit_inGame = new GameObject[unit_count];//유닛 배열 생성
 
-        for (int i = 0; i < unit_count; i++)
+        for (int i = 0; i < unit_count-1; i++)
         {//유닛 개수만큼 반복
-            print(i + "갯수");
+            
             Unit_inGame[i] = Unit.transform.GetChild(i).gameObject;//유닛 배열에 유닛할당
+            print(Unit_inGame[i].name);
             Unit_inGame[i].GetComponent<Unit>().hp = Unit_inGame[i].GetComponent<Unit>().Max_hp;
             Unit_inGame[i].GetComponent<Unit>().Reset();
             Unit_inGame[i].gameObject.SetActive(true);
             Unit_inGame[i].GetComponent<Unit>().Current_Tile.GetComponent<Tile>().Unit[int.Parse(Unit_inGame[i].GetComponent<Unit>().Current_Location_number) - 1] = Unit_inGame[i];
+            Unit_inGame[i].GetComponent<Unit>().Disenchant();
             Unit_inGame[i].GetComponent<Unit>().isbattile = false;
             //전투시작전에 영웅 제외 모든 유닛 체력 최대로 회복
         }
+        Unit_inGame[unit_count-1] = Unit.transform.GetChild(unit_count-1).gameObject;
+        print(Unit_inGame[unit_count - 1].name);
+        Unit_inGame[unit_count-1].GetComponent<Unit>().Disenchant();
     }
 
     public void Skill_Setting()
@@ -131,6 +136,10 @@ public class BattleManager : MonoBehaviour
             damage = Mathf.RoundToInt(damage * unit.stack_buff);
             print("스택 폭발! " + damage + "의 피해!");
         }
+        //공격력의 축복을 받고있나
+        if (BarManager.Instance.pray_code == 1) {
+            damage = Mathf.RoundToInt(damage * (1+(BarManager.Instance.pray_power/100f)));
+        }
 
 
         return damage;
@@ -145,19 +154,29 @@ public class BattleManager : MonoBehaviour
         damage = Mathf.FloorToInt(unit.atk * coefficient);//유닛의 공격력
         damage = (damage / ((100 + monster.def) / 100));//몬스터 방어력 계산
 
+        if (BarManager.Instance.pray_code == 1)
+        {
+            damage = Mathf.RoundToInt(damage * (1 + (BarManager.Instance.pray_power / 100f)));
+        }
+
+
         MonsterManager.Instance.DamageFont_produce(damage, MONSTER);
         return damage;
     }
 
     public int Damage_Unit(GameObject Monster, GameObject Unit)//몬스터가 유닛공격
     {
-  
+
         Monster monster = Monster.GetComponent<Monster>();
         Unit unit = Unit.GetComponent<Unit>();
+        int def = unit.def;
         int damage;//초기 데미지 0
-
+        if (BarManager.Instance.pray_code == 3)
+        {
+          def += BarManager.Instance.pray_power;
+        }
         damage = monster.atk;//유닛의 공격력
-        damage = (damage / ((100 + unit.def) / 100));//몬스터 방어력 계산
+        damage = (damage / ((100 + def) / 100));//몬스터 방어력 계산
 
 
         return damage;

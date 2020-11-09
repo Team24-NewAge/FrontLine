@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -99,15 +100,68 @@ public class Rebuild_Popup : PopupBase
         }
 
         BarManager.Instance.Hero.GetComponent<Unit>().Heal_Unit(tr_hp);
-
      
         CameraManager.Instance.ResultCam_on();
-
-       
 
         Destroy(gameObject);
         Destroy(training_effect, 5f);
     }
 
+
+    public void Pray()
+    {
+
+        CameraManager.Instance.ResultCam_on();
+        Rebuild_result_Popup praypop = PopupManager.Instance.ShowRebuild_Result_Popup();
+
+        int pray_code = Random.Range(1, 4);
+        int pray_turn = Random.Range(3, 31);
+        int pray_power;
+        switch (pray_code) 
+        {
+            case 1:
+                pray_power = Random.Range(1, 101);
+                praypop.SetText("전쟁신의 축복", "신이 전쟁의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 아군의 공격력이 " + pray_power +"% 증가합니다.");
+                pray_setting(pray_code, pray_turn, pray_power);
+                BarManager.Instance.pray_string.text = "공격력 "+ pray_turn+"일 간 "+ pray_power+"% 증가";
+                break;
+            case 2:
+                pray_power = Random.Range(1, 101);
+                praypop.SetText("풍요신의 축복", "신이 풍요의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 영웅의 마나재생이 " + pray_power + "% 증가합니다.");
+                pray_setting(pray_code, pray_turn, pray_power);
+                BarManager.Instance.pray_string.text = "마나재생 " + pray_turn + "일 간 " + pray_power + "% 증가";
+                break;
+            case 3:
+                pray_power = Random.Range(1, 101);
+                praypop.SetText("수호신의 축복", "신이 수호의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 아군의 방어력이 " + pray_power + "만큼 증가합니다.");
+                pray_setting(pray_code, pray_turn, pray_power);
+                BarManager.Instance.pray_string.text = "방어력 " + pray_turn + "일 간 " + pray_power + "증가";
+                break;
+        }
+        GameObject pray_effect = Instantiate(EffectManager.Instance.pray, BarManager.Instance.Hero.transform.position + new Vector3(0,3,0), Quaternion.Euler(0,0,0));
+        SoundManager.Instance.pray_Play();
+        Destroy(gameObject);
+        Destroy(pray_effect, 5f);
+    }
+
+
+    void pray_setting(int code, int turn, int power)
+    {
+        BarManager.Instance.pray_code = code;
+        BarManager.Instance.pray_turn = turn;
+        BarManager.Instance.pray_power = power;
+        switch (code)
+        {
+            case 1:
+                BarManager.Instance.pray_color.color = Color.red;
+                break;
+            case 2:
+                BarManager.Instance.pray_color.color = Color.blue;
+                break;
+            case 3:
+                BarManager.Instance.pray_color.color = Color.yellow;
+                break;
+        }
+    }
 
 }

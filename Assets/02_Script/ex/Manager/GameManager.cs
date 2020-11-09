@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int UnitFusionStack = 0;
     public int UnitReinForceStack=0;
 
+
     public GameObject inventory;
     public GameObject Units;
 
@@ -64,4 +65,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
+
 }

@@ -1377,6 +1377,11 @@ MonoBehaviour:
   hp_string: {fileID: 869822041}
   mp_bar: {fileID: 932789061}
   mp_string: {fileID: 2067766106}
+  pray_color: {fileID: 635275512}
+  pray_code: 0
+  pray_turn: 0
+  pray_power: 0
+  pray_string: {fileID: 1100256959}
   Hero: {fileID: 379616651}
 --- !u!4 &547204648
 Transform:
@@ -1685,6 +1690,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609187348}
   m_CullTransparentMesh: 0
+--- !u!114 &635275512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8780315767911390354, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2048101018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &770323323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2357,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1720021777}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100256959 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8780315768193256333, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2048101018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168970734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,6 +3824,7 @@ MonoBehaviour:
     type: 3}
   traning_perfect: {fileID: 1758517370114167886, guid: 9d47feab469a41c42bd21cf236fee576,
     type: 3}
+  pray: {fileID: 6135277683555150938, guid: cc7da83be7f2edb448f2fac3813773b5, type: 3}
 --- !u!1 &1573210601
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,6 +4071,11 @@ PrefabInstance:
       propertyPath: traning_perfect
       value: 
       objectReference: {fileID: 8300000, guid: 58ccc730e06843547b191918157920f7, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: pray
+      value: 
+      objectReference: {fileID: 8300000, guid: de8222a5918076040b1e8408d455f795, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eba87df89681d1488e536ccc2bf0cd0, type: 3}
 --- !u!4 &1634915833 stripped
@@ -4133,7 +4168,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651924557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000022077}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2004803387}
@@ -4142,8 +4177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 311, y: -200.1}
-  m_SizeDelta: {x: 500, y: 300}
+  m_AnchoredPosition: {x: 561, y: 218}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651924559
 MonoBehaviour:
@@ -5625,6 +5660,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 8780315767911390354, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780315767911390354, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780315767911390354, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8780315767911390381, guid: 14b030deffc381b43b9ab4862ff8d5e6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5639,6 +5689,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780315768193256333, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_Text
+      value: "\uD604\uC7AC \uC544\uBB34\uB7F0 \uCD95\uBCF5\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780315768193256335, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 206
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780315768193256335, guid: 14b030deffc381b43b9ab4862ff8d5e6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 425.9
       objectReference: {fileID: 0}
     - target: {fileID: 8780315768834385180, guid: 14b030deffc381b43b9ab4862ff8d5e6,
         type: 3}

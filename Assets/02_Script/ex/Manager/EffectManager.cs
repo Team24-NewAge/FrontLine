@@ -12,7 +12,7 @@ public class EffectManager : MonoBehaviour
     public GameObject traning_debuff;
     public GameObject traning_buff;
     public GameObject traning_perfect;
-
+    public GameObject pray;
     private void Awake()
     {
         Instance = this;

@@ -24,6 +24,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip traning_buff;
     public AudioClip traning_perfect;
 
+    public AudioClip pray;
+
     public static SoundManager Instance { get; private set; }
    
 
@@ -85,6 +87,11 @@ public class SoundManager : MonoBehaviour
     public void Heal_buff_Play()
     {
         BgmAudio.PlayOneShot(Heal_buff, 5);
+    }
+
+    public void pray_Play()
+    {
+        BgmAudio.PlayOneShot(pray, 5);
     }
 
     public void Hero_Warrior_Skill(int skill)
