@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
 
     public Camera Maincam;
     public Camera Battlecam;
+    public Camera Resultcam;
 
 
     public static CameraManager Instance { get; private set; }
@@ -18,14 +19,24 @@ public class CameraManager : MonoBehaviour
 
 
 
-    public void DoBattle() {
+    public void BattleCam_on()
+    {
         Maincam.gameObject.SetActive(false);
+        Resultcam.gameObject.SetActive(false);
         Battlecam.gameObject.SetActive(true);
     }
 
-    public void ExitBattle() {
+    public void MainCam_on()
+    {
         Maincam.gameObject.SetActive(true);
+        Resultcam.gameObject.SetActive(false);
         Battlecam.gameObject.SetActive(false);
     }
-
+    public void ResultCam_on()
+    {
+        Maincam.gameObject.SetActive(false);
+        Resultcam.gameObject.SetActive(true);
+        Battlecam.gameObject.SetActive(false);
+    }
 }
+

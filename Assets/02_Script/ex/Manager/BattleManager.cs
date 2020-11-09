@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BattleManager : MonoBehaviour
     public GameObject Unit;
     public GameObject[] Unit_inGame;
     public GameObject Hero;
+
+    public Button[] Skills = new Button[3];
 
     public AudioClip Battle_win1, Battle_win2;
     public bool isBattle;
@@ -41,7 +44,11 @@ public class BattleManager : MonoBehaviour
         Unit_Setting();
         MonsterManager.Instance.Regen();//리젠 시작
         isBattle = true;//전투중인지 알려주는 bool값 
-    
+
+        foreach (Button btn in Skills) //스킬버튼 활성화
+        {
+            btn.gameObject.SetActive(true);
+        }
     }
 
     public void Unit_Setting()
@@ -64,6 +71,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    public void Skill_Setting()
+    {
+
+    }
+
+
     public void ExitBattle() {
 
         Hero_Mana = 0f;
@@ -74,9 +87,14 @@ public class BattleManager : MonoBehaviour
         SoundManager.Instance.BgmAudio.clip = Battle_win2;
         SoundManager.Instance.BgmAudio.Play();
         PopupManager.Instance.ShowBattle_Win_Popup();
-        CameraManager.Instance.ExitBattle();
+        CameraManager.Instance.MainCam_on();
         Unit_Setting();
         PaperManager.Instance.Paper_Locked_off();
+        foreach (Button btn in Skills) //스킬버튼 비활성화
+        {
+            btn.gameObject.SetActive(false);
+        }
+
 
     }
 

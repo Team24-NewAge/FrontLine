@@ -22,17 +22,7 @@ public class test : MonoBehaviour
 
    public void testimage()
     {
-        int digit = (int)Mathf.Floor(Mathf.Log10(58412)) + 1;
-
-        for (int i = 0; i < digit; i++)
-        {
-            int num = (58412 / (int)Mathf.Pow(10, i)) % 10;
-            print(num);
-        }
-
-        print("클릭작동");
-        // EventManager.Instance.Event();
-        PopupManager.Instance.ShowUnitShop_Popup();
+        PopupManager.Instance.ShowRebuild_Popup();
     }
 
 

@@ -199,4 +199,18 @@ public class Unit : MonoBehaviour
         this.GetComponent<Animator>().SetBool("Skill3", false);
     }
 
+
+
+    public void Heal_Unit(int heal)
+    {
+        if (heal >= (Max_hp - hp))//힐량이 최대hp보다 높게 힐될경우
+        {
+            hp = Max_hp;
+        }
+        else {
+
+            hp += heal;
+        }
+    }
+
 }

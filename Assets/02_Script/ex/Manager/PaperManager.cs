@@ -463,7 +463,7 @@ public class PaperManager : MonoBehaviour
                 {
                     GameManager.Instance.Battle = GameManager.battleState.nomal;
                     BattleManager.Instance.DoBattle(); 
-                    CameraManager.Instance.DoBattle();
+                    CameraManager.Instance.BattleCam_on();
                     SoundManager.Instance.NomalBattle_On();
                     break;
                     
@@ -472,14 +472,14 @@ public class PaperManager : MonoBehaviour
                 {
                     GameManager.Instance.Battle = GameManager.battleState.elite;
                     SoundManager.Instance.EliteBattle_On();
-                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
+                    BattleManager.Instance.DoBattle(); CameraManager.Instance.BattleCam_on();
                     break;
                 }
             case "BossPaper":
                 {
                     GameManager.Instance.Battle = GameManager.battleState.boss;
                     SoundManager.Instance.BossBattle_On();
-                    BattleManager.Instance.DoBattle(); CameraManager.Instance.DoBattle();
+                    BattleManager.Instance.DoBattle(); CameraManager.Instance.BattleCam_on();
                     break;
                 }
             case "UShopPaper":
