@@ -30,9 +30,6 @@ public class PaperManager : MonoBehaviour
     GameObject[] TTomorrowPaper = new GameObject[7];
 
     public GameObject[] Papers = new GameObject[8];
-    
-
-
 
     public static PaperManager Instance { get; private set; }
 
