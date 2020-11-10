@@ -5,6 +5,7 @@ public class PopupManager : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private OptionPopup _optionPopup;
+    [SerializeField] private OptionPopup _optionPopup_ingame;
     [SerializeField] private ModeSelectPopup _gamemodeselectPopup;
     [SerializeField] private N_Select_Hero_Popup _select_hero_Popup;
     [SerializeField] private N_Select_Pick_Popup _select_pick_Popup;
@@ -12,6 +13,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private N_Select_Inherit_Popup _select_Inherit_Popup;
     [SerializeField] private Difficulty_Select_Popup _difficulty_Select_Popup;
     [SerializeField] private N_Setting_Check_Popup _setting_check_Popup;
+    [SerializeField] private Checkpaper_Popup _checkpaper_Popup;
     [SerializeField] private Battle_Win_Popup _battle_win_Popup;
     [SerializeField] private Event_Popup _event_Popup;
     [SerializeField] private UnitShop_Popup _unitshop_Popup;
@@ -40,6 +42,14 @@ public class PopupManager : MonoBehaviour
         return newPopup;
     }
 
+    public OptionPopup ShowOptionPopup_ingame()
+    {
+        var newPopup = Instantiate(_optionPopup_ingame, _canvas.transform);
+
+        CurrnetPopup = newPopup;
+
+        return newPopup;
+    }
     public ModeSelectPopup ShowGameModeSelectPopup()
     {
         return Instantiate(_gamemodeselectPopup, _canvas.transform);
@@ -74,6 +84,12 @@ public class PopupManager : MonoBehaviour
     {
         return Instantiate(_setting_check_Popup, _canvas.transform);
     }
+
+    public Checkpaper_Popup ShowCheckpaper_Popup()
+    {
+        return Instantiate(_checkpaper_Popup, _canvas.transform);
+    }
+
 
     public Battle_Win_Popup ShowBattle_Win_Popup()
     {

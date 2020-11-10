@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PaperManager : MonoBehaviour
 {
-    int[,] MonthPapers = new int[30, 11];//한달 paper배열 생성
+    public int[,] MonthPapers = new int[30, 11];//한달 paper배열 생성
     int[] ClickPaper = new int[30];//지나간 paper배열
     public int Last_Click;//마지막 클릭 값
     public int today = 0;//현재 날짜 초기화
@@ -511,16 +511,49 @@ public class PaperManager : MonoBehaviour
 
     }
     public void Paper_Locked() {
-        TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
-        TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
-        TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
+        if (Last_Click == 0)
+        {
+
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
+            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
+
+        }
+        else if (Last_Click == 10)
+        {
+            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
+        }
+        else
+        {
+            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = false;
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = false;
+            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = false;
+        }
+            
+      
 
     }
 
     public void Paper_Locked_off() {
-       TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = true;
-       TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
-       TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = true;
+        if (Last_Click == 0)
+        {
+
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
+            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = true;
+
+        }
+        else if (Last_Click == 10)
+        {
+            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = true;
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
+        }
+        else
+        {
+            TodayPaper[0].GetComponentInChildren<EventTrigger>().enabled = true;
+            TodayPaper[1].GetComponentInChildren<EventTrigger>().enabled = true;
+            TodayPaper[2].GetComponentInChildren<EventTrigger>().enabled = true;
+        }
+
     }
 
 }

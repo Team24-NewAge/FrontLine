@@ -313,8 +313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC9C0\uAD6C\uB825 \uD6C8\uB828\uC744 \uB9E1\uAE34\uB2E4\n[\uC720\uB2DB
-    \uD558\uB098\uC758 \uCCB4\uB825 \uC99D\uAC00]"
+  m_Text: "\uC800 \uD770\uB9D0\uC774 \uC798 \uB2EC\uB9AC\uAC8C \uC0DD\uACBC\uB294\uAC78\n[\uACE8\uB4DC:500\uC18C\uBAA8]"
 --- !u!114 &965290102541020717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +406,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uADFC\uB825 \uD6C8\uB828\uC744 \uB9E1\uAE34\uB2E4\n[\uC720\uB2DB \uD558\uB098\uC758
-    \uACF5\uACA9\uB825 \uC99D\uAC00]"
+  m_Text: "\uC800\uAE30 \uAC80\uC740\uB9D0\uC5D0 \uAC78\uC5B4\uBCFC\uAE4C\n[\uACE8\uB4DC:250\uC18C\uBAA8]"
 --- !u!114 &3686219633154416954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,8 +1133,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB300\uCC98 \uD6C8\uB828\uC744 \uB9E1\uAE34\uB2E4\n[\uC720\uB2DB \uD558\uB098\uC758
-    \uBC29\uC5B4\uB825 \uC99D\uAC00]"
+  m_Text: "\uC2DC\uAC04\uB0AD\uBE44\uC57C. \uB3CC\uC544\uAC00\uC790\n[\uC774\uBCA4\uD2B8
+    \uD3EC\uAE30]"
 --- !u!114 &8714713285295334337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,9 +1419,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC18C\uBB38\uB09C \uD6C8\uB828\uAD50\uAD00\uC774 \uC81C\uC548\uC744 \uD588\uB2E4.\n'\uB098\uC5D0\uAC8C
-    \uD6C8\uB828\uC744 \uB9E1\uACA8\uC900\uB2E4\uBA74 \uD6A8\uACFC\uB294 \uBCF4\uC7A5\uD574
-    \uB4DC\uB9AC\uC9C0'"
+  m_Text: "\uB9C8\uC744\uC5D0\uC11C \uD55C\uCC3D \uACBD\uB9C8\uACBD\uC8FC\uAC00 \uC5F4\uB9AC\uACE0
+    \uC788\uB2E4. \uC2EC\uC2EC\uD480\uC774 \uC0BC\uC544 \uD55C\uBC88 \uAC78\uC5B4\uBCFC\uAE4C? "
 --- !u!114 &3807445453416465206
 MonoBehaviour:
   m_ObjectHideFlags: 0
