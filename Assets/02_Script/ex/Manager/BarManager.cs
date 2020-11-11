@@ -30,7 +30,8 @@ public class BarManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        date_text.text = "D + " + date;
+        _SetDate();
+        _SetCoin();
 
     }
 

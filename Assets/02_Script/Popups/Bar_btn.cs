@@ -16,7 +16,8 @@ public class Bar_btn : MonoBehaviour
     public void Show_InVentory()
     {
         InventoryManager.Instance.Open_Inventory();
-            }
+           
+    }
 
     public void Placement_Check() {
 

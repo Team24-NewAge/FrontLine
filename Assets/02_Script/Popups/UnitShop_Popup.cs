@@ -11,8 +11,14 @@ public class UnitShop_Popup : PopupBase
     public Text fusiongold;
     public Text reinforcegold;
 
+    public Button buy, fusion, reinforce;
+
     public GameObject exit_popup;
     public GameObject fadeimage;
+
+    int buygold_num;
+    int fusiongold_num;
+    int reinforcegold_num;
     public void Awake()
     {
 
@@ -22,9 +28,29 @@ public class UnitShop_Popup : PopupBase
     // Start is called before the first frame update
     void Start()
     {
-        buygold.text = (200 + (GameManager.Instance.UnitBuyStack * 20)).ToString();
-        fusiongold.text = (200 + (GameManager.Instance.UnitFusionStack * 20)).ToString();
-        reinforcegold.text = (200 + (GameManager.Instance.UnitReinForceStack * 20)).ToString();
+        buygold_num = (100 + (GameManager.Instance.UnitBuyStack * 20));
+        fusiongold_num = (100 + (GameManager.Instance.UnitFusionStack * 20));
+        reinforcegold_num = (100 + (GameManager.Instance.UnitReinForceStack * 20));
+
+        buygold.text = buygold_num.ToString();
+        fusiongold.text = fusiongold_num.ToString();
+        reinforcegold.text = reinforcegold_num.ToString();
+
+
+        if (BarManager.Instance.gold < buygold_num) {
+
+            buy.interactable = false;
+        }
+        if (BarManager.Instance.gold < fusiongold_num)
+        {
+
+            fusion.interactable = false;
+        }
+        if (BarManager.Instance.gold < reinforcegold_num)
+        {
+
+            reinforce.interactable = false;
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +64,10 @@ public class UnitShop_Popup : PopupBase
 
     public void UnitBuy() {
 
+        BarManager.Instance.gold -= buygold_num;
+        BarManager.Instance._SetCoin();
+
+
         PopupManager.Instance.ShowUnitBuy_Popup();
         HidePopup();
 
@@ -46,16 +76,26 @@ public class UnitShop_Popup : PopupBase
 
     public void UnitFusion()
     {
+        BarManager.Instance.gold -= fusiongold_num;
+        BarManager.Instance._SetCoin();
 
-
-
+        GameManager.Instance.UnitFusionStack++;
+        HidePopup();
+        PopupManager.Instance.ShowUnitShop_Popup();
+        InventoryManager.Instance.Open_Fusion();
+        
     }
 
     public void UnitReinforce()
     {
+        BarManager.Instance.gold -= reinforcegold_num;
+        BarManager.Instance._SetCoin();
 
-
-
+        GameManager.Instance.UnitReinForceStack++;
+        HidePopup();
+        PopupManager.Instance.ShowUnitShop_Popup();
+        InventoryManager.Instance.Open_Reinforce();
+       
     }
 
     public void Exitpopup_on()

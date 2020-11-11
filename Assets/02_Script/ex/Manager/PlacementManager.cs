@@ -13,12 +13,16 @@ public class PlacementManager : MonoBehaviour
     public GameObject Hero_info; //영웅 체력바
     public GameObject Skill1, Skill2, Skill3;// 영웅 스킬들
 
+
+    public enum Root { _none ,_reward, _shop, _event,}
+    public Root root;
     //여기에 아무 변수 추가
     public static PlacementManager Instance { get; private set; }
 
     public void Awake()
     {
         Instance = this;
+        root = Root._none;
     }
     
     public void Open_Placement()//배치 환경으로 만들어주는 매서드
@@ -32,6 +36,8 @@ public class PlacementManager : MonoBehaviour
         Skill2.SetActive(false);
         Skill3.SetActive(false);
         Monstermanager.SetActive(false);
+
+        PaperManager.Instance.Paper_Locked();
     }
 
     public void Close_Placement()//배치 닫고 다시 paper선택으로 돌아가게 하는 매서드
@@ -41,6 +47,17 @@ public class PlacementManager : MonoBehaviour
         Battle.SetActive(false);
         Main.SetActive(true);
         Hero_info.SetActive(true);
+        PaperManager.Instance.Paper_Locked_off();
+
+        switch (root) {
+            case Root._shop : PopupManager.Instance.ShowUnitShop_Popup();
+                root = Root._none;
+                
+                break;
+        
+        
+        
+        }
     }
 
  

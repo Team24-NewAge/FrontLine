@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class UnitBuy_Popup : PopupBase
 {
+    public GameObject exit_popup;
+    public GameObject fadeimage;
+
     public Image[] unit_face = new Image[3];
     public Image[] unit1_star = new Image[5];
     public Image[] unit2_star = new Image[5];
@@ -48,7 +51,16 @@ public class UnitBuy_Popup : PopupBase
         
     }
 
-
+    public void Exitpopup_on()
+    {
+        exit_popup.SetActive(true);
+        fadeimage.SetActive(true);
+    }
+    public void Exitpopup_off()
+    {
+        exit_popup.SetActive(false);
+        fadeimage.SetActive(false);
+    }
 
     public override void HidePopup()
     {
@@ -243,6 +255,12 @@ public class UnitBuy_Popup : PopupBase
         bought_unit.name = name + i;
         bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
         bought_unit.GetComponent<Unit>().GetUnit();
+
+
+        PlacementManager.Instance.root = PlacementManager.Root._shop;
         PlacementManager.Instance.Open_Placement();
+
+        Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
+        information.SetText("유닛 획득","갱신버튼을 눌러 유닛을 조회하고 배치하세요");
     }
 }

@@ -1009,7 +1009,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 15379823913903684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1126539375788619833}
+        m_MethodName: UnitReinforce
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &15379824044556195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1271,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 15379824175677810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1126539375788619833}
+        m_MethodName: UnitFusion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &15379824221505999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,6 +2129,9 @@ MonoBehaviour:
   buygold: {fileID: 15379824318600485}
   fusiongold: {fileID: 15379823875884574}
   reinforcegold: {fileID: 15379823452588453}
+  buy: {fileID: 15379824044556197}
+  fusion: {fileID: 15379824175677809}
+  reinforce: {fileID: 15379823913903683}
   exit_popup: {fileID: 252684116046329238}
   fadeimage: {fileID: 2158420655429798146}
 --- !u!1 &1185541200055820527
@@ -2370,7 +2395,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC815\uB9D0 \uC0C1\uC810\uC744 \uADF8\uB0E5 \uB098\uAC00\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\uC0C1\uC810\uC5D0\uC11C \uB098\uAC00\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!114 &7476717889123799337
 MonoBehaviour:
   m_ObjectHideFlags: 0
