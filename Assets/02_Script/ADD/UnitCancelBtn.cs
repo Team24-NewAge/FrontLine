@@ -76,7 +76,7 @@ public class UnitCancelBtn : MonoBehaviour
         }
         
         CancleCheack = true;
-        
+        BtnAct.unitbatch = false;
     }
     
     
