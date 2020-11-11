@@ -25,6 +25,15 @@ public class test : MonoBehaviour
         PopupManager.Instance.ShowRebuild_Popup();
     }
 
+    public void testshop()
+    {
+        PopupManager.Instance.ShowUnitShop_Popup();
+    }
+
+    public void redbtn()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
     public void testPotion1()
     {
