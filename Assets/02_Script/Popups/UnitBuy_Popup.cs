@@ -243,6 +243,6 @@ public class UnitBuy_Popup : PopupBase
         bought_unit.name = name + i;
         bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
         bought_unit.GetComponent<Unit>().GetUnit();
-
+        PlacementManager.Instance.Open_Placement();
     }
 }

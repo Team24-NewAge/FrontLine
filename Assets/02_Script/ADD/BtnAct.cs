@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class BtnAct : MonoBehaviour
 {
-    public GameObject[] btns = new GameObject[30];
-
+    public GameObject[] btns = new GameObject[100];
     public void OnClick()
     {
-       
-            for (int i = 0; i < UnitSummon.tot_btn; i++)
+        for (int i = 0; i < UnitSummon.tot_btn ; i++)
             {
                 btns[i].SetActive(true);//버튼 활성화
             }

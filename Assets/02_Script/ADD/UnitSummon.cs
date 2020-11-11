@@ -28,10 +28,15 @@ public class UnitSummon : MonoBehaviour
     
     private GameObject Hero;//하이얼아키 창 영웅 
 
+    public GameObject inven;
+
+    public static Transform[] batchunittr;
+    
     void Awake()
     {
         Hero = GameObject.Find("Unit").transform.Find("Hero_Warrior").gameObject;
         camera = GameObject.Find("Cameras").transform.Find("Battle Camera").gameObject;
+        inven = GameObject.Find("Inventory");
     }
 
     void Start() {  //각 타일 찾아서 연결
@@ -53,23 +58,41 @@ public class UnitSummon : MonoBehaviour
     {
         int num = 0;//유닛 배열 번호
         
+        /*
+        batchunittr = inven.GetComponentsInChildren<Transform>();
+        
+        foreach (Transform child in batchunittr)
+        {
+            unit_[num] = child.gameObject;
+            Debug.Log(num);
+            Debug.Log(batchunittr.Length);
+            Debug.Log(unit_[num]);
+            num++;
+            if (num >= batchunittr.Length)
+                break;
+        }//질문*/
+        
+
         warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
         knights = GameObject.FindGameObjectsWithTag("mercenaryknight");//용병검사 태그 값
         // 유닛 추가시 코드 추가할 부분
         
-        for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수만큼 유닛에 전사 추가
-        {
-            unit_[num] = warriors[w];
-        }
-        
-        for (int k = 0; num < knights.Length + warriors.Length; num++, k++)//용병검사 개수만큼 유닛에 검사 추가
-        {
-            unit_[num] = knights[k];
-        }
-        // 유닛 추가시 코드 추가할 부분
-        tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
-        // 유닛 추가시 코드 수정할 부분
-        
+       
+       for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수만큼 유닛에 전사 추가
+       {
+           unit_[num] = warriors[w];
+       }  
+       
+       for (int k = 0; num < knights.Length + warriors.Length; num++, k++)//용병검사 개수만큼 유닛에 검사 추가
+       {
+           unit_[num] = knights[k];
+       }
+       // 유닛 추가시 코드 추가할 부분
+       
+       tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
+       // 유닛 추가시 코드 수정할 부분
+       
+       
         if (anypush != null)
         {
             btnanycheck = anypush.GetComponent<UnitSpawnBtn>().btnanycheck;// 버튼 누르고 타일 누른 상태 확인
