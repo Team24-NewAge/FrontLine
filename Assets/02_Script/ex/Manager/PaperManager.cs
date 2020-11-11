@@ -437,9 +437,7 @@ public class PaperManager : MonoBehaviour
             yield return null;
 
         }
-        Paper_action(tag);
-        BarManager.Instance.Update_Pray();
-        yield return null;
+
 
         if (curT >= 1)
         {
@@ -449,6 +447,12 @@ public class PaperManager : MonoBehaviour
 
 
         }
+
+        Paper_action(tag);
+        BarManager.Instance.Update_Pray();
+        yield return null;
+        yield return null;
+        fade.gameObject.SetActive(false);
         yield return null;
     }
 
