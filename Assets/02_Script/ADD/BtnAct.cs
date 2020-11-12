@@ -9,7 +9,12 @@ public class BtnAct : MonoBehaviour
     private GameObject unit;
     private int unitnum;
 
-    public void Start()
+    public void OnEnable()
+    {
+       Invoke("OnClick",0.01f);
+    }
+
+    public void Awake()
     {
         unit = GameObject.Find("Unit");
         unitnum = unit.transform.childCount - 1;

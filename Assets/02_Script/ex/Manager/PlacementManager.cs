@@ -13,6 +13,8 @@ public class PlacementManager : MonoBehaviour
     public GameObject Hero_info; //영웅 체력바
     public GameObject Skill1, Skill2, Skill3;// 영웅 스킬들
 
+    public BtnAct Refresh;
+
 
     public enum Root { _none ,_reward, _shop, _event,}
     public Root root;
@@ -27,7 +29,7 @@ public class PlacementManager : MonoBehaviour
     
     public void Open_Placement()//배치 환경으로 만들어주는 매서드
     {
-        Destroy(GameObject.Find("UnitBuy_popup(Clone)"));
+        
         Battle.SetActive(true);
         Main.SetActive(false);
         btns_BG.SetActive(true);
@@ -36,6 +38,7 @@ public class PlacementManager : MonoBehaviour
         Skill2.SetActive(false);
         Skill3.SetActive(false);
         Monstermanager.SetActive(false);
+
 
         PaperManager.Instance.Paper_Locked();
     }

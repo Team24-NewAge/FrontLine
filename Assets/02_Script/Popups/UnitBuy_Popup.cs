@@ -262,5 +262,7 @@ public class UnitBuy_Popup : PopupBase
 
         Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
         information.SetText("유닛 획득","갱신버튼을 눌러 유닛을 조회하고 배치하세요");
+
+        HidePopup();
     }
 }
