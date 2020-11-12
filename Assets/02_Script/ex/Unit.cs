@@ -50,6 +50,8 @@ public class Unit : MonoBehaviour
     {
         Location_number_Setting();
         Reset();
+
+
     }
 
     public void Location_number_Setting() {

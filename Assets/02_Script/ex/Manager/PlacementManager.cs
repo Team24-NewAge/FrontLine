@@ -13,6 +13,8 @@ public class PlacementManager : MonoBehaviour
     public GameObject Hero_info; //영웅 체력바
     public GameObject Skill1, Skill2, Skill3;// 영웅 스킬들
 
+
+
     public BtnAct Refresh;
 
 
@@ -55,7 +57,11 @@ public class PlacementManager : MonoBehaviour
         switch (root) {
             case Root._shop : PopupManager.Instance.ShowUnitShop_Popup();
                 root = Root._none;
-                
+                break;
+            case Root._reward:
+                GameManager.Instance.SavePopup.SetActive(true);
+                GameManager.Instance.SavePopup = null;
+               root = Root._none;
                 break;
         
         

@@ -69,12 +69,33 @@ public class UnitBuy_Popup : PopupBase
 
     }
 
-    public void LobbyBGM_On()
+
+    public void End_Popup() 
     {
-        SoundManager.Instance.Lobby_On();
+
+        if (GameManager.Instance.SavePopup != null)
+        {
+            GameManager.Instance.SavePopup.SetActive(true);
+            GameManager.Instance.SavePopup = null;
+        }
+        else
+        {
+            SoundManager.Instance.Lobby_On();
+        }
+
+        HidePopup();
     }
 
-    void RandomUnit(int num) {
+    public void LobbyBGM_On()
+    {
+        //if (GameManager.Instance.SavePopup == null)
+        {
+            // SoundManager.Instance.Lobby_On();
+
+        }
+    }
+
+        void RandomUnit(int num) {
         float unitpercentage = Random.Range(0f,1f);
         int unitgrade,unitcode;
 
@@ -256,13 +277,15 @@ public class UnitBuy_Popup : PopupBase
         bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
         bought_unit.GetComponent<Unit>().GetUnit();
 
-
-        PlacementManager.Instance.root = PlacementManager.Root._shop;
+        if (PlacementManager.Instance.root == PlacementManager.Root._none)
+        { PlacementManager.Instance.root = PlacementManager.Root._shop; }
         PlacementManager.Instance.Open_Placement();
 
         Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
-        information.SetText("유닛 획득","갱신버튼을 눌러 유닛을 조회하고 배치하세요");
+        information.SetText("유닛 획득","유닛을 확인하고 배치하세요");
 
         HidePopup();
+
+
     }
 }

@@ -8,9 +8,16 @@ public class Battle_Win_Popup : PopupBase
     int Clear_gold;
     public Text gold_text;
     public Text win_text;
+    public Button Reward_btn1, Reward_btn2, Reward_btn3;
+    public Sprite openbox1,openbox2,openbox3;
+    public int Reward_check=0;
+
+    public GameObject exit_popup;
+    public GameObject fadeimage;
+
     private void Awake()
     {
-        Clear_gold = 10 + (int)(Random.Range(1.0f, 10.0f) * BarManager.Instance.date);
+        Clear_gold = 10 + (int)(Random.Range(1.0f, 5.0f) * BarManager.Instance.date);
         gold_text.text = Clear_gold.ToString();
 
         switch (Random.Range(0, 5))
@@ -22,10 +29,70 @@ public class Battle_Win_Popup : PopupBase
             case 4: win_text.text = "잡념을 버리고 적에게만 몰두하면 승리는 따라올 것이네"; break;
         }
 
+        if (Random.Range(0f, 1.0f) < Reward(1))
+        {
+            Reward_btn1.gameObject.SetActive(true);
+            Reward_check++;
+            if (Random.Range(0f, 1.0f) < Reward(2))
+            {
+                Reward_btn2.gameObject.SetActive(true);
+                Reward_check++;
+                if (Random.Range(0f, 1.0f) < Reward(3))
+                {
+                    Reward_btn3.gameObject.SetActive(true);
+                    Reward_check++;
+                }
+            }
+        }
+
     }
     void Start()
     {
         
+    }
+
+
+     float Reward(int r_num) {
+
+        switch (GameManager.Instance.Battle)
+        {
+            case GameManager.battleState.nomal:
+                {
+                    switch (r_num) 
+                    {
+                        case 1: return 0.3f;
+                        case 2: return 0.0f;
+                        case 3: return 0.0f;
+
+                    }
+                    return 0.3f;
+                    
+                }
+            case GameManager.battleState.elite:
+                {
+                    switch (r_num)
+                    {
+                        case 1: return 0.7f;
+                        case 2: return 0.3f;
+                        case 3: return 0.0f;
+
+                    }
+                    return 0.7f;
+                }
+            case GameManager.battleState.boss:
+                {
+                    switch (r_num)
+                    {
+                        case 1: return 1f;
+                        case 2: return 0.7f;
+                        case 3: return 0.3f;
+                    }
+                    return 1f;
+                }
+
+        }
+        return 0.3f;
+
     }
 
     // Update is called once per frame
@@ -34,8 +101,60 @@ public class Battle_Win_Popup : PopupBase
         
     }
 
+    public void Reward_Open(int box_num) 
+    {
+        Reward_check--;
+        PlacementManager.Instance.root = PlacementManager.Root._reward;
+        GameManager.Instance.SavePopup = gameObject;
+        PopupManager.Instance.ShowUnitBuy_Popup();
+        switch (box_num) 
+        {
+            case 1: Reward_btn1.image.sprite = openbox1;
+                Reward_btn1.interactable = false;
+               // Reward_btn1.gameObject.GetComponent<RectTransform>().position -= new Vector3(0, 15, 0);
+                break;
+            case 2: Reward_btn2.image.sprite = openbox2;
+                Reward_btn2.interactable = false;
+                Reward_btn2.gameObject.GetComponent<RectTransform>().position -= new Vector3(0, -15, 0);
+                break;
+            case 3: Reward_btn3.image.sprite = openbox3;
+                Reward_btn3.interactable = false;
+                Reward_btn3.gameObject.GetComponent<RectTransform>().position -= new Vector3(0, -15, 0);
+                break;
+        }
+
+
+        gameObject.SetActive(false);
+    }
+
+    public void exit_btn() {
+
+        if (Reward_check != 0)
+        {
+            Exitpopup_on();
+        }
+        else 
+        {
+            HidePopup();
+        }
+    
+    }
+
+    public void Exitpopup_on()
+    {
+        exit_popup.SetActive(true);
+        fadeimage.SetActive(true);
+    }
+    public void Exitpopup_off()
+    {
+        exit_popup.SetActive(false);
+        fadeimage.SetActive(false);
+    }
+
     public override void HidePopup()
     {
+        PlacementManager.Instance.root = PlacementManager.Root._none;
+        Reward_check = 0;
         SoundManager.Instance.Lobby_On();
         BarManager.Instance.gold += Clear_gold;
         BarManager.Instance._SetCoin();

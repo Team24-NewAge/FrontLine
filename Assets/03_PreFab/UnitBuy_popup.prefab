@@ -786,7 +786,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7570859661167283785}
-        m_MethodName: HidePopup
+        m_MethodName: End_Popup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2774,7 +2774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD6C\uB9E4\uD558\uC9C0 \uC54A\uACE0 \uB098\uAC00\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\uACE0\uD558\uC9C0 \uC54A\uACE0 \uB098\uAC00\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!114 &3678665796446019850
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public enum battleState {nomal,elite,boss };
     public battleState Battle = battleState.nomal;
 
+    public GameObject SavePopup;
     public static GameManager Instance { get; private set; }
     private void Awake()
     {

@@ -83,24 +83,24 @@ public class SoundManager : MonoBehaviour
 
     public void attack_buff_Play()
     {
-        BgsAudio.PlayOneShot(attack_buff, 5);
+        BgsAudio.PlayOneShot(attack_buff, 1);
     }
     public void Heal_buff_Play()
     {
-        BgsAudio.PlayOneShot(Heal_buff, 5);
+        BgsAudio.PlayOneShot(Heal_buff, 1);
     }
 
     public void pray_Play()
     {
-        BgsAudio.PlayOneShot(pray, 5);
+        BgsAudio.PlayOneShot(pray, 1);
     }
 
     public void Hero_Warrior_Skill(int skill)
     {
         switch (skill)
         {
-            case 2: BgsAudio.PlayOneShot(HeroSkill_2, 5); break;
-            case 3: BgsAudio.PlayOneShot(HeroSkill_3, 5); break;
+            case 2: BgsAudio.PlayOneShot(HeroSkill_2, 3); break;
+            case 3: BgsAudio.PlayOneShot(HeroSkill_3, 3); break;
 
         } 
     }
@@ -109,9 +109,9 @@ public class SoundManager : MonoBehaviour
     {
         switch (result)
         {
-            case 0: BgsAudio.PlayOneShot(traning_debuff, 5); break;
-            case 1: BgsAudio.PlayOneShot(traning_buff, 5); break;
-            case 2: BgsAudio.PlayOneShot(traning_perfect, 5); break;
+            case 0: BgsAudio.PlayOneShot(traning_debuff, 3); break;
+            case 1: BgsAudio.PlayOneShot(traning_buff, 3); break;
+            case 2: BgsAudio.PlayOneShot(traning_perfect, 3); break;
 
         }
     }
