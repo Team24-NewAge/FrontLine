@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource BgmAudio;
+    public AudioSource BgsAudio;
 
     public AudioClip Lobby_bgm;
     public AudioClip NomalBattle_bgm;
@@ -33,7 +34,7 @@ public class SoundManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        BgmAudio = GetComponent<AudioSource>();
+
         BgmAudio.Play();
     }
 
@@ -76,30 +77,30 @@ public class SoundManager : MonoBehaviour
     }
     public void SE_Play(AudioClip SE, float power)
     {
-        BgmAudio.PlayOneShot(SE,power);
+        BgsAudio.PlayOneShot(SE,power);
     }
 
 
     public void attack_buff_Play()
     {
-        BgmAudio.PlayOneShot(attack_buff, 5);
+        BgsAudio.PlayOneShot(attack_buff, 5);
     }
     public void Heal_buff_Play()
     {
-        BgmAudio.PlayOneShot(Heal_buff, 5);
+        BgsAudio.PlayOneShot(Heal_buff, 5);
     }
 
     public void pray_Play()
     {
-        BgmAudio.PlayOneShot(pray, 5);
+        BgsAudio.PlayOneShot(pray, 5);
     }
 
     public void Hero_Warrior_Skill(int skill)
     {
         switch (skill)
         {
-            case 2: BgmAudio.PlayOneShot(HeroSkill_2, 5); break;
-            case 3: BgmAudio.PlayOneShot(HeroSkill_3, 5); break;
+            case 2: BgsAudio.PlayOneShot(HeroSkill_2, 5); break;
+            case 3: BgsAudio.PlayOneShot(HeroSkill_3, 5); break;
 
         } 
     }
@@ -108,9 +109,9 @@ public class SoundManager : MonoBehaviour
     {
         switch (result)
         {
-            case 0: BgmAudio.PlayOneShot(traning_debuff, 5); break;
-            case 1: BgmAudio.PlayOneShot(traning_buff, 5); break;
-            case 2: BgmAudio.PlayOneShot(traning_perfect, 5); break;
+            case 0: BgsAudio.PlayOneShot(traning_debuff, 5); break;
+            case 1: BgsAudio.PlayOneShot(traning_buff, 5); break;
+            case 2: BgsAudio.PlayOneShot(traning_perfect, 5); break;
 
         }
     }

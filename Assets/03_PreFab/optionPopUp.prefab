@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bgmSlider: {fileID: 2491431531071473314}
+  _bgsSlider: {fileID: 2094259242400338697}
   soundmanager: {fileID: 0}
 --- !u!1 &2491431530569604121
 GameObject:
