@@ -1249,6 +1249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossPaper
       objectReference: {fileID: 0}
+    - target: {fileID: 3259469431813142859, guid: baa93cefc866d3d4eaf34e98c7bf6008,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7823504440970435883, guid: baa93cefc866d3d4eaf34e98c7bf6008,
         type: 3}
       propertyPath: curruntClick
@@ -2464,6 +2469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EBattlePaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468292631673799640, guid: fbf9aa6ea581183439303040a7353f01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8468292631673799641, guid: fbf9aa6ea581183439303040a7353f01,
         type: 3}
