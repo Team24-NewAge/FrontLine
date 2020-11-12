@@ -18,6 +18,7 @@ public class PlacementManager : MonoBehaviour
     public BtnAct Refresh;
 
 
+    public static bool batchstart = false;
     public enum Root { _none ,_reward, _shop, _event,}
     public Root root;
     //여기에 아무 변수 추가
@@ -40,7 +41,7 @@ public class PlacementManager : MonoBehaviour
         Skill2.SetActive(false);
         Skill3.SetActive(false);
         Monstermanager.SetActive(false);
-
+        batchstart = true;
 
         PaperManager.Instance.Paper_Locked();
     }

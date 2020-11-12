@@ -137,7 +137,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                     
                     if (status[i].tag == "mercenarywarrior")
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
-                    else if (unit_tot.unit_[i].tag == "mercenaryknight")
+                    else if (status[i].tag == "mercenaryknight")
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
                     
                     break;
@@ -154,7 +154,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                 
                 if (status[i].tag == "mercenarywarrior")
                     UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
-                else if (unit_tot.unit_[i].tag == "mercenaryknight")
+                else if (status[i].tag == "mercenaryknight")
                     UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
                 
                 break;

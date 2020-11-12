@@ -29,7 +29,8 @@ public class UnitSummon : MonoBehaviour
     private GameObject Hero;//하이얼아키 창 영웅 
 
     public GameObject inven;
-
+    public GameObject unit;
+    
     public static Transform[] batchunittr;
     
     void Awake()
@@ -37,6 +38,7 @@ public class UnitSummon : MonoBehaviour
         Hero = GameObject.Find("Unit").transform.Find("Hero_Warrior").gameObject;
         camera = GameObject.Find("Cameras").transform.Find("Battle Camera").gameObject;
         inven = GameObject.Find("Inventory");
+        unit = GameObject.Find("Unit");
     }
 
     void Start() {  //각 타일 찾아서 연결
@@ -58,40 +60,53 @@ public class UnitSummon : MonoBehaviour
     {
         int num = 0;//유닛 배열 번호
         
-        /*
-        batchunittr = inven.GetComponentsInChildren<Transform>();
-        
-        foreach (Transform child in batchunittr)
+        if (PlacementManager.batchstart)
         {
-            unit_[num] = child.gameObject;
-            Debug.Log(num);
-            Debug.Log(batchunittr.Length);
-            Debug.Log(unit_[num]);
-            num++;
-            if (num >= batchunittr.Length)
-                break;
-        }//질문*/
-        
+            if (unit.transform.childCount != 0)
+                for (int i = 0; i < unit.transform.childCount - 1; i++, num++)
+                    unit_[num] = unit.transform.GetChild(i).gameObject;
 
-        warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
-        knights = GameObject.FindGameObjectsWithTag("mercenaryknight");//용병검사 태그 값
-        // 유닛 추가시 코드 추가할 부분
+            if (inven.transform.childCount != 0)
+                for (int i = 0; i < inven.transform.childCount; i++, num++)
+                    unit_[num] = inven.transform.GetChild(i).gameObject;
+
+            tot_btn = inven.transform.childCount + (unit.transform.childCount - 1);
+            PlacementManager.batchstart = false;
+        }//유닛 배치가 시작되었을떄
+
+        if (UnitCancelBtn.CancleCheack)
+        {
+            if (unit.transform.childCount != 0)
+                for (int i = 0; i < unit.transform.childCount - 1; i++, num++)
+                    unit_[num] = unit.transform.GetChild(i).gameObject;
+
+            if (inven.transform.childCount != 0)
+                for (int i = 0; i < inven.transform.childCount; i++, num++)
+                    unit_[num] = inven.transform.GetChild(i).gameObject;
+
+            tot_btn = inven.transform.childCount + (unit.transform.childCount - 1);
+        }//유닛 배치 취소 시
         
-       
-       for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수만큼 유닛에 전사 추가
-       {
-           unit_[num] = warriors[w];
-       }  
-       
-       for (int k = 0; num < knights.Length + warriors.Length; num++, k++)//용병검사 개수만큼 유닛에 검사 추가
-       {
-           unit_[num] = knights[k];
-       }
-       // 유닛 추가시 코드 추가할 부분
-       
-       tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
-       // 유닛 추가시 코드 수정할 부분
-       
+        /*
+           warriors = GameObject.FindGameObjectsWithTag("mercenarywarrior");//용병전사 태그 값
+           knights = GameObject.FindGameObjectsWithTag("mercenaryknight");//용병검사 태그 값
+           // 유닛 추가시 코드 추가할 부분
+           
+          
+          for (int w = 0; num < warriors.Length; num++, w++)//용병전사 개수만큼 유닛에 전사 추가
+          {
+              unit_[num] = warriors[w];
+          }  
+          
+          for (int k = 0; num < knights.Length + warriors.Length; num++, k++)//용병검사 개수만큼 유닛에 검사 추가
+          {
+              unit_[num] = knights[k];
+          }
+          // 유닛 추가시 코드 추가할 부분
+          
+          tot_btn = warriors.Length + knights.Length;//버튼 활성화를 위한 버튼의 총 개수
+          // 유닛 추가시 코드 수정할 부분
+          */
        
         if (anypush != null)
         {
