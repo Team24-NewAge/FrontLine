@@ -5,12 +5,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using AllEnum;
 
-
 public class CheckingInvenManager : MonoBehaviour
 {
+    // 현재 스크립트를 싱글톤 방식으로 변경하는 스크립트
+    // Debug.log(InvenMN.instance.Player_HP); 이런식으로 싱글톤에 접근하는듯 (클래스이름.클래스이름으로 생성한 변수.사용할 내부변수)
+    private static CheckingInvenManager _instance;
+    //지금 만들어놓은 싱글톤은 여러가지 싱글톤 예제들과 이해한것을 바탕으로 조합해놓은 형식입니다.
+    public void Awake() // start 보다 빠르게 작동
+    {
+        if (_instance == null) //인스턴스가 비어있으면 이 대상을 그 인스턴스 안에 넣는다
+            _instance = this;
+        else // 인스턴스가 이 대상이 아니라면 그걸 부순다
+            if (this != _instance)
+            Destroy(this.gameObject);
+        DontDestroyOnLoad(this.gameObject); // 다른 씬으로 넘어가도 남아있도록 만든다
+    }
+    public static CheckingInvenManager instance
+    {
+        get // get은 대상이 이 스크립트에 접근했을때 일어나는 일; get 접근자는 필드 값을 반환하거나 필드 값을 계산하여 그 결과를 반환하는 데 사용됩니다. 
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<CheckingInvenManager>();
+                DontDestroyOnLoad(_instance.gameObject);
+            }
+            return _instance;
+        }
+    }
+
     // 이 스크립트는 이미 PlayerPrefs에 값이 존재한다는 것을 가정하에 작동합니다.
     // 테스트용으로 Awake에 PlayerPrefs를 생성하는 내용을 넣을 수 있습니다. (어디까지나 테스트용, 사용하지 않아도 괜찮, 할 수 있다는 의미.)
-
     public struct UnitDataIdentification
     {
         public bool isEmpty; // 구조체가 비어있는지 판단. 삭제 된다면 없다는 것을 알려줘야 하니까 만듦.
@@ -47,6 +71,12 @@ public class CheckingInvenManager : MonoBehaviour
     public GameObject fusionUI, reinforceUI;
     // 주의사항! option 창을 끄거나 키면, reset 과정이 필요하다. 정의된 Default 값으로 돌려줘야 함.
 
+    // 1_2에서 새롭게 추가되는 변수
+    public GameObject exitBtn;  // 종료 버튼을 담을 변수, 현재 옵션(Fusion 혹은 Reinforce)과 상관없이 종료버튼을 호출하기 위해서 필요.
+    public GameObject showingImg, showingText; // 인벤토리 UI에서 Showing Image 오브젝트랑 ShowingText 오브젝트를 켜주는 용도로 사용.
+    public GameObject prevBtn, nextBtn; // 이전 페이지로 넘어가거나 다음 페이지로 넘어가는 버튼
+    private int maxUnitCount; // 현재 생성된 모든 유닛의 숫자를 확인하는 변수
+
     private const int MAX_NAME_ENUM = 5;
     private const int MAX_ATTRIBUTE_ENUM = 9;
 
@@ -73,8 +103,17 @@ public class CheckingInvenManager : MonoBehaviour
 
     public void OnEnable()
     {
+        pageNumber = 1;
+        maxUnitCount = 0;
+        // 상단 변수는, 하단 메서드 사용에 지대한 영향을 미치기에 순서를 중요하게 여겨야 합니다. 그래서 메서드보다 높은 순서로 실행되어야 함 ㅇ.ㅇ
         LoadUnitDataIdentification();
         InventoryRefresh();
+        MovingPage(false);
+        showingImg.GetComponent<Image>().sprite = null;
+        showingImg.SetActive(false);
+        showingText.GetComponent<Text>().text = "";
+        showingText.SetActive(false);
+        selectedUDID = new UnitDataIdentification(); // 인벤토리를 키면, 이전에 선택했던 UDID를 리셋시켜줌
     }
 
     // 인벤토리는 한 페이지당 10개로 한정.
@@ -116,6 +155,7 @@ public class CheckingInvenManager : MonoBehaviour
                             in_UDID[invenCount].name = Enum.GetName(typeof(UnitName), nameCount);
                             in_UDID[invenCount].count = unitEachCount;
                             in_UDID[invenCount].isEmpty = false; // 내부 데이터가 비어있지 않다고 표현함.
+                            maxUnitCount++;
                             break;
                         case 1:
                             in_UDID[invenCount].grade = PlayerPrefs.GetInt(willSearchString);
@@ -204,11 +244,15 @@ public class CheckingInvenManager : MonoBehaviour
         if (tmpUDID.isEmpty == true)
         {
             //만약에 누른 버튼이 isEmpty == true 라면, 데이터가 없다며 표시한다.
-            showingData.GetComponentsInChildren<Image>()[1].sprite = null;
+            showingImg.SetActive(false); // 선택한 데이터가 없다면, ShowingImg를 꺼버리는 부분
+            showingText.SetActive(false); // 선택한 데이터가 없다면, ShowingText를 꺼버리는 부분
+            showingImg.GetComponent<Image>().sprite = null;
             showingData.GetComponentInChildren<Text>().text = "No Data";
             return;
         }
-        showingData.GetComponentsInChildren<Image>()[1].sprite = tmpUDID.sprite[0];
+        showingImg.SetActive(true); // 선택한 데이터가 있다면, ShowingImg를 켜는 부분
+        showingText.SetActive(true); // 선태한 데이터가 있다면, ShowingText를 켜는 부분
+        showingImg.GetComponent<Image>().sprite = tmpUDID.sprite[0];
         //showingData.GetComponentsInChildren<Image>()[1].sprite = null;
         showingData.GetComponentInChildren<Text>().text = "Name : " + tmpUDID.name + "\n";
         showingData.GetComponentInChildren<Text>().text += "Hp : " + tmpUDID.hp + "\n";
@@ -219,27 +263,81 @@ public class CheckingInvenManager : MonoBehaviour
 
         selectedUDID = tmpUDID; // 일단, 구조체가 값 형식인건 아는데 가끔 작동 안 되기도 함. 혹시나 작동 안 되면 다시 확인할 것.
         selectedInvenNum = (pageNumber - 1) * 10 + inventoryOrder - 1; // 고유값으로 작동하게끔 설계한 인벤토리 넘버, 만약에 문제가 생기면 name + eachCount 방식 사용
-
+        maxUnitCount = 0; // 하단의 메서드가 실행되면서 maxUnitCount 값의 변화를 주기 때문에? 값을 리셋시켜줘야 함.
         LoadUnitDataIdentification();
     }
 
     public void MovingPage(bool isUping)
     {
+        Debug.Log(maxUnitCount + "이게 문제 있을 수 있음.");
+        int maxPageCount = (int)(maxUnitCount / 10);
+        if (maxUnitCount % 10 > 0)
+        {
+            // 만약에, 34개의 유닛이라면 3page 가 나올 거고? + 1 해서 4page까지 만들어야 나머지 4개도 보여줄 수 있음.
+            maxPageCount += 1;
+        }
+        else if (maxUnitCount == 0)
+        {
+            maxPageCount = 1;
+        }
+        Debug.Log(maxPageCount + "이게 문제였던걸까?");
+        pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / " + maxPageCount; // 초기 상태(변화 전)의 값을 내포하는 텍스트 UI
         // isUping 페이지를 Next 하시겠습니까? is~upPage? 랑 같은 맥락
+        if (maxPageCount == 1)  //seung, 전체 페이지가 한 쪽일때
+        {
+            nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+            prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+            return;
+        }
         if (isUping)
         {
-            if (pageNumber >= 10)
+            if (pageNumber >= maxPageCount || maxPageCount >= 10)       //seung, 마지막 페이지에 도달했을때
+            {
+                nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+                prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);   //seung
+                Debug.Log("페이지 안 올라간다!");
                 return;   // 10쪽에서 안 올라감
+            }
+            else
+            {
+                prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);   //seung
+                nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+            }
+            Debug.Log("페이지 올라간다!");
             pageNumber++;
         }
         else
         {
             // Prev 버튼 눌렀을 때 작동
-            if (pageNumber <= 1)
+            if (pageNumber <= 1)    //첫 페이지 도달
+            {
+                prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+                nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);   //seung
+                Debug.Log("페이지 안 내려간다!");
                 return; // 1쪽에서 안 내려감
+            }
+            else
+            {
+                prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+                nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);   //seung
+            }
+            Debug.Log("페이지 내려간다!");
             pageNumber--;
         }
-        pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / 10";
+        if (pageNumber == 1)
+        {
+            prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+        }
+        else if(pageNumber == maxPageCount || maxPageCount >= 10)
+        {
+            nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 0.2f);
+        }
+        else
+        {
+            prevBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+            nextBtn.GetComponent<Image>().color = new Color(255, 255, 255, 1.0f);
+        }
+        pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / " + maxPageCount; // 페이지 상태가 변화되고 난 다음의 텍스트 UI
         InventoryRefresh();
     }
 
@@ -337,7 +435,7 @@ public class CheckingInvenManager : MonoBehaviour
         }
         else
         {
-            if(selectedInvenNum != -1)
+            if(selectedInvenNum == -1)
             {
                 Debug.Log("대상을 선택해주세요.");
                 return;
@@ -348,6 +446,7 @@ public class CheckingInvenManager : MonoBehaviour
         }
     }
 
+    // 합성 옵션에서 선택을 취소하는 메서드 (취소하는 대상이 첫번째 버튼인지 두번째 버튼인지를 구분하기 위해서 매개변수를 사용했음)
     public void SelectorFusionCancle(bool isFirstUDBtn)
     {
         // 할당되어 있는 유닛 데이터 값을 취소하는 메서드, 내가 누른 대상이 FirstUD를 가지고 있는 Btn인지 확인하는 값을 매개변수로 전달한다.
@@ -357,7 +456,8 @@ public class CheckingInvenManager : MonoBehaviour
             firstFusionUDID = new UnitDataIdentification();
             checkFirstUDID = false;
             firstFusionInvenNum = -1;
-            firstFusionUDBtn.GetComponent<Image>().sprite = null; // 버튼 UI의 이미지 변경.
+            firstFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = null; // 버튼 UI의 이미지 변경.
+            firstFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0); // 하얀 배경 없애드렸습니다^.^
             firstFusionUDBtn.GetComponentInChildren<Text>().text = ""; // 버튼 UI의 텍스트 변경
         }
         else
@@ -365,9 +465,20 @@ public class CheckingInvenManager : MonoBehaviour
             secondFusionUDID = new UnitDataIdentification();
             checkSecondUDID = false;
             secondFusionInvenNum = -1;
-            secondFusionUDBtn.GetComponent<Image>().sprite = null; // 버튼 UI의 이미지 변경.
+            secondFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = null; // 버튼 UI의 이미지 변경.
+            secondFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0); // 하얀 배경 없애드렸습니다^.^
             secondFusionUDBtn.GetComponentInChildren<Text>().text = ""; // 버튼 UI의 텍스트 변경
         }
+    }
+
+    // 강화 옵션에서 선택을 취소하는 메서드 (취소하는 대상을 구분할 필요가 없어서 매개변수를 넣지 않았음)
+    public void SelectorReinforceCancle()
+    {
+        reinforceUDID = new UnitDataIdentification();
+        reinforceInvenNum = -1;
+        reinforceUDBtn.GetComponentsInChildren<Image>()[1].sprite = null; // 버튼 UI의 이미지 변경.
+        reinforceUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0); // 하얀 배경 없애드렸습니다^.^
+        reinforceUDBtn.GetComponentInChildren<Text>().text = ""; // 버튼 UI의 텍스트 변경
     }
 
     // Option UI를 새로고침 해주는 메서드 
@@ -377,19 +488,22 @@ public class CheckingInvenManager : MonoBehaviour
         {
             if(firstFusionInvenNum == selectedInvenNum && selectedInvenNum != -1)
             {
-                firstFusionUDBtn.GetComponent<Image>().sprite = firstFusionUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+                firstFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = firstFusionUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+                firstFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 255); // 하얀 배경 넣어드렸습니다^.^
                 firstFusionUDBtn.GetComponentInChildren<Text>().text = firstFusionUDID.name; // 버튼 UI의 텍스트 변경
             }
             else if(secondFusionInvenNum == selectedInvenNum && selectedInvenNum != -1)
             {
-                secondFusionUDBtn.GetComponent<Image>().sprite = secondFusionUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+                secondFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = secondFusionUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+                secondFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 255); // 하얀 배경 넣어드렸습니다^.^
                 secondFusionUDBtn.GetComponentInChildren<Text>().text = secondFusionUDID.name; // 버튼 UI의 텍스트 변경
 
             }
         }
         if(reinforceUI.activeSelf)
         {
-            reinforceUDBtn.GetComponent<Image>().sprite = reinforceUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+            reinforceUDBtn.GetComponentsInChildren<Image>()[1].sprite = reinforceUDID.sprite[0]; // 버튼 UI의 이미지 변경.
+            reinforceUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 255); // 하얀 배경 넣어드렸습니다^.^
             reinforceUDBtn.GetComponentInChildren<Text>().text = reinforceUDID.name; // 버튼 UI의 텍스트 변경
         }
     }
@@ -397,8 +511,27 @@ public class CheckingInvenManager : MonoBehaviour
     // Fusion Option UI를 끄거나 키는 메서드. 꺼져있으면 키고, 켜져있으면 끈다..
     public void ShowFusionOptionUI(bool isActiveFusionUI)
     {
-        if(isActiveFusionUI)
+        showingImg.GetComponent<Image>().sprite = null;
+        showingImg.SetActive(false);
+        showingText.GetComponent<Text>().text = "";
+        showingText.SetActive(false);
+        if (isActiveFusionUI)
         {
+            // 합성이 끝나고 난 후에는, 기존의 값들은 그대로 유지하지만? 합성 UI는 꺼준다.
+            firstFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = null;
+            firstFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0);
+            firstFusionUDBtn.GetComponentInChildren<Text>().text = "";
+            secondFusionUDBtn.GetComponentsInChildren<Image>()[1].sprite = null;
+            secondFusionUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0);
+            secondFusionUDBtn.GetComponentInChildren<Text>().text = "";
+            exitBtn.SetActive(true);
+            fusionUI.SetActive(false);
+            exitBtn.GetComponent<Button>().onClick.Invoke(); // exitBtn은 인벤토리를 끄는 Event가 Onclick에 들어있다. Invoke를 통해서 실행시키면, 인벤토리가 꺼진다.
+            // 순서가 중요함. (옵션 UI 끄기 -> 인벤토리 UI 끄기)  인벤토리 UI를 먼저 끄면, 옵션 UI가 꺼지지 않고 값이 그대로 유지될 위험이 있음.
+        }
+        else
+        {
+            // 합성 옵션 창이 켜지면, 기존에 합성으로 사용했던 변수들을 리셋(초기 값으로 되돌려주는)해주는 과정.
             selectedInvenNum = -1;
             firstFusionInvenNum = -1;
             secondFusionInvenNum = -1;
@@ -409,10 +542,7 @@ public class CheckingInvenManager : MonoBehaviour
             selectedUDID = new UnitDataIdentification();
             checkFirstUDID = false;
             checkSecondUDID = false;
-            fusionUI.SetActive(false);
-        }
-        else
-        {
+            exitBtn.SetActive(false);
             fusionUI.SetActive(true);
         }
     }
@@ -420,8 +550,24 @@ public class CheckingInvenManager : MonoBehaviour
     // Reinforce Option UI를 끄거나 키는 메서드. 꺼져있으면 키고, 켜져있으면 끈다..
     public void ShowReinforceOptionUI(bool isActiveReinforceUI)
     {
+        showingImg.GetComponent<Image>().sprite = null;
+        showingImg.SetActive(false);
+        showingText.GetComponent<Text>().text = "";
+        showingText.SetActive(false);
         if (isActiveReinforceUI)
         {
+            // 강화가 끝나고 난 후에는, 기존의 값들은 그대로 유지하지만? 강화 UI는 꺼준다.
+            reinforceUDBtn.GetComponentsInChildren<Image>()[1].sprite = null;
+            reinforceUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0);
+            reinforceUDBtn.GetComponentInChildren<Text>().text = "";
+            exitBtn.SetActive(true);
+            reinforceUI.SetActive(false);
+            exitBtn.GetComponent<Button>().onClick.Invoke(); // exitBtn은 인벤토리를 끄는 Event가 Onclick에 들어있다. Invoke를 통해서 실행시키면, 인벤토리가 꺼진다.
+            // 순서가 중요함. (옵션 UI 끄기 -> 인벤토리 UI 끄기)  인벤토리 UI를 먼저 끄면, 옵션 UI가 꺼지지 않고 값이 그대로 유지될 위험이 있음.
+        }
+        else
+        {
+            // 강화 옵션 창이 켜지면, 기존에 강화로 사용했던 변수들을 리셋(초기 값으로 되돌려주는)해주는 과정.
             selectedInvenNum = -1;
             firstFusionInvenNum = -1;
             secondFusionInvenNum = -1;
@@ -432,10 +578,7 @@ public class CheckingInvenManager : MonoBehaviour
             selectedUDID = new UnitDataIdentification();
             checkFirstUDID = false;
             checkSecondUDID = false;
-            reinforceUI.SetActive(false);
-        }
-        else
-        {
+            exitBtn.SetActive(false);
             reinforceUI.SetActive(true);
         }
     }
