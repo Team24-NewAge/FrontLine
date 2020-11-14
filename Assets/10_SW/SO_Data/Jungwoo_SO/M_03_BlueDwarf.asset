@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93583480a76747c4589defa32ce72998, type: 3}
-  m_Name: E_01_redork
+  m_Name: M_03_BlueDwarf
   m_EditorClassIdentifier: 
-  basedCode: 1
-  basedName: "\uB808\uB4DC\uC624\uD06C"
+  basedCode: 3
+  basedName: "\uBE14\uB8E8\uB4DC\uC6CC\uD504"
   basedSprite: []
-  basedGrade: 2
-  basedDescript: "\uBE68\uAC04\uB9DB \uAD81\uAE08\uD574\uD5C8\uB2C8"
-  maxHp: 15
-  basedAtk: 7
-  basedDef: 0
+  basedGrade: 3
+  basedDescript: "\uD0DC\uC591\uC774\uC2EB\uC5B4"
+  maxHp: 20
+  basedAtk: 10
+  basedDef: 50
   basedAtkSp: 100
   mvSp: 1
   lifeSkill: 

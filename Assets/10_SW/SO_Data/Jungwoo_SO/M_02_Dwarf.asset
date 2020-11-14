@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93583480a76747c4589defa32ce72998, type: 3}
-  m_Name: E_00_ork
+  m_Name: M_02_Dwarf
   m_EditorClassIdentifier: 
-  basedCode: 0
-  basedName: "\uC624\uD06C"
-  basedSprite:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  basedGrade: 1
-  basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
-  maxHp: 10
-  basedAtk: 5
+  basedCode: 2
+  basedName: "\uB4DC\uC6CC\uD504"
+  basedSprite: []
+  basedGrade: 2
+  basedDescript: "\uB4DC\uC6CC\uD504\uB2E4 \uB4DC\uC6CC\uD504"
+  maxHp: 20
+  basedAtk: 10
   basedDef: 0
   basedAtkSp: 100
   mvSp: 1

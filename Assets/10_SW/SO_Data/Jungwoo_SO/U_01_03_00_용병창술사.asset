@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f632631e83e2f4429e4706cd3d6ffe8, type: 3}
-  m_Name: "U_01_01_01_\uC6A9\uBCD1\uAC80\uC0AC"
+  m_Name: "U_01_03_00_\uC6A9\uBCD1\uCC3D\uC220\uC0AC"
   m_EditorClassIdentifier: 
-  basedCode: 1
-  basedName: "\uC6A9\uBCD1\uAC80\uC0AC"
+  basedCode: 2
+  basedName: "\uC6A9\uBCD1\uCC3D\uC220\uC0AC"
   basedSprite:
-  - {fileID: 21300000, guid: a9e6a953e7585b94c8fc02a1b0158102, type: 3}
-  basedGrade: 2
-  basedDescript: "\uD3C9\uBC94\uD55C \uAC80\uC0AC"
-  maxHp: 13
-  basedAtk: 3
+  - {fileID: 21300000, guid: 09b8410ed5fb4e24e9c9746dc54d8373, type: 3}
+  basedGrade: 3
+  basedDescript: "\uD3C9\uBC94\uD55C \uCC3D\uC220\uC0AC"
+  maxHp: 16
+  basedAtk: 4
   basedDef: 0
   basedAtkSp: 100
   mvSp: 0
   lifeSkill: 
-  price: 70
+  price: 100
   tile: 0
   location: 0
   synergy: 

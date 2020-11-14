@@ -32,7 +32,7 @@ public class MonsterManager : MonoBehaviour
 
         for (int i = 0; i < mons_cont; i++)//몬스터 젠 수만큼 반복
         { 
-            mons_list[i] = UnityEngine.Random.Range(0, 2);//몬스터id 부여
+            mons_list[i] = UnityEngine.Random.Range(0, 4);//몬스터id 부여
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
