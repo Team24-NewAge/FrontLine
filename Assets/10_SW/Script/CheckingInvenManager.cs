@@ -221,6 +221,24 @@ public class CheckingInvenManager : MonoBehaviour
                 inventory[countOrder].GetComponentsInChildren<Image>()[2].sprite = in_UDID[(pageNumber - 1) * 10 + countOrder].sprite[0];
                 //inventory[countOrder].GetComponentInChildren<Image>().sprite = null;
                 inventory[countOrder].GetComponentInChildren<Text>().text = in_UDID[(pageNumber - 1) * 10 + countOrder].name;
+                switch (in_UDID[(pageNumber - 1) * 10 + countOrder].grade)
+                {
+                    case 2:
+                        inventory[countOrder].GetComponentInChildren<Text>().color = new Color(0.25f, 1.0f, 1.0f, 1.0f);
+                        break;
+                    case 3:
+                        inventory[countOrder].GetComponentInChildren<Text>().color = new Color(1.0f, 1.0f, 0.25f, 1.0f);
+                        break;
+                    case 4:
+                        inventory[countOrder].GetComponentInChildren<Text>().color = new Color(0.05f, 1.0f, 0.0f, 1.0f);
+                        break;
+                    case 5:
+                        inventory[countOrder].GetComponentInChildren<Text>().color = new Color(1.0f, 0.22f, 0.98f, 1.0f);
+                        break;
+                    default:
+                        inventory[countOrder].GetComponentInChildren<Text>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                        break;
+                }
                 inventory[countOrder].SetActive(true);
             }
             else
@@ -255,6 +273,7 @@ public class CheckingInvenManager : MonoBehaviour
         showingImg.GetComponent<Image>().sprite = tmpUDID.sprite[0];
         //showingData.GetComponentsInChildren<Image>()[1].sprite = null;
         showingData.GetComponentInChildren<Text>().text = "Name : " + tmpUDID.name + "\n";
+        showingData.GetComponentInChildren<Text>().text += "Grade : " + tmpUDID.grade + "성\n";
         showingData.GetComponentInChildren<Text>().text += "Hp : " + tmpUDID.hp + "\n";
 
         showingData.GetComponentInChildren<Text>().text += "Atk : " + tmpUDID.atk + "\n";
