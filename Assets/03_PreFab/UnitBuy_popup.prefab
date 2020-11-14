@@ -1939,12 +1939,12 @@ RectTransform:
   m_LocalScale: {x: 1.7728533, y: 1.7728533, z: 1.7728533}
   m_Children:
   - {fileID: 1757822077239492924}
-  m_Father: {fileID: 4484869224885967149}
-  m_RootOrder: 5
+  m_Father: {fileID: 4484869225116592557}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -150}
+  m_AnchoredPosition: {x: -100, y: -70}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3425716821000627174
@@ -2163,7 +2163,6 @@ RectTransform:
   - {fileID: 3348483921275038342}
   - {fileID: 2632002318357185939}
   - {fileID: 5458210065884199381}
-  - {fileID: 8292163251453526257}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2283,6 +2282,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3348483920722714909}
+  - {fileID: 8292163251453526257}
   m_Father: {fileID: 4484869224885967149}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2774,7 +2774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACE0\uD558\uC9C0 \uC54A\uACE0 \uB098\uAC00\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\uACE0\uC6A9\uD558\uC9C0 \uC54A\uACE0 \uB098\uAC00\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!114 &3678665796446019850
 MonoBehaviour:
   m_ObjectHideFlags: 0

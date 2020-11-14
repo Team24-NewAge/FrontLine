@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     //(승원)변수 정의
     public GameObject invenUI;   //on,off할 패널
+    public GameObject fadeimage;
     public bool isClosedInven = true; // 처음 시작하면, 인벤토리는 Closed 되어 있음. UI로 유저에게 보여
 
     public static InventoryManager Instance { get; private set; }
@@ -21,11 +22,13 @@ public class InventoryManager : MonoBehaviour
     public void Open_Inventory()//인벤토리 열어주는 매서드
     {
         invenUI.transform.SetAsLastSibling();
+        fadeimage.SetActive(true);
         invenUI.SetActive(true);
     }
 
     public void Close_Inventory()//인벤토리 닫는 매서드
     {
+        fadeimage.SetActive(false);
         invenUI.SetActive(false);
     }
     public void Open_Fusion()//합성창 여는 메서드

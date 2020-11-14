@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     public battleState Battle = battleState.nomal;
 
     public GameObject SavePopup;
+
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
@@ -64,7 +66,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (BarManager.Instance.Hero.GetComponent<Unit>().hp <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+
     }
 
 
