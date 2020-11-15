@@ -75,6 +75,7 @@ public class UnitCancelBtn : MonoBehaviour
             btns[i].SetActive(true);//버튼 활성화
         }
         
+        
         CancleCheack = true;
         BtnAct.unitbatch = false;
     }

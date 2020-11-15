@@ -640,10 +640,11 @@ public class CheckingInvenManager : MonoBehaviour
 
             Fusion_Delete();// 조합삭제
             Fusion_result(final_grade);// 합성결과 생성
-
+            UnitSummon.fusionchk = true;
 
             if (PlacementManager.Instance.root == PlacementManager.Root._none)
             { PlacementManager.Instance.root = PlacementManager.Root._shop; }
+            
             PlacementManager.Instance.Open_Placement(); //배치창 열기
 
             InventoryManager.Instance.Close_Fusion(); //조합창 닫기

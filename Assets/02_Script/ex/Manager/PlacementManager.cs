@@ -43,6 +43,11 @@ public class PlacementManager : MonoBehaviour
         Monstermanager.SetActive(false);
         batchstart = true;
 
+        if (UnitSummon.fusionchk)
+        {
+            batchstart = false;
+        }
+        
         PaperManager.Instance.Paper_Locked();
     }
 
