@@ -62,6 +62,8 @@ public class CheckingInvenManager : MonoBehaviour
     public int selectedButtonNumber = 0; // 현재 선택된 버튼이 몇번째 버튼인지 알려주는 변수. (해당 변수를 통해서, 선택한 데이터의 정보를 확인할 수 있음.)
     public int pageNumber = 1;  // 현재 Page Number를 알려주는 변수
 
+    public Image[] stars = new Image[5];
+
     // 주의사항! option 변수들은 처음 상태로 되돌리는 행위(정의된 Default 값으로 돌려줘야 한다는 의미)가 매우 중요함.
     public bool checkFirstUDID = false, checkSecondUDID = false; // Option을 사용하면서 버튼에 데이터가 올바르게 들어갔다면? 각각의 변수가 True로 바뀔 것이다. (기본 Default는 false)
     public UnitDataIdentification firstFusionUDID, secondFusionUDID, reinforceUDID; // Option을 사용하면서, 현재 선택된 유닛 데이터 값이 들어갈 변수. (기본 Default는 null)
@@ -279,6 +281,12 @@ public class CheckingInvenManager : MonoBehaviour
         showingData.GetComponentInChildren<Text>().text += "Atk : " + tmpUDID.atk + "\n";
         showingData.GetComponentInChildren<Text>().text += "Def : " + tmpUDID.def + "\n";
         showingData.GetComponentInChildren<Text>().text += "AtkSp : " + tmpUDID.atkSp + "\n";
+
+        stars.SetActiveAll(false);
+        for (int i = 0; i < tmpUDID.grade; i++)
+        {
+            stars[i].gameObject.SetActive(true);
+        }
 
         selectedUDID = tmpUDID; // 일단, 구조체가 값 형식인건 아는데 가끔 작동 안 되기도 함. 혹시나 작동 안 되면 다시 확인할 것.
         selectedInvenNum = (pageNumber - 1) * 10 + inventoryOrder - 1; // 고유값으로 작동하게끔 설계한 인벤토리 넘버, 만약에 문제가 생기면 name + eachCount 방식 사용
@@ -603,8 +611,8 @@ public class CheckingInvenManager : MonoBehaviour
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    강화랑 조합을 하는 부분
+    //*
+    //강화랑 조합을 하는 부분
 
     // 버튼의 양쪽에 데이터(유닛 데이터)가 할당되었는지 확인하는 메서드. (람다식을 늘려놓은 람다 함수이다.)
     // 조건문 안의 변수는 외부에서 True 혹은 False를 해준다.
@@ -622,10 +630,135 @@ public class CheckingInvenManager : MonoBehaviour
 
     public void FusionOption()
     {
-        StartCoroutine(FusionCoroutine());
+        if (WaitConditionOption())
+        {
+            int result_grade = BIG_grade(firstFusionUDID.grade, secondFusionUDID.grade);//큰 별확인
+            int add_grade = SMALL_grade(firstFusionUDID.grade, secondFusionUDID.grade);//작은별확인
+            int final_grade = Funsion_grade_add(result_grade, add_grade);//별 상승률 계산
+            Fusion_result(final_grade);// 합성결과 도출
+            Fusion_Delete();
 
+
+
+            if (PlacementManager.Instance.root == PlacementManager.Root._none)
+            { PlacementManager.Instance.root = PlacementManager.Root._shop; }
+            PlacementManager.Instance.Open_Placement();
+
+            Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
+            information.SetText("유닛 획득", "유닛을 확인하고 배치하세요");
+
+            InventoryManager.Instance.Close_Fusion();
+        }
+       // StartCoroutine(FusionCoroutine());
+    }
+
+    void Fusion_result(int final_grade)
+    {
+        int unitcode;
+        int unitgrade;
+        do
+        {
+            unitcode = UnityEngine.Random.Range(0, GetUnitSOInfo.Instance.unit.Length);
+            unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
+        } while (unitgrade != final_grade);
+
+
+        int i = 1;
+        string name = GetUnitSOInfo.Instance.getUnitName(unitcode);
+        while (PlayerPrefs.HasKey("unit_" + name + "_code_" + i.ToString()))
+        {
+            print("unit_" + name + "_code_" + i.ToString() + "라는 키 존재!");
+            i++;
+        }
+        //////////////////////////////////////////////////////////////////////////////
+        PlayerPrefs.SetInt("unit_" + name + "_code_" + i.ToString(), GetUnitSOInfo.Instance.getUnitCode(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_grade_" + i.ToString(), GetUnitSOInfo.Instance.getUnitGrade(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_hp_" + i.ToString(), GetUnitSOInfo.Instance.getUnitHp(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_maxhp_" + i.ToString(), GetUnitSOInfo.Instance.getUnitHp(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_atk_" + i.ToString(), GetUnitSOInfo.Instance.getUnitAtk(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_def_" + i.ToString(), GetUnitSOInfo.Instance.getUnitDef(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_atkSp_" + i.ToString(), GetUnitSOInfo.Instance.getUnitAtkSp(unitcode));
+        PlayerPrefs.SetInt("unit_" + name + "_location_" + i.ToString(), -1);
+        PlayerPrefs.SetInt("unit_" + name + "_tile_" + i.ToString(), -1);
+        //////////////////////////////////////////////////////////////////////////////
+        GameObject bought_unit = Instantiate(GetUnitSOInfo.Instance.unit[unitcode], TileManager.Instance.tiles[11].tar_lo.transform.position, Quaternion.Euler(new Vector3(0, 98, 0)));
+        bought_unit.name = name + i;
+        bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
+        bought_unit.GetComponent<Unit>().GetUnit();
+        //Debug.Log(GetUnitSOInfo.Instance.getUnitName(unitcode) + "/" + GetUnitSOInfo.Instance.getUnitGrade(unitcode) + "성");
+    }
+
+    void Fusion_Delete()
+    {
+
+        for (int attributeCount = 0; attributeCount < MAX_ATTRIBUTE_ENUM; attributeCount++)
+        {
+            string DELETE_KEY = "unit_" + firstFusionUDID.name + "_" + Enum.GetName(typeof(UnitAttribute), attributeCount) + "_" + firstFusionUDID.count;
+            PlayerPrefs.DeleteKey(DELETE_KEY);
+            Destroy(GameObject.Find(firstFusionUDID.name + firstFusionUDID.count));
+            //Debug.Log(DELETE_KEY);
+
+        }
+        for (int attributeCount = 0; attributeCount < MAX_ATTRIBUTE_ENUM; attributeCount++)
+        {
+            string DELETE_KEY = "unit_" + secondFusionUDID.name + "_" + Enum.GetName(typeof(UnitAttribute), attributeCount) + "_" + secondFusionUDID.count;
+            PlayerPrefs.DeleteKey(DELETE_KEY);
+            Destroy(GameObject.Find(secondFusionUDID.name + secondFusionUDID.count));
+           // Debug.Log(DELETE_KEY);
+        }
+    }
+
+        int BIG_grade(int first, int second) {
+        if (first > second)
+        {
+            return first;
+        }
+        else {
+            return second;
+        } 
+    }
+    int SMALL_grade(int first, int second)
+    {
+        if (first > second)
+        {
+            return second;
+        }
+        else
+        {
+            return first;
+        }
+    }
+
+    int Funsion_grade_add(int result, int add) {
+        if (result == 5)
+        {
+            return result;
+        }
+        else if (result == add)
+        {
+            if ((UnityEngine.Random.Range(0f, 1f) <= 0.5f))
+            {
+                return result + 1;
+            }
+            else
+            {
+                return result;
+            }
+        } else
+        {
+            float add_per = 0.425f - ((result - add)*0.075f);
+            if ((UnityEngine.Random.Range(0f, 1f)) <= add_per)
+            {
+                return result + 1;
+            }
+            else
+            {
+                return result;
+            }
+        }
 
     }
+
 
     IEnumerator FusionCoroutine()
     {
@@ -647,7 +780,7 @@ public class CheckingInvenManager : MonoBehaviour
         Debug.Log("강화되었습니다.");
     }
 
-    */
+    //*/
 
 
 }

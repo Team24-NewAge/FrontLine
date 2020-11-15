@@ -81,7 +81,6 @@ public class UnitShop_Popup : PopupBase
 
         GameManager.Instance.UnitFusionStack++;
         HidePopup();
-        PopupManager.Instance.ShowUnitShop_Popup();
         InventoryManager.Instance.Open_Fusion();
         
     }
@@ -93,9 +92,7 @@ public class UnitShop_Popup : PopupBase
 
         GameManager.Instance.UnitReinForceStack++;
         HidePopup();
-        PopupManager.Instance.ShowUnitShop_Popup();
         InventoryManager.Instance.Open_Reinforce();
-       
     }
 
     public void Exitpopup_on()

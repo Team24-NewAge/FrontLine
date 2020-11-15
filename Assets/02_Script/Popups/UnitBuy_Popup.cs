@@ -32,10 +32,10 @@ public class UnitBuy_Popup : PopupBase
     public int[] save_unit_skill1 = new int[3];
     public int[] save_unit_skill2 = new int[3];
     public int[] save_unit_skill3 = new int[3];
-
+    public int unit_lenth;
     public void Awake()
     {
-
+        unit_lenth = GetUnitSOInfo.Instance.unit.Length;
     }
     // Start is called before the first frame update
     void Start()
@@ -103,7 +103,7 @@ public class UnitBuy_Popup : PopupBase
         {
             do
             {
-                unitcode = Random.Range(0, 5);
+                unitcode = Random.Range(0, unit_lenth);
                 unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
             } while (unitgrade != 1);
             unit_code[num] = unitcode;
@@ -114,7 +114,7 @@ public class UnitBuy_Popup : PopupBase
         {
             do
             {
-                unitcode = Random.Range(0, 5);
+                unitcode = Random.Range(0, unit_lenth);
                 unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
             } while (unitgrade != 2);
             unit_code[num] = unitcode;
@@ -126,7 +126,7 @@ public class UnitBuy_Popup : PopupBase
         {
             do
             {
-                unitcode = Random.Range(0, 5);
+                unitcode = Random.Range(0, unit_lenth);
                 unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
             } while (unitgrade != 3);
             unit_code[num] = unitcode;
@@ -137,7 +137,7 @@ public class UnitBuy_Popup : PopupBase
         {
             do
             {
-                unitcode = Random.Range(0, 5);
+                unitcode = Random.Range(0, unit_lenth);
                 unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
             } while (unitgrade != 4);
             unit_code[num] = unitcode;
@@ -148,7 +148,7 @@ public class UnitBuy_Popup : PopupBase
         {
             do
             {
-                unitcode = Random.Range(0, 5);
+                unitcode = Random.Range(0, unit_lenth);
                 unitgrade = GetUnitSOInfo.Instance.getUnitGrade(unitcode);
             } while (unitgrade != 5);
             unit_code[num] = unitcode;
