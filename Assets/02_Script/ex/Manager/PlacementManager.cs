@@ -64,9 +64,6 @@ public class PlacementManager : MonoBehaviour
                 GameManager.Instance.SavePopup = null;
                root = Root._none;
                 break;
-        
-        
-        
         }
     }
 

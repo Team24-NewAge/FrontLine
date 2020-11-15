@@ -116,6 +116,8 @@ public class CheckingInvenManager : MonoBehaviour
         showingText.GetComponent<Text>().text = "";
         showingText.SetActive(false);
         selectedUDID = new UnitDataIdentification(); // 인벤토리를 키면, 이전에 선택했던 UDID를 리셋시켜줌
+
+        stars.SetActiveAll(false);
     }
 
     // 인벤토리는 한 페이지당 10개로 한정.
@@ -635,19 +637,17 @@ public class CheckingInvenManager : MonoBehaviour
             int result_grade = BIG_grade(firstFusionUDID.grade, secondFusionUDID.grade);//큰 별확인
             int add_grade = SMALL_grade(firstFusionUDID.grade, secondFusionUDID.grade);//작은별확인
             int final_grade = Funsion_grade_add(result_grade, add_grade);//별 상승률 계산
-            Fusion_result(final_grade);// 합성결과 도출
-            Fusion_Delete();
 
+            Fusion_Delete();// 조합삭제
+            Fusion_result(final_grade);// 합성결과 생성
 
 
             if (PlacementManager.Instance.root == PlacementManager.Root._none)
             { PlacementManager.Instance.root = PlacementManager.Root._shop; }
-            PlacementManager.Instance.Open_Placement();
+            PlacementManager.Instance.Open_Placement(); //배치창 열기
 
-            Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
-            information.SetText("유닛 획득", "유닛을 확인하고 배치하세요");
+            InventoryManager.Instance.Close_Fusion(); //조합창 닫기
 
-            InventoryManager.Instance.Close_Fusion();
         }
        // StartCoroutine(FusionCoroutine());
     }
@@ -686,6 +686,10 @@ public class CheckingInvenManager : MonoBehaviour
         bought_unit.transform.SetParent(GameManager.Instance.inventory.transform);
         bought_unit.GetComponent<Unit>().GetUnit();
         //Debug.Log(GetUnitSOInfo.Instance.getUnitName(unitcode) + "/" + GetUnitSOInfo.Instance.getUnitGrade(unitcode) + "성");
+
+
+        U_result_Popup resultpop = PopupManager.Instance.ShowU_Result_Popup();
+        resultpop.Fusion_popup(unitcode);
     }
 
     void Fusion_Delete()

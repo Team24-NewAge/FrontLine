@@ -61,6 +61,31 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteAll();
+        for(int i = 1; i <= 6; i++)
+        {
+            PlayerPrefs.SetInt("unit_용병전사_code_" + i.ToString(), 0);
+            PlayerPrefs.SetInt("unit_용병전사_grade_" + i.ToString(), 1);
+            PlayerPrefs.SetInt("unit_용병전사_hp_" + i.ToString(), 10);
+            PlayerPrefs.SetInt("unit_용병전사_maxhp_" + i.ToString(), 10);
+            PlayerPrefs.SetInt("unit_용병전사_atk_" + i.ToString(), 2);
+            PlayerPrefs.SetInt("unit_용병전사_def_" + i.ToString(), 0);
+            PlayerPrefs.SetInt("unit_용병전사_atkSp_" + i.ToString(), 100);
+
+        }
+        PlayerPrefs.SetInt("unit_용병전사_tile_1", 5);
+        PlayerPrefs.SetInt("unit_용병전사_location_1",2);
+        PlayerPrefs.SetInt("unit_용병전사_tile_2", 5);
+        PlayerPrefs.SetInt("unit_용병전사_location_2", 1);
+        PlayerPrefs.SetInt("unit_용병전사_tile_3", 5);
+        PlayerPrefs.SetInt("unit_용병전사_location_3", 3);
+        PlayerPrefs.SetInt("unit_용병전사_tile_4", 8);
+        PlayerPrefs.SetInt("unit_용병전사_location_4", 1);
+        PlayerPrefs.SetInt("unit_용병전사_tile_5", 8);
+        PlayerPrefs.SetInt("unit_용병전사_location_5", 1);
+        PlayerPrefs.SetInt("unit_용병전사_tile_6", 8);
+        PlayerPrefs.SetInt("unit_용병전사_location_6", 3);
+
     }
 
     // Update is called once per frame
