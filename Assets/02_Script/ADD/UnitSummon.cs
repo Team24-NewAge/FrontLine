@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Configuration;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class UnitSummon : MonoBehaviour
 {
@@ -31,9 +33,9 @@ public class UnitSummon : MonoBehaviour
     public GameObject inven;
     public GameObject unit;
     
-    public static int post_tot = 0;
-    public static bool fusionchk = false;
-    public int fusion;
+    public static bool CheckBuy = false;
+
+    public static bool CheckFusion = false;
     void Awake()
     {
         Hero = GameObject.Find("Unit").transform.Find("Hero_Warrior").gameObject;
@@ -57,91 +59,67 @@ public class UnitSummon : MonoBehaviour
 
     }
 
-    public IEnumerator FusionChk()
+    public void OnInvoke()
     {
-        yield return new WaitForSeconds(0.5f);
+     
+        int num = 0;
         
-        fusion = 0;
+        for (int i = 0; i < 100; i++, num++)
+            unit_[num] = null;
         
-        for (int i = 0; i < 100; i++, fusion++)
-                unit_[fusion] = null;
+        num = 0;
         
-        BtnAct.unit_post = post_tot;
-        
-        fusion = 0;
-
         if (unit.transform.childCount != 0) 
-            for (int i = 0; i < unit.transform.childCount - 1; i++, fusion++)
-                unit_[fusion] = unit.transform.GetChild(i).gameObject;
+            for (int i = 0; i < unit.transform.childCount - 1; i++, num++)
+                unit_[num] = unit.transform.GetChild(i).gameObject;
 
         if (inven.transform.childCount != 0)
-            for (int i = 0; i < inven.transform.childCount; i++, fusion++)
-                unit_[fusion] = inven.transform.GetChild(i).gameObject;
+            for (int i = 0; i < inven.transform.childCount; i++, num++)
+                unit_[num] = inven.transform.GetChild(i).gameObject;
+        
+        
+        tot_btn = inven.transform.childCount + unit.transform.childCount - 1;
+        
+        
+        BtnAct.unitbatch = false;
+        
+    }
 
-        tot_btn = inven.transform.childCount + (unit.transform.childCount - 1);
-        
-        post_tot = tot_btn;
-
-        GameObject.Find("Startlocation ").GetComponent<BtnAct>().OnClick();
-        
-        fusionchk = false;
-        
-    }//유닛 합성 코루틴
-    
-    public void Update()
+    private void Update()
     {
-        //Debug.Log(tot_btn);
-        //Debug.Log(post_tot);
         int num = 0;//유닛 배열 번호
-
+        
         if (PlacementManager.batchstart)
         {
-            for (int i = 0; i < 100; i++, num++)
-                unit_[num] = null;
-            
-            num = 0;//유닛 배열 번호
-            
             if (unit.transform.childCount != 0)
                 for (int i = 0; i < unit.transform.childCount - 1; i++, num++)
-                {
                     unit_[num] = unit.transform.GetChild(i).gameObject;
-                }
 
             if (inven.transform.childCount != 0)
                 for (int i = 0; i < inven.transform.childCount; i++, num++)
-                {
                     unit_[num] = inven.transform.GetChild(i).gameObject;
-                }
-            
+
             tot_btn = inven.transform.childCount + (unit.transform.childCount - 1);
             PlacementManager.batchstart = false;
         }//유닛 배치가 시작되었을떄
 
         if (UnitCancelBtn.CancleCheack)
         {
-            for (int i = 0; i < 100; i++, num++)
-                unit_[num] = null;
-            
-            num = 0;//유닛 배열 번호
-            
             if (unit.transform.childCount != 0)
                 for (int i = 0; i < unit.transform.childCount - 1; i++, num++)
-                {
                     unit_[num] = unit.transform.GetChild(i).gameObject;
-                }
 
             if (inven.transform.childCount != 0)
                 for (int i = 0; i < inven.transform.childCount; i++, num++)
-                {
                     unit_[num] = inven.transform.GetChild(i).gameObject;
-                }
-            
+
             tot_btn = inven.transform.childCount + (unit.transform.childCount - 1);
         }//유닛 배치 취소 시
-
-        if(fusionchk)
-            StartCoroutine(FusionChk());//유닛 합성시 
-
+        
+        if (CheckFusion) 
+         Invoke("OnInvoke",0.01f);//유닛 합성 시 코루틴
+        
+       
         if (anypush != null)
         {
             btnanycheck = anypush.GetComponent<UnitSpawnBtn>().btnanycheck;// 버튼 누르고 타일 누른 상태 확인

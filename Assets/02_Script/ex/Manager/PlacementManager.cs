@@ -42,12 +42,7 @@ public class PlacementManager : MonoBehaviour
         Skill3.SetActive(false);
         Monstermanager.SetActive(false);
         batchstart = true;
-
-        if (UnitSummon.fusionchk)
-        {
-            batchstart = false;
-        }
-        
+        UnitSummon.CheckBuy = true;
         PaperManager.Instance.Paper_Locked();
     }
 
