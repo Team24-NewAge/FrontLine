@@ -19,14 +19,20 @@ public class MainPanel : MonoBehaviour
         //popup._HideAction += () => { print("hide option"); };
     }
 
-   // public void OnGetNameButtonClick()
-    //{
-        //var popup = PopupManager.Instance.ShowGetStringPopup();
-        //popup.NickNameAction += nickName => { print(nickName); };
 
-        //popup.GetInitNameFunc += () =>
-       // {
-            //return "123123";
-        //};
+    public void BtnClick()
+    {
+        SoundManager.Instance.menu_ok_Play();
+    }
+
+    // public void OnGetNameButtonClick()
+    //{
+    //var popup = PopupManager.Instance.ShowGetStringPopup();
+    //popup.NickNameAction += nickName => { print(nickName); };
+
+    //popup.GetInitNameFunc += () =>
+    // {
+    //return "123123";
+    //};
     //}
 }

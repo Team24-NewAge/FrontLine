@@ -65,7 +65,7 @@ public class CheckingInvenManager : MonoBehaviour
     public Image[] stars = new Image[5];
 
     // 주의사항! option 변수들은 처음 상태로 되돌리는 행위(정의된 Default 값으로 돌려줘야 한다는 의미)가 매우 중요함.
-    public bool checkFirstUDID = false, checkSecondUDID = false; // Option을 사용하면서 버튼에 데이터가 올바르게 들어갔다면? 각각의 변수가 True로 바뀔 것이다. (기본 Default는 false)
+    public bool checkFirstUDID = false, checkSecondUDID = false, checkReinforceUDID = false; // Option을 사용하면서 버튼에 데이터가 올바르게 들어갔다면? 각각의 변수가 True로 바뀔 것이다. (기본 Default는 false)
     public UnitDataIdentification firstFusionUDID, secondFusionUDID, reinforceUDID; // Option을 사용하면서, 현재 선택된 유닛 데이터 값이 들어갈 변수. (기본 Default는 null)
     public UnitDataIdentification selectedUDID; // 현재 선택된 UDID(Unit Data Identification) 값을 저장하는 변수. (Show Invenotry 메서드에서 할당됨)
     public GameObject firstFusionUDBtn, secondFusionUDBtn, reinforceUDBtn; // 선택된 UDID를 확인할 수 있는 UI 변수(GameObject로 생성함).
@@ -82,6 +82,9 @@ public class CheckingInvenManager : MonoBehaviour
     private const int MAX_NAME_ENUM = 5;
     private const int MAX_ATTRIBUTE_ENUM = 9;
 
+
+    public GameObject exit_popup;
+    public GameObject fadeimage;
     //Inventory Local Data Manager를 담당함.
     #region
     private static UnitDataIdentification[] in_UDID = new UnitDataIdentification[100]; // 유닛 100개 데이터
@@ -470,6 +473,7 @@ public class CheckingInvenManager : MonoBehaviour
                 return;
             }
             reinforceUDID = selectedUDID;
+            checkReinforceUDID = true;
             reinforceInvenNum = selectedInvenNum;
             RefreshShowOptionUI();
         }
@@ -504,6 +508,7 @@ public class CheckingInvenManager : MonoBehaviour
     public void SelectorReinforceCancle()
     {
         reinforceUDID = new UnitDataIdentification();
+        checkReinforceUDID = false;
         reinforceInvenNum = -1;
         reinforceUDBtn.GetComponentsInChildren<Image>()[1].sprite = null; // 버튼 UI의 이미지 변경.
         reinforceUDBtn.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 0); // 하얀 배경 없애드렸습니다^.^
@@ -765,27 +770,52 @@ public class CheckingInvenManager : MonoBehaviour
     }
 
 
-    IEnumerator FusionCoroutine()
-    {
-        // 참고로 yield return new 문장은, "Update" 메서드랑 동일하게 "항시" 실행되고 있다. 그러니, 너무 남발하면 속도가 느려진다.
-        // WaitUntil를 사용하는 데에 필요한 매개변수는 오로지 람다식(=람다함수, 메서드X 함수O, 반환 값이 있어서 함수)만 넣을 수 있다.
-        yield return new WaitUntil(WaitConditionOption); // TurningFusion 메서드가 True가 되는지 확인하는 구간. 해당 메서드가 참(True)을 반환하면, 다음으로 넘어감.
-        Debug.Log("퓨전되었습니다.");
-    }
-
     // 강화를 하기 위해서 사용하는 메서드
     public void ReinforceOption()
     {
-        StartCoroutine(ReinforceCoroutine());
-    }
+        if (checkReinforceUDID)
+        {
+            string name = reinforceUDID.name;
+            int code = reinforceUDID.code;
+            int count = reinforceUDID.count;
+            int unit_atk = reinforceUDID.atk + UnityEngine.Random.Range(0,6);
+            int unit_maxhp = reinforceUDID.maxHp + UnityEngine.Random.Range(0, 21);
+            int unit_hp = unit_maxhp;
+            int unit_def = reinforceUDID.def + UnityEngine.Random.Range(0, 21); ;
+            int unit_atkspd = reinforceUDID.atkSp + (UnityEngine.Random.Range(0, 3)*10); ;
 
-    IEnumerator ReinforceCoroutine()
-    {
-        yield return new WaitUntil(WaitConditionOption);
-        Debug.Log("강화되었습니다.");
+            //////////////////////////////////////////////////////////////////////////////
+            PlayerPrefs.SetInt("unit_" + name + "_hp_" + count, unit_hp);
+            PlayerPrefs.SetInt("unit_" + name + "_maxhp_" +count, unit_maxhp);
+            PlayerPrefs.SetInt("unit_" + name + "_atk_" + count, unit_atk);
+            PlayerPrefs.SetInt("unit_" + name + "_def_" + count, unit_def);
+            PlayerPrefs.SetInt("unit_" + name + "_atkSp_" + count, unit_atkspd);
+            //////////////////////////////////////////////////////////////////////////////
+            GameObject target = GameObject.Find(name + count);
+            target.GetComponent<Unit>().hp = unit_hp;
+            target.GetComponent<Unit>().Max_hp = unit_maxhp;
+            target.GetComponent<Unit>().atk = unit_atk;
+            target.GetComponent<Unit>().def = unit_def;
+            target.GetComponent<Unit>().a_spd = unit_atkspd;
+
+            U_result_Popup resultpop = PopupManager.Instance.ShowU_Result_Popup();
+            resultpop.Reinforce_Popup(code,unit_maxhp, unit_atk ,unit_atkspd, unit_def);
+
+
+            InventoryManager.Instance.Close_Reinforce(); //조합창 닫기
+        }
     }
 
     //*/
-
+    public void Exitpopup_on()
+    {
+        exit_popup.SetActive(true);
+        fadeimage.SetActive(true);
+    }
+    public void Exitpopup_off()
+    {
+        exit_popup.SetActive(false);
+        fadeimage.SetActive(false);
+    }
 
 }

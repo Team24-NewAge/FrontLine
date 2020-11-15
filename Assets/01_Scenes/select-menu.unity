@@ -3243,6 +3243,26 @@ PrefabInstance:
       propertyPath: BgsAudio
       value: 
       objectReference: {fileID: 260344924}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: menu_click
+      value: 
+      objectReference: {fileID: 8300000, guid: ea4abcc8b33d49846a985cc9f8ad5824, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: reinforce_click
+      value: 
+      objectReference: {fileID: 8300000, guid: 4683845b3a6625941af78891ae09512d, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: cancle_click
+      value: 
+      objectReference: {fileID: 8300000, guid: e3d281454be7a494e9a0e63807f6eb4f, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: F_R_Result
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ecc983340d3d754eaa469d39d448973, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eba87df89681d1488e536ccc2bf0cd0, type: 3}
 --- !u!4 &1767176377 stripped

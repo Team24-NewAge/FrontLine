@@ -90,8 +90,8 @@ public class UnitSummon : MonoBehaviour
     
     public void Update()
     {
-        Debug.Log(tot_btn);
-        Debug.Log(post_tot);
+        //Debug.Log(tot_btn);
+        //Debug.Log(post_tot);
         int num = 0;//유닛 배열 번호
 
         if (PlacementManager.batchstart)

@@ -202,6 +202,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4527175751644241173}
+        m_MethodName: ok_sound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &766742250151366020
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +333,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4527175751644241173}
         m_MethodName: Onprevious
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4527175751644241173}
+        m_MethodName: cancle_sound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -61,8 +61,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        float BGM = PlayerPrefs.GetFloat("bgm", 0f);
+        float BGS = PlayerPrefs.GetFloat("bgs", 0f);
         PlayerPrefs.DeleteAll();
-        for(int i = 1; i <= 6; i++)
+        PlayerPrefs.SetFloat("bgm", BGM);
+        PlayerPrefs.SetFloat("bgs", BGS);
+
+        for (int i = 1; i <= 6; i++)
         {
             PlayerPrefs.SetInt("unit_용병전사_code_" + i.ToString(), 0);
             PlayerPrefs.SetInt("unit_용병전사_grade_" + i.ToString(), 1);

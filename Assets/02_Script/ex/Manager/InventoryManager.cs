@@ -24,10 +24,13 @@ public class InventoryManager : MonoBehaviour
         invenUI.transform.SetAsLastSibling();
         fadeimage.SetActive(true);
         invenUI.SetActive(true);
+
+        SoundManager.Instance.menu_ok_Play();
     }
 
     public void Close_Inventory()//인벤토리 닫는 매서드
     {
+        SoundManager.Instance.cancle_menu();
         fadeimage.SetActive(false);
         invenUI.SetActive(false);
     }

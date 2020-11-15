@@ -27,6 +27,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip pray;
 
+    public AudioClip menu_click;
+    public AudioClip reinforce_click;
+    public AudioClip cancle_click;
+
+    public AudioClip F_R_Result;
     public static SoundManager Instance { get; private set; }
    
 
@@ -95,6 +100,24 @@ public class SoundManager : MonoBehaviour
         BgsAudio.PlayOneShot(pray, 1);
     }
 
+    public void menu_ok_Play()
+    {
+        BgsAudio.PlayOneShot(menu_click, 2);
+    }
+    public void cancle_menu()
+    {
+        BgsAudio.PlayOneShot(cancle_click, 2);
+    }
+    public void reinforce_menu()
+    {
+        BgsAudio.PlayOneShot(reinforce_click, 2);
+    
+    
+    }
+    public void result_sound()
+    {
+        BgsAudio.PlayOneShot(F_R_Result, 2);
+    }
     public void Hero_Warrior_Skill(int skill)
     {
         switch (skill)
