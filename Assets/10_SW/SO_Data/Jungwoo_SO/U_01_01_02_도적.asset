@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "U_01_01_02_\uB3C4\uC801"
   m_EditorClassIdentifier: 
   basedCode: 0
-  basedName: "\uC6A9\uBCD1\uC804\uC0AC"
+  basedName: "\uB3C4\uC801"
   basedSprite:
   - {fileID: 21300000, guid: 8dbc5e15a72696a47a66b0a30a869fe3, type: 3}
   basedGrade: 1

@@ -2281,8 +2281,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718240840654933017}
-  m_LocalRotation: {x: -0, y: 0.10605236, z: -0, w: 0.9943605}
-  m_LocalPosition: {x: -0.12088768, y: 0, z: 0.012893081}
+  m_LocalRotation: {x: 0, y: 0.75470966, z: 0, w: 0.656059}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 718240840655049305}
@@ -2292,7 +2292,7 @@ Transform:
   - {fileID: 5145809026713365965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 12.176001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 98, z: 0}
 --- !u!95 &718240840664338013
 Animator:
   serializedVersion: 3
@@ -2324,6 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc6e147e8ea2814aad8d23437aa77d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Unit_Code: 6
   Code: 2
   Name: "\uC6A9\uBCD1\uCC3D\uC220\uC0AC"
   sprite: {fileID: 0}

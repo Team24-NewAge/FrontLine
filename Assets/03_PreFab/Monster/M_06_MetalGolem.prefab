@@ -1873,7 +1873,7 @@ Animator:
   m_GameObject: {fileID: 5361458505807527424}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a50cd06a0668d1a418d586a2944e3ed5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 524cebb55dec1b647858c2fcfe7632ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34c5429ea7ddd024ba64ef4a3f1794c1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a70662515176a4a82e7311f562843d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster_Code: 0
+  Monster_Code: 6
   Code: 0
   Name: 
   sprite: {fileID: 0}
@@ -1911,6 +1911,7 @@ MonoBehaviour:
   Currentlocation: {fileID: 0}
   Attack_sound: {fileID: 8300000, guid: 9cade3b010d42fe41a1f857b2d37e806, type: 3}
   Deadsound: {fileID: 0}
+  Attack_Effect_ob: {fileID: 5853869071235042165}
   Attack_Effect: {fileID: 6018891746044808859}
   Targetlocation: {fileID: 0}
   Targettile: {fileID: 0}
@@ -1918,6 +1919,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   Hp_bar: {fileID: 0}
   Do_Battle: 0
+  isBoss: 0
 --- !u!1 &5361487331920093126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2028,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -6577,7 +6579,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -11137,7 +11139,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -15694,7 +15696,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -20263,7 +20265,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -24913,7 +24915,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -29563,7 +29565,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0

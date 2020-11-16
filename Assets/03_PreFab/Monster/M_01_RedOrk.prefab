@@ -1147,6 +1147,7 @@ MonoBehaviour:
   Currentlocation: {fileID: 0}
   Attack_sound: {fileID: 8300000, guid: c8fddbb229e2a4445863e1e64643478c, type: 3}
   Deadsound: {fileID: 0}
+  Attack_Effect_ob: {fileID: 1953661573099739699}
   Attack_Effect: {fileID: 1862638257686346847}
   Targetlocation: {fileID: 0}
   Targettile: {fileID: 0}
@@ -1154,6 +1155,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   Hp_bar: {fileID: 738512015962810236}
   Do_Battle: 0
+  isBoss: 0
 --- !u!1 &7877299643831135351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,6 +2415,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1ddd059de115f44b44ff52413832aa, type: 3}
+--- !u!1 &1953661573099739699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1201505000128532, guid: ba1ddd059de115f44b44ff52413832aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1952460086488750631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1952176141436729647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4237247970697992, guid: ba1ddd059de115f44b44ff52413832aa,

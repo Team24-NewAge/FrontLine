@@ -28,6 +28,7 @@ public class Monster : MonoBehaviour
     public AudioClip Attack_sound;
     public AudioClip Deadsound;
 
+    public GameObject Attack_Effect_ob;
     public ParticleSystem Attack_Effect;
 
     public GameObject Targetlocation;
@@ -191,7 +192,10 @@ public class Monster : MonoBehaviour
 
     void Attack_Effect_on()
     {
+        //GameObject atkeffect = Instantiate(Attack_Effect_ob, TargetUnit.transform.position + new Vector3(0, 1, 0), gameObject.transform.rotation);
+        //atkeffect.GetComponent<ParticleSystem>().Play();
         Attack_Effect.transform.position = TargetUnit.transform.position + new Vector3(0, 1, 0);
+        Attack_Effect.transform.SetParent(TargetUnit.transform);
         Attack_Effect.Play();
         print("몬스터 이펙트");
     }

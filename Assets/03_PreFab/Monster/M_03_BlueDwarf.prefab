@@ -6547,7 +6547,7 @@ Animator:
   m_GameObject: {fileID: 5284614827113346055}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a50cd06a0668d1a418d586a2944e3ed5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 524cebb55dec1b647858c2fcfe7632ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 769522941318c9447bb9bef60f8c937f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6568,7 +6568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a70662515176a4a82e7311f562843d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster_Code: 0
+  Monster_Code: 3
   Code: 0
   Name: 
   sprite: {fileID: 0}
@@ -6585,6 +6585,7 @@ MonoBehaviour:
   Currentlocation: {fileID: 0}
   Attack_sound: {fileID: 8300000, guid: c8fddbb229e2a4445863e1e64643478c, type: 3}
   Deadsound: {fileID: 0}
+  Attack_Effect_ob: {fileID: 1135005888613448256}
   Attack_Effect: {fileID: 938137821327924478}
   Targetlocation: {fileID: 0}
   Targettile: {fileID: 0}
@@ -6592,6 +6593,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   Hp_bar: {fileID: 9107120626745706384}
   Do_Battle: 0
+  isBoss: 0
 --- !u!1 &5284645063218262599
 GameObject:
   m_ObjectHideFlags: 0

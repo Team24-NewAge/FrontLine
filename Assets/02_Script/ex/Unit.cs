@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-
+    public int Unit_Code;
     public int Code;
     public string Name;
     public Sprite sprite;
@@ -52,7 +52,17 @@ public class Unit : MonoBehaviour
         Location_number_Setting();
         Reset();
 
-
+        Code = GetUnitSOInfo.Instance.getUnitCode(Unit_Code);
+        Name = GetUnitSOInfo.Instance.getUnitName(Unit_Code);
+        //sprite = GetEnemyInfo.Instance.ge
+        grade = GetUnitSOInfo.Instance.getUnitGrade(Unit_Code);
+        description = GetUnitSOInfo.Instance.getUnitDescript(Unit_Code);
+        Max_hp = Mathf.FloorToInt(GetUnitSOInfo.Instance.getUnitHp(Unit_Code));
+        hp = Mathf.FloorToInt(GetUnitSOInfo.Instance.getUnitHp(Unit_Code));
+        atk = Mathf.FloorToInt(GetUnitSOInfo.Instance.getUnitAtk(Unit_Code));
+        def = Mathf.FloorToInt(GetUnitSOInfo.Instance.getUnitDef(Unit_Code));
+        a_spd = GetUnitSOInfo.Instance.getUnitAtkSp(Unit_Code);
+        m_spd = GetUnitSOInfo.Instance.getUnitMvSp(Code);
     }
 
     public void Location_number_Setting() {

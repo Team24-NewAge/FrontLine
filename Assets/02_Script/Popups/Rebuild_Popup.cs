@@ -7,7 +7,7 @@ public class Rebuild_Popup : PopupBase
 {
     public GameObject exit_popup;
     public GameObject fadeimage;
-
+    GameObject effect;
     public void Exitpopup_on()
     {
         exit_popup.SetActive(true);
@@ -40,11 +40,11 @@ public class Rebuild_Popup : PopupBase
 
         Rebuild_result_Popup result =  PopupManager.Instance.ShowRebuild_Result_Popup();
         result.SetText("영웅 휴식", "영웅이 충분한 휴식을 취했습니다.\n" + heal + "만큼의 체력을 회복합니다.");
-        GameObject heal_effect = Instantiate(EffectManager.Instance.Healeffect, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
-
+        effect = Instantiate(EffectManager.Instance.Healeffect, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
+        result.SetEffect(effect);
 
         Destroy(gameObject);
-        Destroy(heal_effect,2f);
+        Destroy(effect, 2f);
     }
 
     public void Hero_traning()//영웅 훈련
@@ -52,7 +52,7 @@ public class Rebuild_Popup : PopupBase
         float training = Random.Range(0f, 1f);
         Rebuild_result_Popup result = PopupManager.Instance.ShowRebuild_Result_Popup();
         int tr_atk, tr_def,tr_hp=0;
-        GameObject training_effect;
+       
         if (training < GameManager.Instance.Hero_traning_add[0])// 훈련실패
         {
             tr_atk = Random.Range(-3,1);
@@ -65,8 +65,8 @@ public class Rebuild_Popup : PopupBase
             BarManager.Instance.Hero.GetComponent<Unit>().Max_hp += tr_hp;
 
             SoundManager.Instance.traning(0);
-            training_effect = Instantiate(EffectManager.Instance.traning_debuff, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
-
+            effect = Instantiate(EffectManager.Instance.traning_debuff, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
+            result.SetEffect(effect);
         }
         else if (GameManager.Instance.Hero_traning_add[0] <= training && training < GameManager.Instance.Hero_traning_add[1]) //훈련성공
         {
@@ -80,8 +80,8 @@ public class Rebuild_Popup : PopupBase
             BarManager.Instance.Hero.GetComponent<Unit>().Max_hp += tr_hp;
 
             SoundManager.Instance.traning(1);
-            training_effect = Instantiate(EffectManager.Instance.traning_buff, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
-
+            effect = Instantiate(EffectManager.Instance.traning_buff, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
+            result.SetEffect(effect);
         }
         else //if (GameManager.Instance.Hero_traning_add[1] <= training && training <= GameManager.Instance.Hero_traning_add[2]) 훈련 대성공
         {
@@ -95,8 +95,8 @@ public class Rebuild_Popup : PopupBase
             BarManager.Instance.Hero.GetComponent<Unit>().Max_hp += tr_hp;
 
             SoundManager.Instance.traning(2);
-            training_effect = Instantiate(EffectManager.Instance.traning_perfect, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
-
+            effect = Instantiate(EffectManager.Instance.traning_perfect, BarManager.Instance.Hero.transform.position, BarManager.Instance.Hero.transform.rotation);
+            result.SetEffect(effect);
         }
 
         BarManager.Instance.Hero.GetComponent<Unit>().Heal_Unit(tr_hp);
@@ -104,7 +104,7 @@ public class Rebuild_Popup : PopupBase
         CameraManager.Instance.ResultCam_on();
 
         Destroy(gameObject);
-        Destroy(training_effect, 5f);
+        Destroy(effect, 5f);
     }
 
 
@@ -123,6 +123,7 @@ public class Rebuild_Popup : PopupBase
                 pray_power = Random.Range(1, 101);
                 praypop.SetText("전쟁신의 축복", "신이 전쟁의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 아군의 공격력이 " + pray_power +"% 증가합니다.");
                 pray_setting(pray_code, pray_turn, pray_power);
+                praypop.SetEffect(effect);
                 BarManager.Instance.pray_string.text = "공격력 "+ pray_turn+"일 간 "+ pray_power+"% 증가";
                 break;
             case 2:
@@ -138,10 +139,11 @@ public class Rebuild_Popup : PopupBase
                 BarManager.Instance.pray_string.text = "방어력 " + pray_turn + "일 간 " + pray_power + "증가";
                 break;
         }
-        GameObject pray_effect = Instantiate(EffectManager.Instance.pray, BarManager.Instance.Hero.transform.position + new Vector3(0,3,0), Quaternion.Euler(0,0,0));
+        effect = Instantiate(EffectManager.Instance.pray, BarManager.Instance.Hero.transform.position + new Vector3(0,3,0), Quaternion.Euler(0,0,0));
+        praypop.SetEffect(effect);
         SoundManager.Instance.pray_Play();
         Destroy(gameObject);
-        Destroy(pray_effect, 5f);
+        Destroy(effect, 5f);
     }
 
 

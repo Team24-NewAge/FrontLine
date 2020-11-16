@@ -46,7 +46,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -4706,7 +4706,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -10527,7 +10527,7 @@ Animator:
   m_GameObject: {fileID: 7491016289734119925}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: be73df03abf02284486d1afabcf5d4fe, type: 3}
-  m_Controller: {fileID: 9100000, guid: 524cebb55dec1b647858c2fcfe7632ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 01ec87e0df09a3a47a3ce1366940e680, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10548,7 +10548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a70662515176a4a82e7311f562843d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster_Code: 0
+  Monster_Code: 8
   Code: 0
   Name: 
   sprite: {fileID: 0}
@@ -10565,6 +10565,7 @@ MonoBehaviour:
   Currentlocation: {fileID: 0}
   Attack_sound: {fileID: 8300000, guid: 17540961b5f249042b109817a9d1406d, type: 3}
   Deadsound: {fileID: 0}
+  Attack_Effect_ob: {fileID: 1729287973706803762}
   Attack_Effect: {fileID: 1529978062416099208}
   Targetlocation: {fileID: 0}
   Targettile: {fileID: 0}
@@ -10572,6 +10573,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   Hp_bar: {fileID: 1191498563216230364}
   Do_Battle: 0
+  isBoss: 0
 --- !u!1 &7491179777189247811
 GameObject:
   m_ObjectHideFlags: 0
