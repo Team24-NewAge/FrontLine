@@ -42,7 +42,7 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
 
     public void OnClick()
     {
-        SoundManager.Instance.reinforce_menu();
+        SoundManager.Instance.menu_ok_Play();
         
         summonmanager.GetComponent<UnitSummon>().anypush = this.gameObject;//눌린 버튼의 오브젝트 할당
         btnanycheck = true;//버튼 눌림 확인

@@ -142,7 +142,7 @@ public class UnitSummon : MonoBehaviour
                 
                 if (hit.transform.gameObject.name == tile_9.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -195,7 +195,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_8.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -248,7 +248,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_7.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -301,7 +301,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_6.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -354,7 +354,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_5.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -407,7 +407,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_4.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -460,7 +460,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_3.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -513,7 +513,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_2.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -566,7 +566,7 @@ public class UnitSummon : MonoBehaviour
                 
                 else if (hit.transform.gameObject.name == tile_1.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
@@ -619,7 +619,7 @@ public class UnitSummon : MonoBehaviour
                 
                  else if (hit.transform.gameObject.name == tile_0.name) //Raycast가 타일에 맞았다면
                 {
-                    SoundManager.Instance.result_sound();
+                    SoundManager.Instance.reinforce_menu();
                     tile_po = hit.collider.gameObject;//Ray 가져옴
                     GameObject [] tile_unit_po = new GameObject[3];// Tile 스크립트의 Unit_po 배열을 가져오기 위함
                     tile_unit_po[0] = tile_po.GetComponent<Tile>().Unit_po[0];
