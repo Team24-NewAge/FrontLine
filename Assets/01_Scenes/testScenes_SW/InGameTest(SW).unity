@@ -6842,6 +6842,7 @@ MonoBehaviour:
   traning_perfect: {fileID: 1758517370114167886, guid: 9d47feab469a41c42bd21cf236fee576,
     type: 3}
   pray: {fileID: 6135277683555150938, guid: cc7da83be7f2edb448f2fac3813773b5, type: 3}
+  BossEffect: {fileID: 0}
 --- !u!1 &1573210601
 GameObject:
   m_ObjectHideFlags: 0

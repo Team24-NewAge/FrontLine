@@ -22,7 +22,7 @@ MonoBehaviour:
   basedAtk: 2
   basedDef: 0
   basedAtkSp: 100
-  mvSp: 1
+  mvSp: 0
   lifeSkill: 
   price: 50
   tile: 0
