@@ -6875,6 +6875,8 @@ MonoBehaviour:
   traning_perfect: {fileID: 1758517370114167886, guid: 9d47feab469a41c42bd21cf236fee576,
     type: 3}
   pray: {fileID: 6135277683555150938, guid: cc7da83be7f2edb448f2fac3813773b5, type: 3}
+  BossEffect: {fileID: 3864217976193032626, guid: 13b8deb419f1b8f449f7b6898d06227c,
+    type: 3}
 --- !u!1 &1573210601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7168,6 +7170,11 @@ PrefabInstance:
       propertyPath: cancle_click
       value: 
       objectReference: {fileID: 8300000, guid: e3d281454be7a494e9a0e63807f6eb4f, type: 3}
+    - target: {fileID: 2910664307184748348, guid: 7eba87df89681d1488e536ccc2bf0cd0,
+        type: 3}
+      propertyPath: BossEncount
+      value: 
+      objectReference: {fileID: 8300000, guid: 30c7ebe0992d48745adbd960ffaa46d4, type: 3}
     m_RemovedComponents:
     - {fileID: 2158899673531921974, guid: 7eba87df89681d1488e536ccc2bf0cd0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7eba87df89681d1488e536ccc2bf0cd0, type: 3}
