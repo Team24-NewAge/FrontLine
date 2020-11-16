@@ -95,7 +95,10 @@ void Potions() //포션이벤트
         eventpopup.GetComponent<Event_Popup>().button_text1.text = "뭐, 거절할 필요는 없지\n[랜덤 효과]";
         eventpopup.GetComponent<Event_Popup>().button2.gameObject.SetActive(false);
         eventpopup.GetComponent<Event_Popup>().button_text3.text = "뭘 믿고 그런 수상한걸 먹나?\n[이벤트 포기]";
-        PopupManager.Instance.ShowEvent_Popup();
+
+        Set_EventPoPUP();
+        btn1.onClick.AddListener(Potions_1);
+        btn3.onClick.AddListener(Potions_2);
     }
 
     void Traning() //훈련이벤트
@@ -103,10 +106,14 @@ void Potions() //포션이벤트
         eventpopup.GetComponent<Event_Popup>().button2.gameObject.SetActive(true);
 
         eventpopup.GetComponent<Event_Popup>().main_text.text = "소문난 훈련교관이 제안을 했다.\n'나에게 훈련을 맡겨준다면 효과는 보장해 드리지'";
-        eventpopup.GetComponent<Event_Popup>().button_text1.text = "근력 훈련을 맡긴다\n[유닛 하나의 공격력 증가]";
-        eventpopup.GetComponent<Event_Popup>().button_text2.text = "지구력 훈련을 맡긴다\n[유닛 하나의 체력 증가]";
-        eventpopup.GetComponent<Event_Popup>().button_text3.text = "대처 훈련을 맡긴다\n[유닛 하나의 방어력 증가]";
-        PopupManager.Instance.ShowEvent_Popup();
+        eventpopup.GetComponent<Event_Popup>().button_text1.text = "근력 훈련을 맡긴다\n[유닛의 공격력 증가]";
+        eventpopup.GetComponent<Event_Popup>().button_text2.text = "지구력 훈련을 맡긴다\n[유닛의 체력 증가]";
+        eventpopup.GetComponent<Event_Popup>().button_text3.text = "대처 훈련을 맡긴다\n[유닛의 방어력 증가]";
+
+        Set_EventPoPUP();
+        btn1.onClick.AddListener(Traning_1);
+        btn2.onClick.AddListener(Traning_2);
+        btn3.onClick.AddListener(Traning_3);
     }
 
 
@@ -127,6 +134,7 @@ void Potions() //포션이벤트
     }
     void Return() //돌아가기 화면 띄우는 함수
     {
+        btn2.gameObject.SetActive(true); // 버튼1 숨김
         btn2_text.text = "돌아간다"; //버튼2 텍스트 변경
         btn2.GetComponentInChildren<RectTransform>().sizeDelta = new Vector2(700, 150); //버튼2 크기 변경
         btn1.gameObject.SetActive(false); // 버튼1 숨김
@@ -180,6 +188,52 @@ void Potions() //포션이벤트
 
             main_text.text = "당신은 경마장을 뒤로하고 집으로 돌아갔다.";
             Return();//돌아가기 화면
+
+    }
+
+    public void Potions_1()//포션 이벤트 1번선택지
+    {
+        BarManager.Instance.gold -= 250;
+
+        if (Random.Range(0, 100) < 50)
+        {
+            main_text.text = "영웅의 공격력이 증가한 것 같다";
+            BarManager.Instance.gold += 750;
+            Return();//돌아가기 화면
+        }
+        else
+        {
+            main_text.text = "속이 안좋아... 공격력이 낮아진 것 같다.";
+            Return();//돌아가기 화면
+        }
+        BarManager.Instance.gold_text.text = BarManager.Instance.gold.ToString();
+        eventpopup.GetComponent<Event_Popup>().button1.onClick.RemoveAllListeners();
+    }
+
+    public void Potions_2()//포션 이벤트 2번선택지
+    {
+
+        main_text.text = "제안을 뒤로하고 집으로 돌아갔다.";
+        Return();//돌아가기 화면
+    }
+
+    public void Traning_1()//경마 이벤트 1번선택지
+    {
+        main_text.text = "훈련은 성공적이었다. 모든 유닛의 공격력이 증가했다.";
+        Return();//돌아가기 화면
+    }
+
+    public void Traning_2()//경마 이벤트 2번선택지
+    {
+        main_text.text = "소문은 사실이었던 것 같다. 모든 유닛의 체력이 증가했다.";
+        Return();//돌아가기 화면
+    }
+
+    public void Traning_3()//경마 이벤트 3번선택지
+    {
+
+        main_text.text = "후회없는 선택이었다. 모든 유닛의 방어력이 증가했다.";
+        Return();//돌아가기 화면
 
     }
 

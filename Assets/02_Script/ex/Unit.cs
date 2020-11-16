@@ -24,6 +24,7 @@ public class Unit : MonoBehaviour
     public AudioClip Attack_sound;
     public AudioClip Deadsound;
 
+    public GameObject Effect;
     public ParticleSystem Attack_Effect;
 
     public int stack=0;//여러 공격에서 사용되는 스택
@@ -173,7 +174,7 @@ public class Unit : MonoBehaviour
 
 
     void Attack_Effect_on() {
-        Attack_Effect.transform.position = TargetUnit.transform.position+ new Vector3(0,1,0);
+        Effect.transform.position = TargetUnit.transform.position+ new Vector3(0,1,0);
         Attack_Effect.Play();
     }
 

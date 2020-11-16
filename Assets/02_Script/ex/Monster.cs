@@ -65,6 +65,8 @@ public class Monster : MonoBehaviour
             add_state *= 1.5f;
         }
 
+        add_state += 0.01f * BarManager.Instance.date;
+
         Code = GetEnemyInfo.Instance.getEnemyCode(Monster_Code);
         Name = GetEnemyInfo.Instance.getEnemyName(Monster_Code);
         //sprite = GetEnemyInfo.Instance.ge
