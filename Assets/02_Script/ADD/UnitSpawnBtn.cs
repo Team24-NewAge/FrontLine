@@ -82,6 +82,11 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                     {
                         unit_face.sprite = GetUnitSOInfo.Instance.unitface[1];
                     }
+                    else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 창술사라면
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    }
+                    //유닛 추가시 작성할 부분
                 }
             }
             else if (objimg == "Summonclick (" + num + ")")
@@ -94,6 +99,11 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                 {
                     unit_face.sprite = GetUnitSOInfo.Instance.unitface[1];
                 }
+                else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 창술사라면
+                {
+                    unit_face.sprite = GetUnitSOInfo.Instance.unitface[2];
+                }
+                //유닛 추가시 작성할 부분
             }
             
         } //버튼에 태그별로 이미지 보여줌
@@ -141,7 +151,9 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
                     else if (status[i].tag == "mercenaryknight")
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
-                    
+                    else if (status[i].tag == "mercenarylancemaster")
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    //유닛 추가시 작성할 부분
                     break;
                 }  
             }  
@@ -158,7 +170,9 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                     UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
                 else if (status[i].tag == "mercenaryknight")
                     UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
-                
+                else if (status[i].tag == "mercenarylancemaster")
+                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[2];
+                //유닛 추가시 작성할 부분
                 break;
             }  
 
