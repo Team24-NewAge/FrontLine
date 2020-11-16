@@ -2269,7 +2269,7 @@ GameObject:
   - component: {fileID: 7571916552207477008}
   m_Layer: 0
   m_Name: "U_01_03_00_\uC6A9\uBCD1\uCC3D\uC220\uC0AC"
-  m_TagString: Untagged
+  m_TagString: mercenarylancemaster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
