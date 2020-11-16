@@ -298,7 +298,6 @@ public class CheckingInvenManager : MonoBehaviour
 
     public void MovingPage(bool isUping)
     {
-        Debug.Log(maxUnitCount + "이게 문제 있을 수 있음.");
         int maxPageCount = (int)(maxUnitCount / 10);
         if (maxUnitCount % 10 > 0)
         {
@@ -309,7 +308,7 @@ public class CheckingInvenManager : MonoBehaviour
         {
             maxPageCount = 1;
         }
-        Debug.Log(maxPageCount + "이게 문제였던걸까?");
+
         pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / " + maxPageCount; // 초기 상태(변화 전)의 값을 내포하는 텍스트 UI
         // isUping 페이지를 Next 하시겠습니까? is~upPage? 랑 같은 맥락
         if (maxPageCount == 1)  //seung, 전체 페이지가 한 쪽일때
