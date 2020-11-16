@@ -44,7 +44,8 @@ public class UnitCancelBtn : MonoBehaviour
 
     public void OnClick()
     {
-       
+        SoundManager.Instance.cancle_menu();
+        
         for (int i = 0; i < UnitSummon.tot_btn; i++)
         {
             summonmanager.GetComponent<UnitSummon>().unit_[i].transform.position = inven.transform.position;//유닛 위치 인벤토리로
