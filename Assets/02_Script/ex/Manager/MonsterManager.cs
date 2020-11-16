@@ -32,7 +32,7 @@ public class MonsterManager : MonoBehaviour
 
         for (int i = 0; i < mons_cont; i++)//몬스터 젠 수만큼 반복
         { 
-            mons_list[i] = UnityEngine.Random.Range(0, 4);//몬스터id 부여
+            mons_list[i] = Random.Range(0, 4);//몬스터id 부여
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
@@ -63,17 +63,41 @@ public class MonsterManager : MonoBehaviour
     {
         for (int i = 0; i < mons_cont; i++)//리젠숫자만큼 반복
         {
-            mons[i] = Instantiate(GetEnemyInfo.Instance.enemy[mons_list[i]], regentr.transform.position, Quaternion.Euler(new Vector3(0,-90,0))) ;
-            //몬스터 오브젝트 생성
-            mons[i].name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
-            //오브젝트 이름은 해당하는 코드+ 숫자로 할당
-            mons[i].GetComponent<Monster>().Currentlocation = regentr;
-            //리젠되는 위치와 현재위치값 할당
-            mons[i].GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
-            //처음 리젠되고 목적지 할당
-            mons[i].transform.SetParent(Monsters.transform);
-          yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));//리젠 간격은 01~0.7초 랜덤
-            
+            if ((i == mons_cont - 1 && GameManager.Instance.Battle == GameManager.battleState.boss))
+            {
+                Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
+                information.SetText("보스 등장", "강력한 적이 등장했습니다!");
+                mons[i] = Instantiate(GetEnemyInfo.Instance.enemy[mons_list[i]], regentr.transform.position, Quaternion.Euler(new Vector3(0, -90, 0)));
+                //몬스터 오브젝트 생성
+
+                mons[i].transform.localScale *= 2f;
+
+                mons[i].name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
+                //오브젝트 이름은 해당하는 코드+ 숫자로 할당
+                mons[i].GetComponent<Monster>().Currentlocation = regentr;
+                //리젠되는 위치와 현재위치값 할당
+                mons[i].GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
+                //처음 리젠되고 목적지 할당
+                mons[i].transform.SetParent(Monsters.transform);
+
+                mons[i].GetComponent<Monster>().isBoss = true;
+                GameObject par = Instantiate(EffectManager.Instance.BossEffect, mons[i].transform.position, mons[i].transform.rotation);
+                par.transform.SetParent(mons[i].transform);
+                par.transform.localScale = Vector3.one;
+                SoundManager.Instance.Boss_encount();
+                break;
+            }
+                 mons[i] = Instantiate(GetEnemyInfo.Instance.enemy[mons_list[i]], regentr.transform.position, Quaternion.Euler(new Vector3(0, -90, 0)));
+                //몬스터 오브젝트 생성
+                mons[i].name = GetEnemyInfo.Instance.getEnemyName(mons_list[i]) + i;
+                //오브젝트 이름은 해당하는 코드+ 숫자로 할당
+                mons[i].GetComponent<Monster>().Currentlocation = regentr;
+                //리젠되는 위치와 현재위치값 할당
+                mons[i].GetComponent<Monster>().Targettile = TileManager.Instance.tiles[0];
+                //처음 리젠되고 목적지 할당
+                mons[i].transform.SetParent(Monsters.transform);
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));//리젠 간격은 01~0.7초 랜덤
+
         }
 
 

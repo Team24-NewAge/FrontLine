@@ -809,13 +809,17 @@ public class CheckingInvenManager : MonoBehaviour
     //*/
     public void Exitpopup_on()
     {
+        SoundManager.Instance.menu_ok_Play();
         exit_popup.SetActive(true);
         fadeimage.SetActive(true);
     }
     public void Exitpopup_off()
     {
+        SoundManager.Instance.cancle_menu();
         exit_popup.SetActive(false);
         fadeimage.SetActive(false);
     }
+
+
 
 }

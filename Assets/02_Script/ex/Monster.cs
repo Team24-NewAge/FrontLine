@@ -38,7 +38,7 @@ public class Monster : MonoBehaviour
 
     public Slider Hp_bar;
     public bool Do_Battle;
-
+    public bool isBoss = false;
     float add_state;
     void Start()
     {
@@ -59,6 +59,10 @@ public class Monster : MonoBehaviour
                     break;
                 }
 
+        }
+        if (isBoss)
+        {
+            add_state *= 1.5f;
         }
 
         Code = GetEnemyInfo.Instance.getEnemyCode(Monster_Code);

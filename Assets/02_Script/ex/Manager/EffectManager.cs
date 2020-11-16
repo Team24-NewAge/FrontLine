@@ -13,6 +13,7 @@ public class EffectManager : MonoBehaviour
     public GameObject traning_buff;
     public GameObject traning_perfect;
     public GameObject pray;
+    public GameObject BossEffect;
     private void Awake()
     {
         Instance = this;

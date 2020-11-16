@@ -32,6 +32,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip cancle_click;
 
     public AudioClip F_R_Result;
+
+    public AudioClip BossEncount;
     public static SoundManager Instance { get; private set; }
    
 
@@ -113,6 +115,11 @@ public class SoundManager : MonoBehaviour
         BgsAudio.PlayOneShot(reinforce_click, 2);
     
     
+    }
+
+    public void Boss_encount()
+    {
+        BgsAudio.PlayOneShot(BossEncount, 2);
     }
     public void result_sound()
     {
