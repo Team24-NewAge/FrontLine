@@ -152,7 +152,6 @@ public class CheckingInvenManager : MonoBehaviour
                 string willSearchString = "unit_" + Enum.GetName(typeof(UnitName), nameCount) + "_" + Enum.GetName(typeof(UnitAttribute), attributeCount) + "_" + unitEachCount;
                 if (PlayerPrefs.HasKey(willSearchString))
                 {
-                    Debug.Log("순서는 " + attributeCount);
                     // attributeCount 값에 따라서, 어떤 속성 값을 대입해야 되는지 알 수 있다.
                     switch (attributeCount)
                     {
@@ -193,7 +192,6 @@ public class CheckingInvenManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("점프해서 "+attributeCount);
                     break;  // Unit_유닛이름_속성_숫자 의 값이 존재하지 않는다면, 바로 break 넘어감.
                 }
             }
