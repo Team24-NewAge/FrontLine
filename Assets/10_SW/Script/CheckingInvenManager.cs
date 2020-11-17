@@ -432,8 +432,8 @@ public class CheckingInvenManager : MonoBehaviour
             // 만약에 양쪽 다 True라면, 넣지 않는다.
             if (!checkFirstUDID)
             {
-                // 조건문으로, 선택된 두 대상(first와 second)이 같은지를 확인하는 부분.
-                if(selectedInvenNum == secondFusionInvenNum && selectedInvenNum != -1)
+                // 조건문으로, 선택된 두 대상(first와 second)이 같은지를 확인하는 부분. 
+                if(selectedInvenNum == secondFusionInvenNum && selectedInvenNum < 0 || selectedInvenNum > 100)
                 {
                     Debug.Log("중복되는 대상을 선택했습니다.");
                     return;
