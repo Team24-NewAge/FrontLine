@@ -79,9 +79,8 @@ public class CheckingInvenManager : MonoBehaviour
     public GameObject prevBtn, nextBtn; // 이전 페이지로 넘어가거나 다음 페이지로 넘어가는 버튼
     private int maxUnitCount; // 현재 생성된 모든 유닛의 숫자를 확인하는 변수
 
-    private const int MAX_NAME_ENUM = 5;
+    private const int MAX_NAME_ENUM = 15;
     private const int MAX_ATTRIBUTE_ENUM = 9;
-
 
     public GameObject exit_popup;
     public GameObject fadeimage;
@@ -153,6 +152,7 @@ public class CheckingInvenManager : MonoBehaviour
                 string willSearchString = "unit_" + Enum.GetName(typeof(UnitName), nameCount) + "_" + Enum.GetName(typeof(UnitAttribute), attributeCount) + "_" + unitEachCount;
                 if (PlayerPrefs.HasKey(willSearchString))
                 {
+                    Debug.Log("순서는 " + attributeCount);
                     // attributeCount 값에 따라서, 어떤 속성 값을 대입해야 되는지 알 수 있다.
                     switch (attributeCount)
                     {
@@ -193,6 +193,7 @@ public class CheckingInvenManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("점프해서 "+attributeCount);
                     break;  // Unit_유닛이름_속성_숫자 의 값이 존재하지 않는다면, 바로 break 넘어감.
                 }
             }
@@ -301,7 +302,6 @@ public class CheckingInvenManager : MonoBehaviour
 
     public void MovingPage(bool isUping)
     {
-        Debug.Log(maxUnitCount + "이게 문제 있을 수 있음.");
         int maxPageCount = (int)(maxUnitCount / 10);
         if (maxUnitCount % 10 > 0)
         {
@@ -312,7 +312,7 @@ public class CheckingInvenManager : MonoBehaviour
         {
             maxPageCount = 1;
         }
-        Debug.Log(maxPageCount + "이게 문제였던걸까?");
+        
         pageText.GetComponent<Text>().text = "현재 쪽 : " + pageNumber + " / " + maxPageCount; // 초기 상태(변화 전)의 값을 내포하는 텍스트 UI
         // isUping 페이지를 Next 하시겠습니까? is~upPage? 랑 같은 맥락
         if (maxPageCount == 1)  //seung, 전체 페이지가 한 쪽일때

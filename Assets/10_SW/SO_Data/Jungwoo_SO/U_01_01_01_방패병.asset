@@ -15,7 +15,7 @@ MonoBehaviour:
   basedCode: 0
   basedName: "\uBC29\uD328\uBCD1"
   basedSprite:
-  - {fileID: 21300000, guid: 8dbc5e15a72696a47a66b0a30a869fe3, type: 3}
+  - {fileID: 21300000, guid: 31626222cb44ded4faa0b812caac4aec, type: 3}
   basedGrade: 1
   basedDescript: "\uC774\uAC83\uC774 \uC911\uC138\uC758 \uC5C9\uB369\uC774"
   maxHp: 20
