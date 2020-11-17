@@ -74,35 +74,131 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
             {
                 if (objimg == "Summonclick")
                 {
-                    if (unit_tot.unit_[i].tag == "mercenarywarrior") //태그가 전사이면
+                    if (unit_tot.unit_[i].tag == "mercenarywarrior") //태그가 용병전사
                     {
                         unit_face.sprite = GetUnitSOInfo.Instance.unitface[0];
                     }
-                    else if (unit_tot.unit_[i].tag == "mercenaryknight")//태그가 검사이면
+                    else if (unit_tot.unit_[i].tag == "shieldsoldier")//태그가 방패병
                     {
                         unit_face.sprite = GetUnitSOInfo.Instance.unitface[1];
                     }
-                    else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 창술사라면
+                    else if (unit_tot.unit_[i].tag == "rogue")//태그가 도적
                     {
                         unit_face.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenaryknight")//태그가 용병검사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[3];
+                    }
+                    else if (unit_tot.unit_[i].tag == "axewarrior")//태그가 도끼전사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[4];
+                    }
+                    else if (unit_tot.unit_[i].tag == "protectiongeneral")//태그가 수호대장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[5];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 용병창술사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[6];
+                    }
+                    else if (unit_tot.unit_[i].tag == "apprentice")//태그가 견습술사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[7];
+                    }
+                    else if (unit_tot.unit_[i].tag == "gladiator")//태그가 검투사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[8];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenarygeneral")//태그가 용병대장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[9];
+                    }
+                    else if (unit_tot.unit_[i].tag == "priest")//태그가 프리스트
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[10];
+                    }
+                    else if (unit_tot.unit_[i].tag == "plaguedoctor")//태그가 역병의사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[11];
+                    }
+                    else if (unit_tot.unit_[i].tag == "maestre")//태그가 기사단장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[12];
+                    }
+                    else if (unit_tot.unit_[i].tag == "elfmagition")//태그가 엘프마법사이면
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[13];
+                    }
+                    else if (unit_tot.unit_[i].tag == "highpriestess")//태그가 하이프리스트리스
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[14];
                     }
                     //유닛 추가시 작성할 부분
                 }
             }
             else if (objimg == "Summonclick (" + num + ")")
             {
-                if (unit_tot.unit_[i].tag == "mercenarywarrior") //태그가 전사이면
-                {
-                    unit_face.sprite = GetUnitSOInfo.Instance.unitface[0];
-                }
-                else if (unit_tot.unit_[i].tag == "mercenaryknight") //태그가 검사이면
-                {
-                    unit_face.sprite = GetUnitSOInfo.Instance.unitface[1];
-                }
-                else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 창술사라면
-                {
-                    unit_face.sprite = GetUnitSOInfo.Instance.unitface[2];
-                }
+                 if (unit_tot.unit_[i].tag == "mercenarywarrior") //태그가 용병전사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[0];
+                    }
+                    else if (unit_tot.unit_[i].tag == "shieldsoldier")//태그가 방패병
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[1];
+                    }
+                    else if (unit_tot.unit_[i].tag == "rogue")//태그가 도적
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenaryknight")//태그가 용병검사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[3];
+                    }
+                    else if (unit_tot.unit_[i].tag == "axewarrior")//태그가 도끼전사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[4];
+                    }
+                    else if (unit_tot.unit_[i].tag == "protectiongeneral")//태그가 수호대장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[5];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenarylancemaster")//태그가 용병창술사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[6];
+                    }
+                    else if (unit_tot.unit_[i].tag == "apprentice")//태그가 견습술사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[7];
+                    }
+                    else if (unit_tot.unit_[i].tag == "gladiator")//태그가 검투사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[8];
+                    }
+                    else if (unit_tot.unit_[i].tag == "mercenarygeneral")//태그가 용병대장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[9];
+                    }
+                    else if (unit_tot.unit_[i].tag == "priest")//태그가 프리스트
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[10];
+                    }
+                    else if (unit_tot.unit_[i].tag == "plaguedoctor")//태그가 역병의사
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[11];
+                    }
+                    else if (unit_tot.unit_[i].tag == "maestre")//태그가 기사단장
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[12];
+                    }
+                    else if (unit_tot.unit_[i].tag == "elfmagition")//태그가 엘프마법사이면
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[13];
+                    }
+                    else if (unit_tot.unit_[i].tag == "highpriestess")//태그가 하이프리스트리스
+                    {
+                        unit_face.sprite = GetUnitSOInfo.Instance.unitface[14];
+                    }
                 //유닛 추가시 작성할 부분
             }
             
@@ -147,12 +243,66 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                     UnitDef.text = status[i].GetComponent<Unit>().def.ToString();
                     UnitA_spd.text = status[i].GetComponent<Unit>().a_spd.ToString();
                     
-                    if (status[i].tag == "mercenarywarrior")
+                     if (status[i].tag == "mercenarywarrior") //태그가 용병전사
+                    {
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
-                    else if (status[i].tag == "mercenaryknight")
+                    }
+                    else if (status[i].tag == "shieldsoldier")//태그가 방패병
+                    {
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
-                    else if (status[i].tag == "mercenarylancemaster")
+                    }
+                    else if (status[i].tag == "rogue")//태그가 도적
+                    {
                         UnitImg.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    }
+                    else if (status[i].tag == "mercenaryknight")//태그가 용병검사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[3];
+                    }
+                    else if (status[i].tag == "axewarrior")//태그가 도끼전사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[4];
+                    }
+                    else if (status[i].tag == "protectiongeneral")//태그가 수호대장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[5];
+                    }
+                    else if (status[i].tag == "mercenarylancemaster")//태그가 용병창술사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[6];
+                    }
+                    else if (status[i].tag == "apprentice")//태그가 견습술사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[7];
+                    }
+                    else if (status[i].tag == "gladiator")//태그가 검투사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[8];
+                    }
+                    else if (status[i].tag == "mercenarygeneral")//태그가 용병대장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[9];
+                    }
+                    else if (status[i].tag == "priest")//태그가 프리스트
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[10];
+                    }
+                    else if (status[i].tag == "plaguedoctor")//태그가 역병의사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[11];
+                    }
+                    else if (status[i].tag == "maestre")//태그가 기사단장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[12];
+                    }
+                    else if (status[i].tag == "elfmagition")//태그가 엘프마법사이면
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[13];
+                    }
+                    else if (status[i].tag == "highpriestess")//태그가 하이프리스트리스
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[14];
+                    }
                     //유닛 추가시 작성할 부분
                     break;
                 }  
@@ -166,12 +316,66 @@ public class UnitSpawnBtn : MonoBehaviour , IPointerEnterHandler, IPointerExitHa
                 UnitDef.text = status[i].GetComponent<Unit>().def.ToString();
                 UnitA_spd.text = status[i].GetComponent<Unit>().a_spd.ToString();
                 
-                if (status[i].tag == "mercenarywarrior")
-                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
-                else if (status[i].tag == "mercenaryknight")
-                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
-                else if (status[i].tag == "mercenarylancemaster")
-                    UnitImg.sprite = GetUnitSOInfo.Instance.unitface[2];
+                  if (status[i].tag == "mercenarywarrior") //태그가 용병전사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[0];
+                    }
+                    else if (status[i].tag == "shieldsoldier")//태그가 방패병
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[1];
+                    }
+                    else if (status[i].tag == "rogue")//태그가 도적
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[2];
+                    }
+                    else if (status[i].tag == "mercenaryknight")//태그가 용병검사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[3];
+                    }
+                    else if (status[i].tag == "axewarrior")//태그가 도끼전사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[4];
+                    }
+                    else if (status[i].tag == "protectiongeneral")//태그가 수호대장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[5];
+                    }
+                    else if (status[i].tag == "mercenarylancemaster")//태그가 용병창술사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[6];
+                    }
+                    else if (status[i].tag == "apprentice")//태그가 견습술사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[7];
+                    }
+                    else if (status[i].tag == "gladiator")//태그가 검투사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[8];
+                    }
+                    else if (status[i].tag == "mercenarygeneral")//태그가 용병대장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[9];
+                    }
+                    else if (status[i].tag == "priest")//태그가 프리스트
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[10];
+                    }
+                    else if (status[i].tag == "plaguedoctor")//태그가 역병의사
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[11];
+                    }
+                    else if (status[i].tag == "maestre")//태그가 기사단장
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[12];
+                    }
+                    else if (status[i].tag == "elfmagition")//태그가 엘프마법사이면
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[13];
+                    }
+                    else if (status[i].tag == "highpriestess")//태그가 하이프리스트리스
+                    {
+                        UnitImg.sprite = GetUnitSOInfo.Instance.unitface[14];
+                    }
                 //유닛 추가시 작성할 부분
                 break;
             }  

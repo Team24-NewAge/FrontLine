@@ -18,6 +18,18 @@ TagManager:
   - mercenarywarrior
   - mercenaryknight
   - mercenarylancemaster
+  - shieldsoldier
+  - rogue
+  - axewarrior
+  - protectiongeneral
+  - gladiator
+  - mercenarygeneral
+  - priest
+  - plaguedoctor
+  - maestre
+  - highpriestess
+  - elfmagition
+  - apprentice
   layers:
   - Default
   - TransparentFX

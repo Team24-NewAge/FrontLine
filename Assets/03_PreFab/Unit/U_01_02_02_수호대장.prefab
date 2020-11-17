@@ -63357,7 +63357,7 @@ GameObject:
   - component: {fileID: 8306672480250136362}
   m_Layer: 0
   m_Name: "U_01_02_02_\uC218\uD638\uB300\uC7A5"
-  m_TagString: Untagged
+  m_TagString: protectiongeneral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

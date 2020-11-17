@@ -52500,7 +52500,7 @@ GameObject:
   - component: {fileID: 5220704141829588294}
   m_Layer: 0
   m_Name: "U_01_05_00_\uAE30\uC0AC\uB2E8\uC7A5"
-  m_TagString: Untagged
+  m_TagString: maestre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

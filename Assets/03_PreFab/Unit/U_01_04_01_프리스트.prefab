@@ -7404,7 +7404,7 @@ GameObject:
   - component: {fileID: 1024488275965840367}
   m_Layer: 0
   m_Name: "U_01_04_01_\uD504\uB9AC\uC2A4\uD2B8"
-  m_TagString: Untagged
+  m_TagString: priest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

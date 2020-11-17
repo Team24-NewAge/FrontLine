@@ -48404,7 +48404,7 @@ GameObject:
   - component: {fileID: 8280691216989357219}
   m_Layer: 0
   m_Name: "U_01_01_02_\uB3C4\uC801"
-  m_TagString: Untagged
+  m_TagString: rogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

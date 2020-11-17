@@ -26659,7 +26659,7 @@ GameObject:
   - component: {fileID: 8516359887124487415}
   m_Layer: 0
   m_Name: "U_01_04_02_\uC5ED\uBCD1\uC758\uC0AC"
-  m_TagString: Untagged
+  m_TagString: plaguedoctor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

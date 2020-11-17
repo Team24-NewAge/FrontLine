@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 8718584134206093160}
   m_Layer: 0
   m_Name: "U_01_02_01_\uC5D1\uC2A4\uC6CC\uB9AC\uC5B4"
-  m_TagString: Untagged
+  m_TagString: axewarrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
