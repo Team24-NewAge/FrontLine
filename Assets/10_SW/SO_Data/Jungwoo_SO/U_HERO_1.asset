@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f632631e83e2f4429e4706cd3d6ffe8, type: 3}
   m_Name: U_HERO_1
   m_EditorClassIdentifier: 
-  basedCode: 0
+  basedCode: 15
   basedName: 
   basedSprite: []
   basedGrade: 0
   basedDescript: 
-  maxHp: 0
-  basedAtk: 0
-  basedDef: 0
-  basedAtkSp: 0
+  maxHp: 100
+  basedAtk: 100
+  basedDef: 50
+  basedAtkSp: 100
   mvSp: 0
   lifeSkill: 
   price: 0
