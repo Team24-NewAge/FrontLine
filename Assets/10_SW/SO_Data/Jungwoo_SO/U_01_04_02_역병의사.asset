@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f632631e83e2f4429e4706cd3d6ffe8, type: 3}
   m_Name: "U_01_04_02_\uC5ED\uBCD1\uC758\uC0AC"
   m_EditorClassIdentifier: 
-  basedCode: 3
+  basedCode: 11
   basedName: "\uC5ED\uBCD1\uC758\uC0AC"
   basedSprite:
   - {fileID: 21300000, guid: a10d62f516d5385488494b3c4cb12a72, type: 3}
