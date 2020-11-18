@@ -22,11 +22,23 @@ public class GameManager : MonoBehaviour
     public battleState Battle = battleState.nomal;
 
     public GameObject SavePopup;
+    int prefs_continue;
+    public bool CONTINUE=false;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
+
         Instance = this;
+
+        prefs_continue = PlayerPrefs.GetInt("CONTINUE",0);
+        if (prefs_continue == 0)
+        {
+            CONTINUE = false;
+        } else
+        {
+            CONTINUE = true;
+        }
         ////////////////////////////////////
         unitper[0] = 0.0f;
         unitper[1] = 0.4f;
@@ -61,37 +73,40 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        float BGM = PlayerPrefs.GetFloat("bgm", 0f);
-        float BGS = PlayerPrefs.GetFloat("bgs", 0f);
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetFloat("bgm", BGM);
-        PlayerPrefs.SetFloat("bgs", BGS);
-
-        for (int i = 1; i <= 6; i++)
+        if (!CONTINUE)
         {
-            PlayerPrefs.SetInt("unit_용병전사_code_" + i.ToString(), 0);
-            PlayerPrefs.SetInt("unit_용병전사_grade_" + i.ToString(), 1);
-            PlayerPrefs.SetInt("unit_용병전사_hp_" + i.ToString(), 10);
-            PlayerPrefs.SetInt("unit_용병전사_maxhp_" + i.ToString(), 10);
-            PlayerPrefs.SetInt("unit_용병전사_atk_" + i.ToString(), 2);
-            PlayerPrefs.SetInt("unit_용병전사_def_" + i.ToString(), 0);
-            PlayerPrefs.SetInt("unit_용병전사_atkSp_" + i.ToString(), 100);
+            float BGM = PlayerPrefs.GetFloat("bgm", 0f);
+            float BGS = PlayerPrefs.GetFloat("bgs", 0f);
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetFloat("bgm", BGM);
+            PlayerPrefs.SetFloat("bgs", BGS);
 
+            for (int i = 1; i <= 6; i++)
+            {
+                PlayerPrefs.SetInt("unit_용병전사_code_" + i.ToString(), 0);
+                PlayerPrefs.SetInt("unit_용병전사_grade_" + i.ToString(), 1);
+                PlayerPrefs.SetInt("unit_용병전사_hp_" + i.ToString(), 10);
+                PlayerPrefs.SetInt("unit_용병전사_maxhp_" + i.ToString(), 10);
+                PlayerPrefs.SetInt("unit_용병전사_atk_" + i.ToString(), 2);
+                PlayerPrefs.SetInt("unit_용병전사_def_" + i.ToString(), 0);
+                PlayerPrefs.SetInt("unit_용병전사_atkSp_" + i.ToString(), 100);
+
+            }
+            PlayerPrefs.SetInt("unit_용병전사_tile_1", 5);
+            PlayerPrefs.SetInt("unit_용병전사_location_1", 2);
+            PlayerPrefs.SetInt("unit_용병전사_tile_2", 5);
+            PlayerPrefs.SetInt("unit_용병전사_location_2", 1);
+            PlayerPrefs.SetInt("unit_용병전사_tile_3", 5);
+            PlayerPrefs.SetInt("unit_용병전사_location_3", 3);
+            PlayerPrefs.SetInt("unit_용병전사_tile_4", 8);
+            PlayerPrefs.SetInt("unit_용병전사_location_4", 1);
+            PlayerPrefs.SetInt("unit_용병전사_tile_5", 8);
+            PlayerPrefs.SetInt("unit_용병전사_location_5", 1);
+            PlayerPrefs.SetInt("unit_용병전사_tile_6", 8);
+            PlayerPrefs.SetInt("unit_용병전사_location_6", 3);
         }
-        PlayerPrefs.SetInt("unit_용병전사_tile_1", 5);
-        PlayerPrefs.SetInt("unit_용병전사_location_1",2);
-        PlayerPrefs.SetInt("unit_용병전사_tile_2", 5);
-        PlayerPrefs.SetInt("unit_용병전사_location_2", 1);
-        PlayerPrefs.SetInt("unit_용병전사_tile_3", 5);
-        PlayerPrefs.SetInt("unit_용병전사_location_3", 3);
-        PlayerPrefs.SetInt("unit_용병전사_tile_4", 8);
-        PlayerPrefs.SetInt("unit_용병전사_location_4", 1);
-        PlayerPrefs.SetInt("unit_용병전사_tile_5", 8);
-        PlayerPrefs.SetInt("unit_용병전사_location_5", 1);
-        PlayerPrefs.SetInt("unit_용병전사_tile_6", 8);
-        PlayerPrefs.SetInt("unit_용병전사_location_6", 3);
 
+        //PlayerPrefs.SetInt("CONTINUE", 0);
     }
 
     // Update is called once per frame

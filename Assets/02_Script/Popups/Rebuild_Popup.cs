@@ -125,18 +125,30 @@ public class Rebuild_Popup : PopupBase
                 pray_setting(pray_code, pray_turn, pray_power);
                 praypop.SetEffect(effect);
                 BarManager.Instance.pray_string.text = "공격력 "+ pray_turn+"일 간 "+ pray_power+"% 증가";
+
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
             case 2:
                 pray_power = Random.Range(1, 101);
                 praypop.SetText("풍요신의 축복", "신이 풍요의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 영웅의 마나재생이 " + pray_power + "% 증가합니다.");
                 pray_setting(pray_code, pray_turn, pray_power);
                 BarManager.Instance.pray_string.text = "마나재생 " + pray_turn + "일 간 " + pray_power + "% 증가";
+
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
             case 3:
                 pray_power = Random.Range(1, 101);
                 praypop.SetText("수호신의 축복", "신이 수호의 가호를 내립니다.\n" + pray_turn + "일 동안 전투 중 아군의 방어력이 " + pray_power + "만큼 증가합니다.");
                 pray_setting(pray_code, pray_turn, pray_power);
                 BarManager.Instance.pray_string.text = "방어력 " + pray_turn + "일 간 " + pray_power + "증가";
+
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
         }
         effect = Instantiate(EffectManager.Instance.pray, BarManager.Instance.Hero.transform.position + new Vector3(0,3,0), Quaternion.Euler(0,0,0));

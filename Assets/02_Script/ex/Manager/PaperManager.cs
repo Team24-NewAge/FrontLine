@@ -37,9 +37,20 @@ public class PaperManager : MonoBehaviour
     {
         Instance = this;
 
+       int prefs_continue = PlayerPrefs.GetInt("CONTINUE", 0);
+        if (prefs_continue == 0)
+        {
+            //CONTINUE = false;
+            N_NewMonth();
+            PaperSetting();
+        }
+        else
+        {
+            //CONTINUE = true;
+            N_LOADMonth();
+            PaperSetting();
+        }
 
-        N_NewMonth();
-        PaperSetting();
     }
 
     void Start()
@@ -70,14 +81,37 @@ public class PaperManager : MonoBehaviour
                     { MonthPapers[day, id] = 7; }//일반전투 id인 7할당
                     //print("[" + day + "," + id + "]" + "="+MonthPapers[day, id]); 
                 }
+                PlayerPrefs.SetInt("Month" + day + "/" + id, MonthPapers[day, id]);
             }
             ClickPaper[day] = -1;
         }
         today = 0;
-
+        PlayerPrefs.SetInt("today", today);
 
     }
 
+    public void N_LOADMonth()
+    {
+
+        for (int day = 0; day < 30; day++)//한달 동안 반복
+        {
+            for (int id = 0; id < 11; id++)//커맨드 id 할당
+            {
+                if (day == 29)//마지막 날이면
+                { MonthPapers[day, id] = 0; }//무조건 보스커맨드
+                else if (day == 28)//마지막 전날이면
+                { MonthPapers[day, id] = 5; }//무조건 정비 커맨드 
+                else//그외의 날에는
+                {
+                    MonthPapers[day, id] = PlayerPrefs.GetInt("Month" + day + "/" + id, 7);
+                }
+             
+            }
+            ClickPaper[day] = -1;
+        }
+        today = PlayerPrefs.GetInt("today", 0);
+        Last_Click = PlayerPrefs.GetInt("Last_Click", 5);
+    }
     public void PaperSetting() {
 
 
@@ -96,7 +130,7 @@ public class PaperManager : MonoBehaviour
             Destroy(TTomorrowPaper[i]);
         }
 
-
+        PlayerPrefs.SetInt("Last_Click", Last_Click);
         switch (Last_Click)
         {
            case 0 : Last0();break;

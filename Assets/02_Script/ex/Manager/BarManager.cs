@@ -30,19 +30,36 @@ public class BarManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        _SetDate();
-        _SetCoin();
+
+
+       int  prefs_continue = PlayerPrefs.GetInt("CONTINUE", 0);
+        if (prefs_continue == 0)
+        {  
+            //CONTINUE = false;
+            _SetDate();
+            _SetCoin();
+        }
+        else
+        {
+            //CONTINUE = true;
+            gold = PlayerPrefs.GetInt("Gold", 0);
+            date = PlayerPrefs.GetInt("Date", date);
+            _SetDate();
+            _SetCoin();
+        }
+     
 
     }
 
     public void _SetDate() {
         //print(PaperManager.Instance.today);
+        PlayerPrefs.SetInt("Date",date);
         date_text.text = "D + " + date;
     }
 
     public void _SetCoin()
     {
-        //print(PaperManager.Instance.today);
+        PlayerPrefs.SetInt("Gold", gold);
         gold_text.text = gold.ToString();
     }
 
@@ -91,14 +108,21 @@ public class BarManager : MonoBehaviour
         {
             case 1:
                 pray_string.text = "공격력 " + pray_turn + "일 간 " + pray_power + "% 증가";
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
             case 2:
-               
                pray_string.text = "마나재생 " + pray_turn + "일 간 " + pray_power + "% 증가";
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
             case 3:
-               
                 pray_string.text = "방어력 " + pray_turn + "일 간 " + pray_power + "증가";
+                PlayerPrefs.SetInt("pray_code", pray_code);
+                PlayerPrefs.SetInt("pray_turn", pray_turn);
+                PlayerPrefs.SetInt("pray_power", pray_power);
                 break;
         }
     }

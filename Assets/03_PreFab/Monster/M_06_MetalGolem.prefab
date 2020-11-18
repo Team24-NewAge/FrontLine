@@ -1917,7 +1917,7 @@ MonoBehaviour:
   Targettile: {fileID: 0}
   CurrentTile: {fileID: 0}
   animator: {fileID: 0}
-  Hp_bar: {fileID: 0}
+  Hp_bar: {fileID: 5350733168961326948}
   Do_Battle: 0
   isBoss: 0
 --- !u!1 &5361487331920093126

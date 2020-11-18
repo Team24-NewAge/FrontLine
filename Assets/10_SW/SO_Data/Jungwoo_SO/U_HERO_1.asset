@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: U_HERO_1
   m_EditorClassIdentifier: 
   basedCode: 15
-  basedName: 
+  basedName: "\uC804\uC0AC"
   basedSprite: []
   basedGrade: 0
-  basedDescript: 
+  basedDescript: "\uC601\uC6C5\uC774"
   maxHp: 100
   basedAtk: 100
   basedDef: 50
