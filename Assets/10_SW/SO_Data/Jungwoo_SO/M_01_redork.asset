@@ -19,7 +19,7 @@ MonoBehaviour:
   basedDescript: "\uBE68\uAC04\uB9DB \uAD81\uAE08\uD574\uD5C8\uB2C8"
   maxHp: 15
   basedAtk: 7
-  basedDef: 0
+  basedDef: 20
   basedAtkSp: 100
   mvSp: 1
   lifeSkill: 

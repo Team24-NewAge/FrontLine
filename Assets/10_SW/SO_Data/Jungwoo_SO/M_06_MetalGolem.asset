@@ -19,7 +19,7 @@ MonoBehaviour:
   basedDescript: "\uCEF9\uCEF9"
   maxHp: 35
   basedAtk: 10
-  basedDef: 0
+  basedDef: 200
   basedAtkSp: 100
   mvSp: 1
   lifeSkill: 

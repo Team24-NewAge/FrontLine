@@ -18,8 +18,8 @@ MonoBehaviour:
   basedGrade: 8
   basedDescript: "\uB525\uB2E4\uD06C\uD310\uD0C0\uC9C0\uB9C8\uBC95"
   maxHp: 25
-  basedAtk: 25
-  basedDef: 0
+  basedAtk: 60
+  basedDef: 150
   basedAtkSp: 100
   mvSp: 1
   lifeSkill: 

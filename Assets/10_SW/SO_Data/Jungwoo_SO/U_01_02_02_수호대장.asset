@@ -19,8 +19,8 @@ MonoBehaviour:
   basedGrade: 2
   basedDescript: "\uD2BC\uD2BC\uAECD\uC9C8\uBCD1"
   maxHp: 20
-  basedAtk: 3
-  basedDef: 100
+  basedAtk: 15
+  basedDef: 300
   basedAtkSp: 200
   mvSp: 0
   lifeSkill: 

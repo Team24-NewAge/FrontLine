@@ -19,9 +19,9 @@ MonoBehaviour:
   basedGrade: 4
   basedDescript: "\uC624\uB298 \uBCF5\uADC0 \uB2A6\uB294\uB2E4\uB294\uB370"
   maxHp: 18
-  basedAtk: 10
-  basedDef: 30
-  basedAtkSp: 100
+  basedAtk: 30
+  basedDef: 150
+  basedAtkSp: 70
   mvSp: 0
   lifeSkill: 03000000
   price: 150

@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0fef25aca31cfb9478999944e437131e, type: 3}
   basedGrade: 1
   basedDescript: "\uB2E8\uAC80\uB3C4\uC801"
-  maxHp: 8
-  basedAtk: 3
+  maxHp: 10
+  basedAtk: 5
   basedDef: 0
   basedAtkSp: 100
   mvSp: 0

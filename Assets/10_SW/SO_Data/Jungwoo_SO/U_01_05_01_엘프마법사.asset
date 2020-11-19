@@ -18,10 +18,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 49add0ed20b62b84ba3518774cd1323b, type: 3}
   basedGrade: 5
   basedDescript: "\uC6B0\uB9AC \uBCD1\uC0AC\uB4E4 \uC798\uD558\uACE0 \uC788\uC9C0"
-  maxHp: 25
-  basedAtk: 15
+  maxHp: 500
+  basedAtk: 200
   basedDef: 40
-  basedAtkSp: 100
+  basedAtkSp: 50
   mvSp: 0
   lifeSkill: 
   price: 0
