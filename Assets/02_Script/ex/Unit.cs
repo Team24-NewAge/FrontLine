@@ -49,8 +49,7 @@ public class Unit : MonoBehaviour
 
     void Start()
     {
-        Location_number_Setting();
-        Reset();
+
 
         Code = GetUnitSOInfo.Instance.getUnitCode(Unit_Code);
         Name = GetUnitSOInfo.Instance.getUnitName(Unit_Code);
@@ -63,6 +62,9 @@ public class Unit : MonoBehaviour
         def = Mathf.FloorToInt(GetUnitSOInfo.Instance.getUnitDef(Unit_Code));
         a_spd = GetUnitSOInfo.Instance.getUnitAtkSp(Unit_Code);
         m_spd = GetUnitSOInfo.Instance.getUnitMvSp(Code);
+
+        Location_number_Setting();
+        Reset();
     }
 
     public void Location_number_Setting() {
