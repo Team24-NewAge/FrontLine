@@ -16,6 +16,7 @@ public class U_result_Popup : PopupBase
     public Text unit1_skill;
 
     bool fusion = false;
+    bool reinforce = false;
     void Start()
     {
         
@@ -33,6 +34,10 @@ public class U_result_Popup : PopupBase
         {
             Hero_Skill_Popup information = PopupManager.Instance.ShowHero_Skill_Popup();
             information.SetText("유닛 획득", "유닛을 확인하고 배치하세요");
+        }
+        else 
+        {
+            PopupManager.Instance.ShowUnitShop_Popup();
         }
        
 
