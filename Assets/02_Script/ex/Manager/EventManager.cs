@@ -193,12 +193,10 @@ void Potions() //포션이벤트
 
     public void Potions_1()//포션 이벤트 1번선택지
     {
-        BarManager.Instance.gold -= 250;
 
         if (Random.Range(0, 100) < 50)
         {
             main_text.text = "영웅의 공격력이 증가한 것 같다";
-            BarManager.Instance.gold += 750;
             Return();//돌아가기 화면
         }
         else

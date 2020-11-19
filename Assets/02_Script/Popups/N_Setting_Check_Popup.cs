@@ -16,7 +16,7 @@ public class N_Setting_Check_Popup : PopupBase
     {
         Mode.text ="모드 : "+ PlayerPrefs.GetString("Mode","error");
         Hero.text = "영웅 : " + PlayerPrefs.GetString("Hero", "전사");
-        Difficulty.text = "난이도 : " + PlayerPrefs.GetString("Difficulty", "error");
+        Difficulty.text = "난이도 : " + PlayerPrefs.GetString("Difficulty", "견습");
 
     }
 

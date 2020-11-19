@@ -195,7 +195,8 @@ public class Monster : MonoBehaviour
         //GameObject atkeffect = Instantiate(Attack_Effect_ob, TargetUnit.transform.position + new Vector3(0, 1, 0), gameObject.transform.rotation);
         //atkeffect.GetComponent<ParticleSystem>().Play();
         Attack_Effect.transform.position = TargetUnit.transform.position + new Vector3(0, 1, 0);
-        Attack_Effect.transform.SetParent(TargetUnit.transform);
+        //Attack_Effect.transform.SetParent(TargetUnit.transform);
+        Attack_Effect.transform.SetParent(null);
         Attack_Effect.Play();
         print("몬스터 이펙트");
     }

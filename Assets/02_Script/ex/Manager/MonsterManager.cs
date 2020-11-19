@@ -23,6 +23,32 @@ public class MonsterManager : MonoBehaviour
 
 
     public void Regen( ) {
+        int date = BarManager.Instance.date; //몬스터 id 계수
+        int range;
+        if (date < 15)
+        {
+            range = 2;
+        }else if(date < 30)
+        {
+            range = 4;
+        }
+        else if (date < 45)
+        {
+            range = 6;
+        }
+        else if (date < 60)
+        {
+            range = 8;
+        }
+        else if (date < 75)
+        {
+            range = 10;
+        }
+        else 
+        {
+            range = 10;
+        }
+
 
         int mons_cont = Mathf.FloorToInt((10 + (BarManager.Instance.date / 3))*Add_difficulty());
         //몬스터 배열 생성 /생성값은 현재 날짜에 비례해서 증가한다.
@@ -32,7 +58,8 @@ public class MonsterManager : MonoBehaviour
 
         for (int i = 0; i < mons_cont; i++)//몬스터 젠 수만큼 반복
         { 
-            mons_list[i] = Random.Range(0, 10);//몬스터id 부여
+            
+            mons_list[i] = Random.Range(0, range);//몬스터id 부여
         }
         Clear_Count = mons_cont;// 몬스터 숫자만큼 카운트 할당
         StartCoroutine(RegenStart(mons_cont));//몬스터 리젠 코루틴 발동
