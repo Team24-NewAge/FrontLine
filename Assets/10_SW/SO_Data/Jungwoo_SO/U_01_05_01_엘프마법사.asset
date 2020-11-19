@@ -19,9 +19,9 @@ MonoBehaviour:
   basedGrade: 5
   basedDescript: "\uC6B0\uB9AC \uBCD1\uC0AC\uB4E4 \uC798\uD558\uACE0 \uC788\uC9C0"
   maxHp: 500
-  basedAtk: 200
+  basedAtk: 250
   basedDef: 40
-  basedAtkSp: 50
+  basedAtkSp: 100
   mvSp: 0
   lifeSkill: 
   price: 0
