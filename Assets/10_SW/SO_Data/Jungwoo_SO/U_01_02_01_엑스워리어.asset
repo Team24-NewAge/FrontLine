@@ -21,7 +21,7 @@ MonoBehaviour:
   maxHp: 50
   basedAtk: 20
   basedDef: 20
-  basedAtkSp: 500
+  basedAtkSp: 250
   mvSp: 0
   lifeSkill: 
   price: 70
