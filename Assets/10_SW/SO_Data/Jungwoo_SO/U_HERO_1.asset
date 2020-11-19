@@ -18,7 +18,7 @@ MonoBehaviour:
   basedGrade: 0
   basedDescript: "\uC601\uC6C5\uC774"
   maxHp: 100
-  basedAtk: 100
+  basedAtk: 20
   basedDef: 50
   basedAtkSp: 100
   mvSp: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 0}
   basedGrade: 1
   basedDescript: "\uC624\uD06C\uB2E4 \uC624\uD06C"
-  maxHp: 10
+  maxHp: 50
   basedAtk: 5
   basedDef: 0
   basedAtkSp: 100

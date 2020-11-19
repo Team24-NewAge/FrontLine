@@ -17,8 +17,8 @@ MonoBehaviour:
   basedSprite: []
   basedGrade: 5
   basedDescript: "\uB3D9\uD574\uBB3C\uACFC"
-  maxHp: 25
-  basedAtk: 7
+  maxHp: 250
+  basedAtk: 35
   basedDef: 100
   basedAtkSp: 100
   mvSp: 1
