@@ -2463,7 +2463,7 @@ GameObject:
   - component: {fileID: 479092401}
   - component: {fileID: 479092400}
   m_Layer: 5
-  m_Name: InputField (1)
+  m_Name: cd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2532,13 +2532,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 479092401}
   m_TextComponent: {fileID: 1416640133}
   m_Placeholder: {fileID: 998550313}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -3416,6 +3416,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1070873404}
     m_Modifications:
+    - target: {fileID: -7059928486434319436, guid: bb6d56cffa0f7254dae92ea1398b3d03,
+        type: 3}
+      propertyPath: curruntClick
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5095763066085866392, guid: bb6d56cffa0f7254dae92ea1398b3d03,
         type: 3}
       propertyPath: m_Name
@@ -3956,6 +3961,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1070873404}
     m_Modifications:
+    - target: {fileID: -8127695073663214331, guid: 82aaec7a6c41adc4f8a561752352f47b,
+        type: 3}
+      propertyPath: curruntClick
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1179593898310838145, guid: 82aaec7a6c41adc4f8a561752352f47b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4522,7 +4532,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 931295854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 547204647}
+        m_MethodName: _SetDate_test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &931295854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5434,7 +5455,7 @@ GameObject:
   - component: {fileID: 1100348558}
   - component: {fileID: 1100348557}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: cg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5504,13 +5525,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1100348558}
   m_TextComponent: {fileID: 1335444452}
   m_Placeholder: {fileID: 197208949}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -5645,6 +5666,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1070873404}
     m_Modifications:
+    - target: {fileID: -3490308384128375631, guid: 46e1e9ed5f9b88144b11afc3ece68a5e,
+        type: 3}
+      propertyPath: curruntClick
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6789893838911130928, guid: 46e1e9ed5f9b88144b11afc3ece68a5e,
         type: 3}
       propertyPath: m_Name
@@ -6408,7 +6434,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269052542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 547204647}
+        m_MethodName: _SetCoin_test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269052542
 MonoBehaviour:
   m_ObjectHideFlags: 0
