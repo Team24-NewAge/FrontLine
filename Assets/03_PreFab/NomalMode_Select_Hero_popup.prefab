@@ -103859,9 +103859,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\uB9C8\uBC95\uC0AC\n\n\uBE60\uB978 \uC18D\uB3C4\uB85C \uC801\uC744 \uACF5\uACA9\uD569\uB2C8\uB2E4.\n\uB9CE\uC740
-    \uC801\uC744 \uC0C1\uB300\uD558\uB294 \uAC83\uC5D0\n\uD6A8\uACFC\uC801\uC77C
-    \uAC83\uC785\uB2C8\uB2E4."
+  m_Text: "\n\uB9C8\uBC95\uC0AC\n\n\uBE60\uB978 \uC18D\uB3C4\uB85C \uC801\uC744 \uACF5\uACA9\uD569\uB2C8\uB2E4.\n-\uC5C5\uB370\uC774\uD2B8
+    \uC608\uC815-"
 --- !u!114 &8151184642089556104
 MonoBehaviour:
   m_ObjectHideFlags: 0

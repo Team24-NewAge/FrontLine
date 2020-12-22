@@ -63,6 +63,26 @@ public class BarManager : MonoBehaviour
         gold_text.text = gold.ToString();
     }
 
+    public void _SetDate_test()
+    {
+        InputField cd = GameObject.Find("cd").GetComponent<InputField>();
+        print(cd.text);
+        int test_date =  int.Parse(cd.text) ;
+        date = test_date;
+        //PlayerPrefs.SetInt("Date", date);
+        date_text.text = "D + " + date;
+    }
+
+    public void _SetCoin_test()
+    {
+        InputField cg = GameObject.Find("cg").GetComponent<InputField>();
+        int test_gold = int.Parse(cg.text);
+        gold = test_gold;
+        //PlayerPrefs.SetInt("Gold", gold);
+        gold_text.text = gold.ToString();
+    }
+
+
     private void Update()
     {
         float full = Hero.GetComponent<Unit>().Max_hp;

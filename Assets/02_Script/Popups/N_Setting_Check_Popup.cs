@@ -53,8 +53,13 @@ public class N_Setting_Check_Popup : PopupBase
         SoundManager.Instance.Lobby_On();
     }
 
+    public void Test_OnGameStart()
+    {
+        PlayerPrefs.SetInt("CONTINUE", 0);
+        SceneManager.LoadScene("InGameTest(JW)");
+        SoundManager.Instance.Lobby_On();
+    }
 
-   
     public override void HidePopup()
     {
 

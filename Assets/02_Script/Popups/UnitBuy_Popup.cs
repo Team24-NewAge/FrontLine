@@ -221,56 +221,35 @@ public class UnitBuy_Popup : PopupBase
         while (PlayerPrefs.HasKey("unit_" + name + "_code_" + i.ToString())) 
         {
             print("unit_" + name + "_code_" + i.ToString() + "라는 키 존재!");
-            
-
-            
             i++;
         }
         //////////////////////////////////////////////////////////////////////////////
         PlayerPrefs.SetInt("unit_" + name + "_code_" + i.ToString(), unit_code[num]);
-        //print("unit_" + name + "_code_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_code_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_code_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_grade_" + i.ToString(), save_unit_grade[num]);
-        //print("unit_" + name + "_grade_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_grade_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_grade_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_hp_" + i.ToString(), save_unit_hp[num]);
-        //print("unit_" + name + "_hp_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_hp_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_hp_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_maxhp_" + i.ToString(), save_unit_hp[num]);
-        //print("unit_" + name + "_maxhp_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_maxhp_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_maxhp_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_atk_" + i.ToString(), save_unit_atk[num]);
-        //print("unit_" + name + "_atk_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_atk_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_atk_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_def_" + i.ToString(), save_unit_def[num]);
-        //print("unit_" + name + "_def_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_def_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_def_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_atkSp_" + i.ToString(), save_unit_spd[num]);
-        //print("unit_" + name + "_atkSp_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_atkSp_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_atkSp_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_location_" + i.ToString(),-1);
-        //print("unit_" + name + "_location_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_location_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_location_" + i.ToString());
+
 
         PlayerPrefs.SetInt("unit_" + name + "_tile_" + i.ToString(),-1);
-        //print("unit_" + name + "_tile_" + i.ToString());
-        //print(PlayerPrefs.GetInt("unit_" + name + "_tile_" + i.ToString()));
-        //PlayerPrefs.DeleteKey("unit_" + name + "_tile_" + i.ToString());
+
         //////////////////////////////////////////////////////////////////////////////
         GameObject bought_unit = Instantiate(GetUnitSOInfo.Instance.unit[unit_code[num]], TileManager.Instance.tiles[11].tar_lo.transform.position, Quaternion.Euler(new Vector3(0, 98, 0)));
         bought_unit.name = name + i;

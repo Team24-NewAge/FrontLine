@@ -39,7 +39,8 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void DoBattle() {
+    public void DoBattle()//전투시작 함수
+    {
 
         Unit_Setting();
         MonsterManager.Instance.Regen();//리젠 시작
@@ -51,7 +52,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void Unit_Setting()
+    public void Unit_Setting()//전투 시작전 유닛 세팅하는 함수
     {
 
         int unit_count = Unit.transform.childCount;//유닛 카운트 생성
@@ -76,13 +77,8 @@ public class BattleManager : MonoBehaviour
         Unit_inGame[unit_count-1].GetComponent<Unit>().Disenchant();
     }
 
-    public void Skill_Setting()
+    public void ExitBattle()//전투종료함수 
     {
-
-    }
-
-
-    public void ExitBattle() {
 
         Hero_Mana = 0f;
         BarManager.Instance.mp_bar.fillAmount = Hero_Mana / 100;
